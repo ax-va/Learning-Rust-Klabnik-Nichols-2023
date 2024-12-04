@@ -4,7 +4,7 @@
 
 https://github.com/rust-lang/book
 
-## Install rustup on Linux or macOS
+## Install rustup on Ubuntu
 
 ```unix
 $ curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh
@@ -68,6 +68,8 @@ This is usually done by running one of the following (note the leading DOT):
 . "$HOME/.cargo/env"            # For sh/bash/zsh/ash/dash/pdksh
 source "$HOME/.cargo/env.fish"  # For fish
 ```
+
+Reload the system to update the `PATH` environment variable.
 
 ```unix
 $ rustc --version
