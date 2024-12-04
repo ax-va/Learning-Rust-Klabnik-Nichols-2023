@@ -69,8 +69,9 @@ This is usually done by running one of the following (note the leading DOT):
 source "$HOME/.cargo/env.fish"  # For fish
 ```
 
-Reload the system to update the `PATH` environment variable.
+Reload the shell to update the `PATH` environment variable.
 
 ```unix
 $ rustc --version
+rustc 1.83.0 (90b35a623 2024-11-26)
 ```
