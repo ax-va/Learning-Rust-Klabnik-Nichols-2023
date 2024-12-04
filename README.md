@@ -19,9 +19,7 @@ programming language, and its package manager, Cargo.
 
 Rustup metadata and toolchains will be installed into the Rustup
 home directory, located at:
-
 ...
-
 Current installation options:
 
 
