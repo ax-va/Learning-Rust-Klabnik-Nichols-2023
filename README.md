@@ -4,7 +4,9 @@
 
 https://github.com/rust-lang/book
 
-## Install rustup on Ubuntu
+## Install Rust through rustup on Ubuntu
+
+**rustup** is a command line tool for managing Rust versions and associated tools.
 
 ```unix
 $ curl --proto '=https' --tlsv1.3 https://sh.rustup.rs -sSf | sh
@@ -68,6 +70,8 @@ This is usually done by running one of the following (note the leading DOT):
 . "$HOME/.cargo/env"            # For sh/bash/zsh/ash/dash/pdksh
 source "$HOME/.cargo/env.fish"  # For fish
 ```
+If you get *linker errors*, you should install a C compiler, which will typically include a linker.
+Rust uses the linker to join its compiled outputs into one file.
 
 Reload the shell configuration to update the `PATH` environment variable.
 
@@ -76,9 +80,12 @@ $ rustc --version
 rustc 1.83.0 (90b35a623 2024-11-26)
 ```
 
-## Update Rust
+## Update or uninstall Rust with rustup 
 
 ```unix
 $ rustup update
 ```
 
+```unix
+$ rustup self uninstall
+```
