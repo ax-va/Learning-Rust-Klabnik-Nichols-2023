@@ -4,7 +4,7 @@
 
 https://github.com/rust-lang/book
 
-## Install Rust through rustup on Ubuntu
+## Install Rust through rustup on Linux or macOS
 
 **rustup** is a command line tool for managing Rust versions and associated tools.
 
