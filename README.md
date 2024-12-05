@@ -79,6 +79,9 @@ Opening docs in your browser
 
 ## Compile a file and run a program
 
+Rust is an *ahead-of-time compiled* language meaning compilation and execution 
+are explicitly separate steps, unlike, say, Python or JavaScript.
+
 - on Linux and macOS, you will have two files
 ```unix
 $ cd <path/to/directory>
@@ -96,3 +99,5 @@ Hello, world!
 > rustc main.rs
 > .\main.exe 
 ```
+
+## The Cargo tool
