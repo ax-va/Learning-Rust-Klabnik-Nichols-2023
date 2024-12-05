@@ -79,15 +79,18 @@ Opening docs in your browser
 
 ## Compile a file and run a program
 
-- on Linux and macOS
+- on Linux and macOS, you will have two files
 ```unix
 $ cd <path/to/directory>
 $ rustc main.rs
+$ ls
+main  main.rs
 $ ./main
 Hello, world!
 ```
 
-- on Windows
+- on Windows, you will have three files: 
+`main.exe`, `main.pdb` (for debugging information), and `main.rs`
 ```windows
 > cd <path/to/directory>
 > rustc main.rs
