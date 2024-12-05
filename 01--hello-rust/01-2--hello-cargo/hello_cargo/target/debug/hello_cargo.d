@@ -1,0 +1,1 @@
+/home/delorian/PycharmProjects/Learning-Rust-Klabnik-Nichols-2024/01--hello-rust/01-2--hello-cargo/hello_cargo/target/debug/hello_cargo: /home/delorian/PycharmProjects/Learning-Rust-Klabnik-Nichols-2024/01--hello-rust/01-2--hello-cargo/hello_cargo/src/main.rs
