@@ -46,10 +46,12 @@ This is usually done by running one of the following (note the leading DOT):
 . "$HOME/.cargo/env"            # For sh/bash/zsh/ash/dash/pdksh
 source "$HOME/.cargo/env.fish"  # For fish
 ```
-If you get *linker errors*, you should install a C compiler, which will typically include a linker.
+If you get *linker errors*, you should install a C compiler, which will typically include a *linker*.
 Rust uses the linker to join its compiled outputs into one file.
 
 Reload the shell configuration to update the `PATH` environment variable.
+
+Check if you have Rust installed:
 
 ```unix
 $ rustc --version
