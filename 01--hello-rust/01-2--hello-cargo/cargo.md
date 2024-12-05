@@ -36,7 +36,7 @@ Hello, world!
 
 It *more convenient* to compile the code and then run the executable file by an all-in-one command.
 ```unix
-$ cargo run
+.../hello_cargo$ cargo run
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.01s
      Running `target/debug/hello_cargo`
 Hello, world!
