@@ -67,3 +67,29 @@ $ rustup update
 ```unix
 $ rustup self uninstall
 ```
+
+## Local documentation
+
+Run `rustup doc` to open the local documentation in your browser:
+
+```unix
+$ rustup doc
+Opening docs in your browser
+```
+
+## Compile a file and run a program
+
+- on Linux and macOS
+```unix
+$ cd <path/to/directory>
+$ rustc main.rs
+$ ./main
+Hello, world!
+```
+
+- on Windows
+```windows
+> cd <path/to/directory>
+> rustc main.rs
+> .\main.exe 
+```
