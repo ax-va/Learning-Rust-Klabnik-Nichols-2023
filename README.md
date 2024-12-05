@@ -82,7 +82,7 @@ Opening docs in your browser
 Rust is an *ahead-of-time compiled* language meaning compilation and execution 
 are explicitly separate steps, unlike, say, Python or JavaScript.
 
-- on Linux and macOS, you will have two files
+- On Linux and macOS, you will have two files.
 ```unix
 $ cd <path/to/directory>
 $ rustc main.rs
@@ -92,8 +92,8 @@ $ ./main
 Hello, world!
 ```
 
-- on Windows, you will have three files: 
-`main.exe`, `main.pdb` (for debugging information), and `main.rs`
+- On Windows, you will have three files: 
+`main.exe`, `main.pdb` (for debugging information), and `main.rs`.
 ```windows
 > cd <path/to/directory>
 > rustc main.rs
