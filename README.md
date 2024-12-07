@@ -82,7 +82,7 @@ Opening docs in your browser
 Rust is an *ahead-of-time compiled* language meaning compilation and execution 
 are explicitly separate steps, unlike, say, Python or JavaScript.
 
-- On Linux and macOS, you will have two files.
+- On Linux and macOS, you will have two files: `main` (an executable file) and  `main.rs` (an open-source file).
 ```unix
 $ cd <path/to/directory>
 $ rustc main.rs
