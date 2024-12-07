@@ -34,7 +34,7 @@ This creates an executable file `target/debug/hello_cargo`. Run it:
 Hello, world!
 ```
 
-It *more convenient* to compile the code and then run the executable file by an all-in-one command.
+It is *more convenient* to compile the code and then run the executable file by an all-in-one command.
 ```unix
 .../hello_cargo$ cargo run
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.01s
