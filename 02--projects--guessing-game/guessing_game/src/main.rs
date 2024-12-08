@@ -18,7 +18,7 @@ fn main() {
     println!("Please input your guess: ");
     // In Rust, variables are immutable by default.
     // To make a variable mutable, we add `mut` before the variable name.
-    // Example: `let apples = 5; // immutable` and `let mut bananas = 5; // mutable`.
+    // Examples: `let apples = 5; // immutable` and `let mut bananas = 5; // mutable`.
     // `new` is an *associated function* to type `String`
     // that returns a new instance of `String` (encoded as UTF-8)
     // that is an empty string.
