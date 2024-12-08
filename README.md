@@ -77,7 +77,7 @@ $ rustup doc
 Opening docs in your browser
 ```
 
-## Compile a file and run a program
+## Compile a source code and run an executable
 
 Rust is an *ahead-of-time compiled* language meaning compilation and execution 
 are explicitly separate steps, unlike, say, Python or JavaScript.
