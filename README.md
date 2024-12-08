@@ -146,6 +146,14 @@ This creates an executable file `target/debug/hello_cargo`. Run it:
 Hello, world!
 ```
 
+## Build a Cargo project for release
+
+Compile the project with optimizations into an executable in `target/release` instead of `target/debug`.
+
+```unix
+$ cargo build --release
+```
+
 ## Build and run a Cargo project
 
 It is *more convenient* to compile the code and then run the executable file by an all-in-one command.
