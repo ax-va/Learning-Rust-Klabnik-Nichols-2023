@@ -115,7 +115,7 @@ cargo 1.83.0 (5ffbef321 2024-10-29)
 `cargo new` creates a new directory and project.
 
 ```unix
-$ cd 01--hello-rust/01-2--hello-cargo
+$ cd 01*/01-2*
 $ cargo new hello_cargo
     Creating binary (application) `hello_cargo` package
 note: see more `Cargo.toml` keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
