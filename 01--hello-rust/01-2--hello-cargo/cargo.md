@@ -18,7 +18,7 @@ Run `cargo new --help` to see the available options.
 See more keys and their definitions in `Cargo.toml`:
 https://doc.rust-lang.org/cargo/reference/manifest.html
 
-## Build and run a Cargo project
+## Build a Cargo project
 
 Build the project:
 
@@ -34,10 +34,23 @@ This creates an executable file `target/debug/hello_cargo`. Run it:
 Hello, world!
 ```
 
+## Build and run a Cargo project
+
 It is *more convenient* to compile the code and then run the executable file by an all-in-one command.
+If the source code hadn't changed, so Cargo didn't rebuild them but just ran the binary.
 ```unix
 .../hello_cargo$ cargo run
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.01s
      Running `target/debug/hello_cargo`
 Hello, world!
+```
+
+## Check if a Cargo project is still compiling
+
+Check your code to make sure it compiles without producing an executable.
+Often, `cargo check` is much faster than `cargo build` because it skips the step of producing an executable.
+```unix
+.../hello_cargo$ cargo check
+    Checking hello_cargo v0.1.0 (path/to/01--hello-rust/01-2--hello-cargo/hello_cargo)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.12s
 ```
