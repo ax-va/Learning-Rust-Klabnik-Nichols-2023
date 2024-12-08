@@ -68,7 +68,7 @@ $ rustup update
 $ rustup self uninstall
 ```
 
-## Local documentation
+## Use the local documentation
 
 Run `rustup doc` to open the local documentation in your browser:
 
