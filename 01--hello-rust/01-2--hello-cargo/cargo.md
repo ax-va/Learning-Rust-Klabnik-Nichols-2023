@@ -1,3 +1,12 @@
+# Cargo
+
+*Cargo* is Rust's build system and package manager. 
+It comes installed with Rust if you used the official installers.
+
+```unix
+$ cargo --version
+cargo 1.83.0 (5ffbef321 2024-10-29)
+
 ## Create a Cargo project
 
 `cargo new` creates a new directory and project.

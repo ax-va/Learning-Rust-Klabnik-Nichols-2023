@@ -110,7 +110,7 @@ $ cargo --version
 cargo 1.83.0 (5ffbef321 2024-10-29)
 ```
 
-## Create a Cargo project
+### Create a Cargo project
 
 `cargo new` creates a new directory and project.
 
@@ -130,7 +130,7 @@ Run `cargo new --help` to see the available options.
 See more keys and their definitions in `Cargo.toml`:
 https://doc.rust-lang.org/cargo/reference/manifest.html
 
-## Build a Cargo project
+### Build a Cargo project
 
 Build the project:
 
@@ -146,7 +146,7 @@ This creates an executable file `target/debug/hello_cargo`. Run it:
 Hello, world!
 ```
 
-## Build a Cargo project for release
+### Build a Cargo project for release
 
 Compile the project with optimizations into an executable in `target/release` instead of `target/debug`.
 
@@ -154,7 +154,7 @@ Compile the project with optimizations into an executable in `target/release` in
 $ cargo build --release
 ```
 
-## Build and run a Cargo project
+### Build and run a Cargo project
 
 It is *more convenient* to compile the code and then run the executable file by an all-in-one command.
 If the source code hadn't changed, so Cargo didn't rebuild them but just ran the binary.
@@ -165,7 +165,7 @@ If the source code hadn't changed, so Cargo didn't rebuild them but just ran the
 Hello, world!
 ```
 
-## Check if a Cargo project is still compiling
+### Check if a Cargo project is still compiling
 
 Check your code to make sure it compiles without producing an executable.
 Often, `cargo check` is much faster than `cargo build` because it skips the step of producing an executable.
