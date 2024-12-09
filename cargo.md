@@ -71,3 +71,23 @@ Often, `cargo check` is much faster than `cargo build` because it skips the step
     Checking hello_cargo v0.1.0 (path/to/01--hello-rust/01-2--hello-cargo/hello_cargo)
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.12s
 ```
+
+## Cargo.lock
+
+When you build a project for the first time, Cargo figures out all the versions of the dependencies 
+that fit the criteria and then writes them to the `Cargo.lock` file. 
+When you build your project in the future, Cargo will see that the `Cargo.lock` file exists and 
+will use the versions specified there rather than doing all the work of figuring out versions again. 
+This lets you have a *reproducible build* automatically.
+Because the `Cargo.lock` file is important for reproducible builds, 
+it's often checked into source control with the rest of the code in your project.
+
+## Update crates
+
+```unix
+$ cargo update
+```
+
+This command will ignore the `Cargo.lock` file and figure out all the latest versions 
+that fit your specifications in `Cargo.toml`. 
+Cargo will then write those versions to the `Cargo.lock` file.
