@@ -34,7 +34,7 @@ fn main() {
         // `gen_range` takes a range expression as an argument and generates a random number in the range.
         // The kind of range expression we’re using here takes the form <start>..=<end> and
         // is *inclusive on the lower and upper bounds*.
-        // The number is of type `i32`, i.e. it is a 32-bit number.
+        // The number is of type `i32`, i.e. it is a 32-bit integer.
         .gen_range(1..=100);
 
     loop {
