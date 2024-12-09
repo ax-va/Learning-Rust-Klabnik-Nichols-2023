@@ -9,7 +9,7 @@ $ cd guessing_game
 $ cargo run
 ```
 Notice:
-The player needs to use binary search to quickly guess the number.
+The player needs to use binary search to quickly guess a number.
 */
 
 // Import the `io` library from the *standard library*, known as `std`,
