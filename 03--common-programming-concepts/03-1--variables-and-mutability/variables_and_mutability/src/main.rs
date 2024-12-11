@@ -1,4 +1,6 @@
 /*
+Consider variables, constants, ans shadowing.
+
 ```
 $ cd 03*
 $ cd 03-1*
@@ -21,7 +23,7 @@ fn main() {
     println!("The value of x is: {x}");
     // The value of x is: 5
 
-    // Uncomment the next line in to get a compilation error
+    // compilation error
     // x = 6;
     // ^^^^^ cannot assign twice to immutable variable
 
@@ -40,8 +42,9 @@ fn main() {
     // constants //
     ///////////////
 
-    // - `const` instead of `let`.
-    // - `mut` is not allowed to use with constants.
+    // Notices:
+    // - Constants uses `const` instead of `let`.
+    // - The `mut` keyword is not allowed to use with constants.
     // - The type of the value *must* be annotated.
     // - Constants may be set only to a constant expression,
     // not the result of a value that could only be computed at runtime.
@@ -49,4 +52,33 @@ fn main() {
 
     const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
 
+    ///////////////
+    // shadowing //
+    ///////////////
+
+    // shadowing = effectively creating a new variable when using the `let` keyword again
+
+    // shadowing
+    let x = 5;
+    // shadowing
+    let x = x + 1;
+
+    {
+        // other scope
+        let x = x * 2;
+        println!("The value of x in the inner scope is: {x}");
+        // The value of x in the inner scope is: 12
+    }
+
+    println!("The value of x is: {x}");
+    // The value of x is: 6
+
+    let spaces = "      ";
+    // When shadowing, changing types is allowed
+    let spaces = spaces.len();
+
+    let mut spaces = "      ";
+    // When using mutable variables, changing types results in a compilation error
+    // spaces = spaces.len();
+    //          ^^^^^^^^^^^^ expected `&str`, found `usize`
 }
