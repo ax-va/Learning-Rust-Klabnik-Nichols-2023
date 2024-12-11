@@ -40,4 +40,13 @@ fn main() {
     // constants //
     ///////////////
 
+    // - `const` instead of `let`.
+    // - `mut` is not allowed to use with constants.
+    // - The type of the value *must* be annotated.
+    // - Constants may be set only to a constant expression,
+    // not the result of a value that could only be computed at runtime.
+    // But the compiler is able to evaluate a limited set of operations at compile time.
+
+    const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
+
 }
