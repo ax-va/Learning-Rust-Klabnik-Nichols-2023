@@ -1,11 +1,11 @@
 /*
-Consider variables, constants, ans shadowing.
+We consider variables, mutability, constants, ans shadowing.
 
 ```
 $ cd 03*
 $ cd 03-1*
-$ cargo new variables_and_mutability
-$ cd variables_and_mutability
+$ cargo new example
+$ cd example
 ```
 */
 
