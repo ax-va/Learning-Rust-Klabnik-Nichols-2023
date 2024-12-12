@@ -47,8 +47,8 @@ The default type is `f64`.
 
 ## The Boolean type
 
-The Boolean type in Rust has two possible values: `true` and `false`.
+The Boolean type in Rust is `bool` and has two possible values: `true` and `false`.
 
 ## The character type
 
-This is Rust's char type.
+This is Rust's `char` type.
