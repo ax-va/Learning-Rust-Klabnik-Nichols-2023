@@ -52,3 +52,25 @@ The Boolean type in Rust is `bool` and has two possible values: `true` and `fals
 ## The character type
 
 This is Rust's `char` type.
+The `char` type is four bytes in size and represents a Unicode scalar value.
+*Single quotes* must be used for the `char` literals, while *double quotes* must be used for `String` literals.
+
+## Compound types
+
+Rust has two primitive compound types: tuples and arrays.
+
+### The tuple type
+
+- Tuples have a fixed length: once declared, they cannot grow or shrink in size.
+- The types of the different values in the tuple don't have to be the same.
+- The tuple without any values has a special name, *unit*. 
+This value and its corresponding type are both written `()` and represent an empty value or an empty return type. 
+Expressions implicitly return the unit value if they don't return any other value.
+
+### The array type
+
+- An array is a single chunk of memory of a known, fixed size that can be allocated on the stack.
+- Arrays in Rust have a fixed length.
+- Every element of an array must have the same type.
+- An array isn't as flexible as the *vector* type that is
+provided by the standard library that is allowed to grow or shrink in size.
