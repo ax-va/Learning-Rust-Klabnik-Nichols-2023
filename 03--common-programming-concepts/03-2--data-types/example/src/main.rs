@@ -101,7 +101,7 @@ fn main() {
     // println!("tup: {tup}");
     //                ^^^^^ `(i32, f64, u8)` cannot be formatted with the default formatter
 
-    // Access a tuple element directly by using a period followed by an index
+    // Access tuple elements
     let five_hundred = tup.0;
     let six_point_four = tup.1;
     let one = tup.2;
@@ -120,4 +120,9 @@ fn main() {
     // compilation error
     // println!("a: {a}");
     //              ^^^ `[{integer}; 5]` cannot be formatted with the default formatter
+
+    // Access array elements
+    let a = [1, 2, 3, 4, 5];
+    let first = a[0];
+    let second = a[1];
 }
