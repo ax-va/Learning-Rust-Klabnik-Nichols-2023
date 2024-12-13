@@ -4,8 +4,8 @@ We consider variables, mutability, constants, ans shadowing.
 ```
 $ cd 03*
 $ cd 03-1*
-$ cargo new example
-$ cd example
+$ cargo new project
+$ cd project
 ```
 */
 

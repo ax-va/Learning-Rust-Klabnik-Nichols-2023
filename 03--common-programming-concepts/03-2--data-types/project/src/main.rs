@@ -11,8 +11,8 @@ integers, floating-point numbers, Booleans, and characters.
 ```
 $ cd 03*
 $ cd 03-2*
-$ cargo new example
-$ cd example
+$ cargo new project
+$ cd project
 ```
 */
 
