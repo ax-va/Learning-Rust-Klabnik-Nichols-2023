@@ -26,7 +26,7 @@ fn main() {
     // When many types are possible, we must add a type annotation.
     let guess: u32 = "42".parse().expect("Not a number!");
 
-    // compilation error
+    // compilation error: "type annotations needed"
     // let guess = "42".parse().expect("Not a number!");
     //     ^^^^^        ----- type must be known at this point
 
@@ -75,7 +75,7 @@ fn main() {
     // Single quotes must be used for the `char` literals, while
     // double quotes must be used for `String` literals.
     let c = 'z';
-    // compilation error
+    // compilation error: "mismatched types"
     // let c: char = "z";
     //               ^^^ expected `char`, found `&str`
     let z: char = 'ℤ'; // with explicit type annotation
@@ -97,7 +97,7 @@ fn main() {
     println!("The value of x is: {x}");
     // The value of x is: 500
 
-    // compilation error
+    // compilation error: "`(i32, f64, u8)` doesn't implement `std::fmt::Display`"
     // println!("tup: {tup}");
     //                ^^^^^ `(i32, f64, u8)` cannot be formatted with the default formatter
 
@@ -117,7 +117,7 @@ fn main() {
     // followed by a semicolon, and then the length of the array in square brackets.
     let a = [3; 5]; // [3, 3, 3, 3, 3]
 
-    // compilation error
+    // compilation error: "`[{integer}; 5]` doesn't implement `std::fmt::Display`"
     // println!("a: {a}");
     //              ^^^ `[{integer}; 5]` cannot be formatted with the default formatter
 

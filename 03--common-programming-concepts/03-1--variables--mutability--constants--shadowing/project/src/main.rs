@@ -23,7 +23,7 @@ fn main() {
     println!("The value of x is: {x}");
     // The value of x is: 5
 
-    // compilation error
+    // compilation error: "cannot assign twice to immutable variable `x`"
     // x = 6;
     // ^^^^^ cannot assign twice to immutable variable
 
@@ -78,7 +78,8 @@ fn main() {
     let spaces = spaces.len();
 
     let mut spaces = "      ";
-    // When using mutable variables, changing types results in a compilation error
+    // When using mutable variables, changing types results in
+    // a compilation error: "mismatched types".
     // spaces = spaces.len();
     //          ^^^^^^^^^^^^ expected `&str`, found `usize`
 }

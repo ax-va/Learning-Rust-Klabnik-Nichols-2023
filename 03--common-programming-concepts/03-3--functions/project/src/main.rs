@@ -41,7 +41,7 @@ fn main() {
     // This is a statement, but `6` is an expression
     let y = 6;
 
-    // compilation errors: expected expression, found `let` statement
+    // compilation errors: "expected expression, found `let` statement"
     // let x = (let y = 6);
     //          ^^^
     // let x = let y = 6;
