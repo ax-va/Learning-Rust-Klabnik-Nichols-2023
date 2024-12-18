@@ -23,3 +23,5 @@ This is an example of variable scope:
 } // This scope is now over, and `s` is no longer valid
 ```
 
+- When `s` comes *into* scope, it is valid.
+- It remains valid until it goes *out of* scope.

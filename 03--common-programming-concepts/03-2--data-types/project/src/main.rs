@@ -2,11 +2,22 @@
 Rust is a *statically typed* language, which means that
 it must know the types of all variables at compile time.
 
+- Types of a known size that can be allocated in the stack:
+
 A *scalar* type represents a single value.
 Rust has four primary scalar types:
 integers, floating-point numbers, Booleans, and characters.
 
 *Compound types* are represented by tuples and arrays.
+
+Use tuples when working with a small group of related values with different types.
+Use arrays when working with a collection of elements of the same type.
+
+- Types of an unknown size to allocate in the heap:
+
+The String type manages data allocated on the heap and
+is able to store an amount of text that is not defined at compile time.
+
 
 ```
 $ cd 03*
@@ -110,6 +121,7 @@ fn main() {
     // arrays //
     ////////////
 
+    // An array is a fixed-size collection of elements where all elements must have the same type
     let a = [1, 2, 3, 4, 5];
     let a: [i32; 5] = [1, 2, 3, 4, 5];
 

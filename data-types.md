@@ -1,6 +1,9 @@
 # Data types
 
 Rust is a *statically typed* language, which means that it must know the types of all variables at compile time.
+Next types are of a known size, i.e. they can be stored on the stack and popped off the stack 
+when their scope is over, and can be quickly and trivially copied tomake a new, independent instance 
+if another part of code needs to use the same value in a different scope.
 
 ## Scalar types
 
@@ -74,3 +77,10 @@ Expressions implicitly return the unit value if they don't return any other valu
 - Every element of an array must have the same type.
 - An array isn't as flexible as the *vector* type that is
 provided by the standard library that is allowed to grow or shrink in size.
+
+# Complex data types
+
+## The String type
+
+The String type manages data allocated on the heap and 
+is able to store an amount of text that is not defined at compile time.
