@@ -137,4 +137,19 @@ fn main() {
     let a = [1, 2, 3, 4, 5];
     let first = a[0];
     let second = a[1];
+
+    ////////////
+    // String //
+    ////////////
+
+    // Calling `String::from` requests the memory on the heap.
+    let s = String::from("hello"); // "hello" is an immutable string literal
+
+    // mutable string
+    let mut s = String::from("hello");
+    // Append a literal to a String
+    s.push_str(", world!!!");
+    println!("{s}");
+    // hello, world!!!
+
 }

@@ -25,3 +25,5 @@ This is an example of variable scope:
 
 - When `s` comes *into* scope, it is valid.
 - It remains valid until it goes *out of* scope.
+- The allocated memory is automatically returned once the variable that owns it goes out of scope.
+- Rust calls the `drop` function automatically at the closing curly bracket `}` to return the memory to the allocator.
