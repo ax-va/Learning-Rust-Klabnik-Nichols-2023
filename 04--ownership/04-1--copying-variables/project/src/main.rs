@@ -13,7 +13,7 @@ $ cd project
 fn main() {
     let x = 5;
     let y = x;
-    // We now have two variables, x and y, and both equal 5.
+    // We now have two variables, `x` and `y`, and both equal 5.
 
     let s1 = String::from("hello");
     /*
