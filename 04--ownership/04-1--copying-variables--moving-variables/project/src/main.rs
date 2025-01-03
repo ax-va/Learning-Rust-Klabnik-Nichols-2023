@@ -1,6 +1,6 @@
 /*
 
-Multiple variables can interact with the same data in different ways in Rust.
+Variables of different types are copied in different ways in Rust.
 
 ```
 $ cd 04*
@@ -13,12 +13,20 @@ $ cd project
 fn main() {
 
     let x = 5;
-    // Such types as integers that have a known size
+    // Types such as integers that have a known size
     // at compile time are stored entirely on the stack.
     let y = x;
     // We now have two variables, `x` and `y`, and both equal 5.
     println!("x = {x}, y = {y}");
     // x = 5, y = 5
+
+    // Notices:
+    // - Rust has a special annotation called the `Copy` trait for types
+    // that are stored on the stack, as integers are.
+    // - If a type implements the `Copy` trait, variables that use it do not move, but rather
+    // are trivially copied, making them still valid after assignment to another variable.
+    // - Rust won't let us annotate a type with `Copy` if the type, or any of its parts,
+    // has implemented the `Drop` trait.
 
     let s1 = String::from("hello");
     /*

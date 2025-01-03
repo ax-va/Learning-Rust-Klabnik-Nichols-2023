@@ -78,6 +78,23 @@ Expressions implicitly return the unit value if they don't return any other valu
 - An array isn't as flexible as the *vector* type that is
 provided by the standard library that is allowed to grow or shrink in size.
 
+### Types implementing the `Copy` trait
+
+- Rust has a special annotation called the `Copy` trait for types 
+that are stored on the stack, as integers are.
+- If a type implements the `Copy` trait, variables that use it do not move, but rather
+are trivially copied, making them still valid after assignment to another variable.
+- Rust won't let us annotate a type with `Copy` if the type, or any of its parts, 
+has implemented the `Drop` trait.
+
+Examples of the types that implement `Copy`:
+- all the integer types
+- the Boolean type, `bool`
+- all the floating-point types
+- the character type, `char`
+- tuples, if they only contain types that also implement `Copy`, for example,
+`(i32, i32)` implements `Copy`, but `(i32, String)` does not.
+
 # Complex data types
 
 ## The String type
