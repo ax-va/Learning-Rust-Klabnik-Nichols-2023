@@ -27,3 +27,28 @@ This is an example of variable scope:
 - It remains valid until it goes *out of* scope.
 - The allocated memory is automatically returned once the variable that owns it goes out of scope.
 - Rust calls the `drop` function automatically at the closing curly bracket `}` to return the memory to the allocator.
+
+## Ownership and Functions
+
+Passing a variable to a function will move or copy, just as assignment does.
+
+```rust
+fn main() {
+    let s = String::from("hello"); // `s` comes into scope.
+    takes_ownership(s); // The value of `s` moves into the function.
+    // `s` is no longer valid.
+    
+    let x = 5; // `x` comes into scope.
+    makes_copy(x); // The copy of `x` goes into the function.
+    // `x` is valid because but `i32` implements `Copy`.
+} // Here, `x` goes out of scope, then `s`. 
+// However, because the value of `s` was moved, nothing special happens.
+
+fn takes_ownership(some_string: String) { // `some_string` comes into scope.
+    println!("{some_string}");
+} // Here, `some_string` goes out of scope and `drop` is called. The backing memory is freed.
+
+fn makes_copy(some_integer: i32) { // `some_integer` comes into scope.
+    println!("{some_integer}");
+} // Here, `some_integer` goes out of scope. Nothing special happens.
+```
