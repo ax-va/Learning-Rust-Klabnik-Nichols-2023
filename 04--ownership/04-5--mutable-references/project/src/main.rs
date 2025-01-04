@@ -25,7 +25,7 @@ fn main() {
     println!("{s}");
     // hello, world
 
-    // Two mutable references can be created in the same scope,
+    // Two mutable references can be created in the same scope
     // but they cannot be used in that scope *simultaneously* or *in a mixed manner*.
 
     let r1 = &mut s;
@@ -34,8 +34,8 @@ fn main() {
     //          ^^^^^^ second mutable borrow occurs here
     // println!("{r1}, {r2}");
 
-    // This is a working example
-    // because the two mutable references are *only used one after the other*.
+    // This is a working example because
+    // the two mutable references are *only used one after the other*.
     // Thus the scopes of use of these references do not overlap.
     let r1 = &mut s;
     change(r1);
@@ -50,7 +50,7 @@ fn main() {
     // for example, by adding:
     // println!("{r1}");
 
-    // Cannot *use* a mutable reference with immutable references *simultaneously* or *in a mixed manner* either
+    // Cannot use a mutable reference with immutable references *simultaneously* or *in a mixed manner* either
     let mut s = String::from("hello");
     let r1 = &s; // no problem
     let r2 = &s; // no problem
