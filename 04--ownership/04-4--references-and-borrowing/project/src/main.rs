@@ -31,7 +31,7 @@ fn calculate_length(s: &String) -> usize { // The type of the parameter `s` is a
 // But because it does not have ownership of what it refers to, the `String` is not dropped.
 
 fn change(some_string: &String) {
-    // // error[E0596]: cannot borrow `*some_string` as mutable, as it is behind a `&` reference
+    // compilation error: "error[E0596]: cannot borrow `*some_string` as mutable, as it is behind a `&` reference"
     // some_string.push_str(", world");
     // ^^^^^^^^^^^ `some_string` is a `&` reference, so the data it refers to cannot be borrowed as mutable
 }

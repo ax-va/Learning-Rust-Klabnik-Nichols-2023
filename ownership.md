@@ -32,27 +32,6 @@ This is an example of variable scope:
 
 Passing a variable to a function will move or copy, just as assignment does.
 
-```rust
-fn main() {
-    let s = String::from("hello"); // `s` comes into scope.
-    takes_ownership(s); // The value of `s` moves into the function.
-    // `s` is no longer valid.
-    
-    let x = 5; // `x` comes into scope.
-    makes_copy(x); // The copy of `x` goes into the function.
-    // `x` is valid because but `i32` implements `Copy`.
-} // Here, `x` goes out of scope, then `s`. 
-// However, because the value of `s` was moved, nothing special happens.
-
-fn takes_ownership(some_string: String) { // `some_string` comes into scope.
-    println!("{some_string}");
-} // Here, `some_string` goes out of scope and `drop` is called. The backing memory is freed.
-
-fn makes_copy(some_integer: i32) { // `some_integer` comes into scope.
-    println!("{some_integer}");
-} // Here, `some_integer` goes out of scope. Nothing special happens.
-```
-
 ## Return Values and Scope
 
 ```rust
@@ -94,7 +73,7 @@ fn main() {
     // The length of 'hello' is 5.
     
     let s = String::from("hello");
-    // If variables are immutable, their references are immutable too.
+    // If variables are immutable, their references are immutable too
     change(&s);
 }
 
@@ -104,7 +83,7 @@ fn calculate_length(s: &String) -> usize { // The type of the parameter `s` is a
 // But because it does not have ownership of what it refers to, the `String` is not dropped.
 
 fn change(some_string: &String) {
-    // // error[E0596]: cannot borrow `*some_string` as mutable, as it is behind a `&` reference
+    // compilation error: "error[E0596]: cannot borrow `*some_string` as mutable, as it is behind a `&` reference"
     // some_string.push_str(", world");
     // ^^^^^^^^^^^ `some_string` is a `&` reference, so the data it refers to cannot be borrowed as mutable
 }
@@ -134,3 +113,15 @@ fn change(some_string: &String) {
 | 3     | `l`   |
 | 4     | `o`   |
 
+## Mutable References
+
+If you have a mutable reference to a value, 
+using other (mutable or immutable) references to that value is restricted.
+
+The benefit of having this restriction is that
+Rust can prevent *data races* at compile time that
+happen when these three behaviors occur:
+
+- Two or more pointers access the same data at the same time.
+- At least one of the pointers is being used to write to the data.
+- There is no mechanism being used to synchronize access to the data.

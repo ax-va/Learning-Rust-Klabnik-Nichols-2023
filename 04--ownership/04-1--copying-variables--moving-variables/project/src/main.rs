@@ -63,7 +63,7 @@ fn main() {
     // `s1` was invalidated that means, it is no longer valid.
     // We say: `s1` was *moved* into `s2`.
 
-    // "error[E0382]: borrow of moved value: `s1`"
+    // compilation error: "error[E0382]: borrow of moved value: `s1`"
     // println!("{s1}, world!");
     //           ^^^^ value borrowed here after move
 
