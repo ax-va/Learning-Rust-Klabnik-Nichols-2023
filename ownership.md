@@ -115,8 +115,8 @@ fn change(some_string: &String) {
 
 ## Mutable References
 
-If you have a mutable reference to a value, 
-the use of other (mutable or immutable) references to that value is *restricted*.
+If you have a mutable reference to a value,
+its use with other (mutable or immutable) references to that value is *restricted*.
 
 The benefit of having this restriction is that
 Rust can prevent *data races* at compile time that
