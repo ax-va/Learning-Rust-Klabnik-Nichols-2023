@@ -1,3 +1,7 @@
+**borrowing**
+
+The action of creating a reference is called *borrowing*.
+
 **ownership**
 
 *Ownership* is a set of rules that govern how a Rust program manages memory in the *heap*.

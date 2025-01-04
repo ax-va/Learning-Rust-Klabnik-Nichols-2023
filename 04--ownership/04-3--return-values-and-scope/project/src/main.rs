@@ -25,5 +25,5 @@ fn gives_ownership() -> String {
 // This function takes a `String` and returns a `String`.
 fn takes_and_gives_back(a_string: String) -> String { // `a_string` comes into scope.
     a_string
-    // `a_string` is returned and moves out to the calling function
+    // `a_string` is returned and moves out to the calling function.
 }
