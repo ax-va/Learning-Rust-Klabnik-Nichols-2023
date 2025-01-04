@@ -1,6 +1,6 @@
 **borrowing**
 
-The action of creating a reference is called *borrowing*.
+Creating a reference is called *borrowing*.
 
 **ownership**
 

@@ -80,7 +80,7 @@ fn takes_and_gives_back(a_string: String) -> String { // `a_string` comes into s
 
 # References and Borrowing
 
-The action of creating a reference is called *borrowing*.
+Creating a reference is called *borrowing*.
 
 ```rust
 fn main() {
