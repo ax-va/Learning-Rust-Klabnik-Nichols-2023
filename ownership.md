@@ -125,3 +125,15 @@ happen when these three behaviors occur:
 - Two or more pointers access the same data at the same time.
 - At least one of the pointers is being used to write to the data.
 - There is no mechanism being used to synchronize access to the data.
+
+## Dangling References Not Allowed
+
+A *dangling pointer* is a pointer that references a location in memory that may have been given to someone else.
+The memory can be freed up while preserving a pointer to that memory.
+In Rust, the compiler guarantees that references will never be dangling references.
+
+## The Rules of References
+
+- At any given time, you can have *either* one mutable reference or *any* number of immutable references.
+
+- References must always be valid.
