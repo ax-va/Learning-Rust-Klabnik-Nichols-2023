@@ -137,3 +137,21 @@ In Rust, the compiler guarantees that references will never be dangling referenc
 - At any given time, you can have *either* one mutable reference or *any* number of immutable references.
 
 - References must always be valid.
+
+# Slices
+
+*Slices* reference data starting at an including index and ending at an excluding index, for example, 
+
+```rust
+let s = String::from("hello");
+let slice = &s[0..2];
+let slice = &s[..2];
+let slice = &s[1..];
+```
+A slice is a kind of reference, so it does not have ownership.
+Internally, the slice data structure stores the starting position and the length of the slice.
+
+Notice:
+String slice range indices must occur at valid UTF-8 character boundaries. 
+If you attempt to create a string slice in the middle of a multibyte character, 
+your program will exit with an error.
