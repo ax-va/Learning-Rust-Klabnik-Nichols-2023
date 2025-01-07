@@ -18,7 +18,6 @@ Use arrays when working with a collection of elements of the same type.
 The String type manages data allocated on the heap and
 is able to store an amount of text that is not defined at compile time.
 
-
 ```
 $ cd 03*
 $ cd 03-2*

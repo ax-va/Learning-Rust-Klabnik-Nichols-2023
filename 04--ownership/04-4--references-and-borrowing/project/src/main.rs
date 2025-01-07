@@ -10,6 +10,17 @@ $ cd project
 ```
  */
 
+fn calculate_length(s: &String) -> usize { // The type of the parameter `s` is a reference.
+    s.len() // Don't need to return the value in order to give back ownership.
+} // Here, `s` goes out of scope.
+// But because it does not have ownership of what it refers to, the `String` is not dropped.
+
+fn change(some_string: &String) {
+    // compilation error: "error[E0596]: cannot borrow `*some_string` as mutable, as it is behind a `&` reference"
+    // some_string.push_str(", world");
+    // ^^^^^^^^^^^ `some_string` is a `&` reference, so the data it refers to cannot be borrowed as mutable
+}
+
 fn main() {
     let s1 = String::from("hello");
     // Use a function that uses a *reference* to an object as a parameter
@@ -23,15 +34,4 @@ fn main() {
     let s = String::from("hello");
     // If variables are immutable, references are immutable too.
     change(&s);
-}
-
-fn calculate_length(s: &String) -> usize { // The type of the parameter `s` is a reference.
-    s.len() // Don't need to return the value in order to give back ownership.
-} // Here, `s` goes out of scope.
-// But because it does not have ownership of what it refers to, the `String` is not dropped.
-
-fn change(some_string: &String) {
-    // compilation error: "error[E0596]: cannot borrow `*some_string` as mutable, as it is behind a `&` reference"
-    // some_string.push_str(", world");
-    // ^^^^^^^^^^^ `some_string` is a `&` reference, so the data it refers to cannot be borrowed as mutable
 }

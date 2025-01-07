@@ -11,11 +11,6 @@ $ cd project
 ```
  */
 
-fn main() {
-    let no_problem = no_dangle();
-    let reference_to_nothing = dangle();
-}
-
 fn no_dangle() -> String {
     let s = String::from("hello");
     s
@@ -30,3 +25,8 @@ fn dangle() -> &String { // `dangle` returns a reference to a `String`.
 //  ^^ returns a reference to data owned by the current function
 } // Here, `s` goes out of scope and is dropped, so its memory goes away.
 // The reference would be pointing to an invalid `String`.
+
+fn main() {
+    let no_problem = no_dangle();
+    let reference_to_nothing = dangle();
+}

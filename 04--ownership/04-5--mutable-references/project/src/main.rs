@@ -19,6 +19,10 @@ $ cd project
 ```
  */
 
+fn change(some_string: &mut String) {
+    some_string.push_str(", world");
+}
+
 fn main() {
     let mut s = String::from("hello");
     change(&mut s);
@@ -65,8 +69,4 @@ fn main() {
     // The compilation error occurs also here:
     // let r3 = &mut s; // PROBLEM
     // println!("{r1}, {r2}");
-}
-
-fn change(some_string: &mut String) {
-    some_string.push_str(", world");
 }
