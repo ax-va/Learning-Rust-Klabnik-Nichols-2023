@@ -35,7 +35,8 @@ fn main() {
     // ax-va
 
     // mutable struct
-    let mut user2 = User {active: true,
+    let mut user2 = User {
+        active: true,
         username: String::from("ax-va"),
         email: String::from("ax-va@example.com"),
         sign_in_count: 1,

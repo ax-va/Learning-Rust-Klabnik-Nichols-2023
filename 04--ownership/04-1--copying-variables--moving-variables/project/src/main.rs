@@ -75,5 +75,4 @@ fn main() {
     // The heap data does get copied
     println!("s1 = {s1}, s2 = {s2}");
     // s1 = hello, s2 = hello
-
 }
