@@ -8,6 +8,7 @@ $ cd project
  */
 
 struct User {
+    // Define fields
     active: bool,
     username: String,
     email: String,
