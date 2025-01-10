@@ -73,10 +73,11 @@ fn main() {
         area_v3(&rect2)
     );
 
+    // print by using `#[derive(Debug)]`
     println!("`rect2` is {:?}", rect2);
     // `rect2` is Rectangle { width: 30, height: 50 }
 
-    // pretty print
+    // pretty print by using `#[derive(Debug)]`
     println!("`rect2` is {:#?}", rect2);
     // `rect2` is Rectangle {
     //     width: 30,
