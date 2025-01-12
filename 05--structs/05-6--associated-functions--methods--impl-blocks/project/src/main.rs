@@ -1,16 +1,34 @@
 /*
-Notice 1:
+Notices:
+
+1.
+
+All functions defined within an `impl` block are called `associated functions`.
+
+2.
 
 Unlike functions, methods are defined within the context of a struct (or an enum or a trait object), and
 their first parameter is always `self`, which represents the instance of the struct the method is being called on.
 
-Notice 2:
+3.
 
 In Rust, the following are the same:
 ```
 p1.distance(&p2);
 (&p1).distance(&p2);
 ```
+
+4.
+
+Associated functions that aren't methods are often used for constructors
+that will return a new instance of the struct.
+These are often called `new`, but `new` isn't a special name and isn't built into the language.
+To call a associated function that is no method, the `::` syntax with the struct name is used.
+The `::` syntax is used for both associated functions and namespaces created by modules.
+
+5.
+
+Each struct is allowed to have multiple `impl` blocks.
 
 ```
 $ cd 05*
@@ -31,7 +49,7 @@ struct Rectangle {
 // Everything within this `impl` block
 // will be associated with the `Rectangle` type.
 impl Rectangle {
-    // method
+    // associated functions that are methods
     fn area(&self) -> u32 { // `&self` is actually short for `self: &Self`.
         // Within an `impl` block, the type `Self` is
         // an alias for the type that the `impl` block is for.
@@ -47,6 +65,21 @@ impl Rectangle {
 
     fn can_hold(&self, other: &Rectangle) -> bool {
         self.width > other.width && self.height > other.height
+    }
+
+    // associated function as constructor
+    fn square(size: u32) -> Self {
+        Self {
+            width: size,
+            height: size,
+        }
+    }
+}
+
+// using multiple `impl` blocks
+impl Rectangle {
+    fn is_valid(&self) -> bool {
+        self.width > 0 && self.height > 0
     }
 }
 
@@ -85,8 +118,15 @@ fn main() {
         width: 60,
         height: 45,
     };
-    println!("Can rect1 hold rect2? {}", rect1.can_hold(&rect2));
-    // Can rect1 hold rect2? true
-    println!("Can rect1 hold rect3? {}", rect1.can_hold(&rect3));
-    // Can rect1 hold rect3? false
+    println!("Can `rect1` hold `rect2`? {}", rect1.can_hold(&rect2));
+    // Can `rect1` hold `rect2`? true
+    println!("Can `rect1` hold `rect3`? {}", rect1.can_hold(&rect3));
+    // Can `rect1` hold `rect3`? false
+
+    // Call the associated function as constructor
+    let sq = Rectangle::square(3);
+
+    // using a method from the second `impl` block
+    println!("Is `sq` valid? {}", sq.is_valid());
+    // Is `sq` valid? true
 }

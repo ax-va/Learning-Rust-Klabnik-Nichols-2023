@@ -1,3 +1,7 @@
+**associated functions**
+
+All functions defined within an `impl` block are called `associated functions`.
+
 **borrowing**
 
 Creating a reference is called *borrowing*.
