@@ -57,7 +57,7 @@ enum Message {
     ChangeColor(i32, i32, i32), // three `i32` values
 }
 
-// associated functions by using `impl`
+// methods by using `impl`
 impl Message {
     fn call(&self) {
         // method body would be defined here
@@ -90,6 +90,8 @@ fn main() {
 
     let home = IpAddr3::V4(127, 0, 0, 1);
     let loopback = IpAddr3::V6(String::from("::1"));
+
+    // calling a method
 
     let m = Message::Write(String::from("hello"));
     m.call();
