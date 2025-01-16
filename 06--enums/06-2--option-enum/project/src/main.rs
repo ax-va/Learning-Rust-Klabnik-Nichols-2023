@@ -7,9 +7,6 @@ The concept of null in Rust is not embedded in the language construct, but in it
 The `Option<T>` type is an enum defined by the standard library.
 `<T>` is a generic type parameter that can be any type.
 It encodes the very common scenario, in which a value could be either something or nothing.
-Because `Option<T>` and `T` are different types,
-the compiler won't let us use an `Option<T>` value as if it were definitely a valid value,
-while a value of `T` is *always valid* and no check for null is needed in that case.
 
 ```rust
 enum Option<T> {
@@ -17,6 +14,10 @@ enum Option<T> {
     Some(T),
 }
 ```
+
+Because `Option<T>` and `T` are different types,
+the compiler won't let us use an `Option<T>` value as if it were definitely a valid value,
+while a value of `T` is *always valid* and no check for null is needed in this case.
 
 The `Option<T>` enum is so useful that it's even *included in the prelude*.
 That means, there is no need to bring it into scope explicitly.
