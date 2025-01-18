@@ -1,7 +1,7 @@
 /*
 Match patterns:
 - `other` = the catch-all pattern,
-- `_` = the catch-all pattern without using the value in the catch-all pattern
+- `_` = the catch-all pattern without using the value in the pattern
 
 ```
 $ cd 06*
