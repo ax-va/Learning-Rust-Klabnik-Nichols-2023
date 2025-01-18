@@ -2,7 +2,7 @@
 
 The `if let` syntax lets us handle values that match one pattern while ignoring the rest.
 The code in the `if let` block isn't run if the value doesn't match the pattern.
-We can include an `else` with an `if let`.
+There is also `if let ... else`.
 
 ```
 $ cd 06*
@@ -35,7 +35,7 @@ fn main() {
     }
     // The maximum is configured to be 3
 
-    // the same behaviour, `max` is used in the body
+    // the same behaviour as `match`, the value `max` can be used inside the body
     if let Some(max) = config_max {
         println!("The maximum is configured to be {max}");
     }
@@ -51,7 +51,7 @@ fn main() {
 
     let coin = Coin::Quarter(UsState::Alaska);
     let mut count = 0;
-    // the same behaviour
+    // the same behaviour as `match`
     if let Coin::Quarter(state) = coin {
         println!("State quarter from {:?}!", state);
     } else {
