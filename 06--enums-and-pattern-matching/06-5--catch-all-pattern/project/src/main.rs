@@ -34,7 +34,7 @@ fn main() {
     match dice_roll {
         3 => add_fancy_hat(),
         7 => remove_fancy_hat(),
-        _ => (), // the unit value for no running code
+        _ => (), // the unit value, no code to run
     }
 
 }
