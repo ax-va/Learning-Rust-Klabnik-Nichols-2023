@@ -32,7 +32,7 @@ fn main() {
     // is seeded by the operating system.
     let secret_number = rand::thread_rng()
         // `gen_range` takes a range expression as an argument and generates a random number in the range.
-        // The kind of range expression we’re using here takes the form `<start>..=<end>` and
+        // The kind of range expression we are using here takes the form `<start>..=<end>` and
         // is *inclusive on the lower and upper bounds*.
         // The number is of type `i32`, i.e. it is a 32-bit integer.
         .gen_range(1..=100);
@@ -55,11 +55,12 @@ fn main() {
         // In full, create a mutable variable
         // that is currently bound to a new, empty instance of a `String`.
         let mut guess = String::new();
-        // We can use `std::io::stdin` without importing `std::io`.
+        // We could write `std::io::stdin().<function chain>` without importing `std::io`.
         // `stdin` returns an instance of `std::io::Stdin` to handle the standard input.
-        io::stdin()
+        std::io::stdin()
             // The full job of `read_line` is to take whatever the user types into
-            // standard input and append that into a string (without overwriting its contents).
+            // standard input and append that into a string
+            // (without overwriting its contents - the string was empty).
             // The `&` indicates that this argument is a *reference*.
             // Like variables, references are immutable by default.
             // Writing `&mut guess` instead of `&guess` makes the reference mutable.
@@ -71,11 +72,11 @@ fn main() {
             //      1. Inside `Ok` is the successfully generated value;
             //      2. `Err` contains information about how or why the operation failed.
             // If this instance of `Result` is an `Err` value,
-            // expect will cause the program to crash and display the message.
+            // `expect` will cause the program to crash and display the message.
             // If this instance of `Result` is an `Ok` value,
             // `expect` will take the return value that `Ok` is holding.
             .expect("Failed to read line");
-            // Without using `expect, the program would compile with a warning
+            // Without using `expect`, the program would compile with a warning
             // indicating that the program hasn't handled a possible error.
 
         // Convert the input of type `String` to `u32` (an unsigned 32-bit integer)
@@ -109,7 +110,7 @@ fn main() {
         // `cmp` returns either `Ordering::Less` or `Ordering::Greater` or `Ordering::Equal`.
         // `match` gets one of these values and starts checking arm's pattern.
         match guess.cmp(&secret_number) {
-            // Check if obtained `Ordering::<X>` matches the following arm's patterns `Ordering::<Y>`,
+            // Check if obtained `Ordering::<X>` matches the current arm's patterns `Ordering::<Y>`,
             // execute the associated code in the arm,
             // ends after the first successful match.
             // first arm
