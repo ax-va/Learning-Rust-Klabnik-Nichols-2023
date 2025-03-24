@@ -55,7 +55,7 @@ fn main() {
         // In full, create a mutable variable
         // that is currently bound to a new, empty instance of a `String`.
         let mut guess = String::new();
-        // We could write `std::io::stdin().<function chain>` without importing `std::io`.
+        // We could write `std::io::stdin().<function_chain>` without importing `std::io`.
         // `stdin` returns an instance of `std::io::Stdin` to handle the standard input.
         std::io::stdin()
             // The full job of `read_line` is to take whatever the user types into
