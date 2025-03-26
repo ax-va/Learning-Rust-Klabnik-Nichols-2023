@@ -1,11 +1,11 @@
 /*
 Notices:
 
-- Blocks of code associated with the conditions in `if` expressions are sometimes called *arms*.
+- Blocks of code associated with the conditions in the `if` expressions are sometimes called *arms*.
 
 - A condition in control flow code *must* be a `bool`.
 Unlike languages such as Python and JavaScript,
-Rust will not automatically try to convert non-Boolean types to a Boolean.
+Rust *will not* automatically try to convert non-Boolean types to a Boolean.
 
 - Use a powerful Rust branching construct called `match` instead of many `if ... else if`.
 
@@ -16,14 +16,15 @@ But all arms must return a value of the same type.
 Rust has three kinds of loops: `loop`, `while`, and `for`.
 
 - In the case of nested loops, `break` and `continue` apply to the *innermost* loop at that point.
-Optionally specify a *loop label* on a loop to specify that the `break` and `continue` keywords
-are applied to the labeled loop instead of the innermost loop.
+Optionally specify a *loop label* on a loop to specify
+that the `break` and `continue` keywords are applied to the labeled loop instead of the innermost loop.
 
 ```
 $ cd 03*
 $ cd 03-4*
 $ cargo new project
 $ cd project
+$ cargo run
 ```
 */
 
@@ -72,7 +73,7 @@ fn main() {
     println!("The value of number is: {number}");
     // The value of number is: 5
 
-    // All arms must return a value of the same type.
+    // All arms must return a value of the same type
 
     // compilation error: "`if` and `else` have incompatible types"
     // let number = if condition { 5 } else { "six" };

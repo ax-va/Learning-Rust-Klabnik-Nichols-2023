@@ -6,6 +6,7 @@ $ cd 03*
 $ cd 03-1*
 $ cargo new project
 $ cd project
+$ cargo run
 ```
 */
 
@@ -78,8 +79,8 @@ fn main() {
     let spaces = spaces.len();
 
     let mut spaces = "      ";
-    // When using mutable variables, changing types results in
-    // a compilation error: "mismatched types".
+    // When using mutable variables, changing types
+    // results in a compilation error: "mismatched types".
     // spaces = spaces.len();
     //          ^^^^^^^^^^^^ expected `&str`, found `usize`
 }

@@ -4,13 +4,13 @@ Notices:
 - Rust code uses *snake case* as the conventional style for function and
 variable names.
 
-- Rust doesn't care where functions are defined, only that
-they're defined somewhere in a *scope* that can be seen by the caller.
+- Rust doesn't care where functions are defined,
+only that they're defined somewhere in a *scope* that can be seen by the caller.
 
-- Statements are instructions that perform some action and do not return a value.
+- *Statements* are instructions that perform some action and do not return a value.
 Function definitions are also statements.
 
-- Expressions evaluate to a resultant value.
+- *Expressions* evaluate to a resultant value.
 Expressions can be part of statements.
 Calling a function is an expression.
 Calling a macro is an expression.
@@ -24,10 +24,13 @@ $ cd 03*
 $ cd 03-3*
 $ cargo new project
 $ cd project
+$ cargo run
 ```
 */
 
-// In function signatures, you *must* declare the type of each parameter
+// In function signatures,
+// you *must* declare the type of each parameter
+// and also a return type if the function returns a value.
 
 fn another_function(x: i32) {
     println!("The value of x is: {x}");
@@ -50,7 +53,7 @@ fn main() {
     println!("Hello, world!");
     // Hello, world!
 
-    // This is also an expression
+    // These are also expressions
     another_function(5);
     // The value of x is: 5
     print_labeled_measurement(5, 'h');
@@ -62,6 +65,7 @@ fn main() {
     // compilation errors: "expected expression, found `let` statement"
     // let x = (let y = 6);
     //          ^^^
+    // compilation errors: "expected expression, found `let` statement"
     // let x = let y = 6;
     //         ^^^
 

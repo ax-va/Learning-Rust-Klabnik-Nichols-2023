@@ -1,13 +1,16 @@
 /*
-A *dangling pointer* is a pointer that references a location in memory that may have been given to someone else.
+A *dangling pointer* is a pointer
+that references a location in memory
+that may have been given to someone else.
 The memory can be freed up while preserving a pointer to that memory.
-In Rust, the compiler guarantees that references will never be dangling references.
+In Rust, the compiler guarantees that references *will never* be dangling references.
 
 ```
 $ cd 04*
 $ cd 04-6*
 $ cargo new project
 $ cd project
+$ cargo run
 ```
  */
 

@@ -3,9 +3,9 @@
 If you have a mutable reference to a value,
 its use with other (mutable or immutable) references to that value is *restricted*.
 
-The benefit of having this restriction is that
-Rust can prevent *data races* at compile time that
-happen when these three behaviors occur:
+The benefit of having this restriction is
+that Rust can prevent *data races* at compile time
+that happen when these three behaviors occur:
 
 - Two or more pointers access the same data at the same time.
 - At least one of the pointers is being used to write to the data.
@@ -16,6 +16,7 @@ $ cd 04*
 $ cd 04-5*
 $ cargo new project
 $ cd project
+$ cargo run
 ```
  */
 
@@ -38,8 +39,8 @@ fn main() {
     //          ^^^^^^ second mutable borrow occurs here
     // println!("{r1}, {r2}");
 
-    // This is a working example because
-    // the two mutable references are *only used one after the other*.
+    // This is a working example
+    // because the two mutable references are *only used one after the other*.
     // Thus the scopes of use of these references do not overlap.
     let r1 = &mut s;
     change(r1);
@@ -56,6 +57,7 @@ fn main() {
 
     // Cannot use a mutable reference with immutable references *simultaneously* or *in a mixed manner* either
     let mut s = String::from("hello");
+    // immutable references of the mutable variable
     let r1 = &s; // no problem
     let r2 = &s; // no problem
     println!("{r1}, {r2}");

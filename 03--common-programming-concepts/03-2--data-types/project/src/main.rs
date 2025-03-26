@@ -1,17 +1,20 @@
 /*
-Rust is a *statically typed* language, which means that
-it must know the types of all variables at compile time.
+Rust is a *statically typed* language, which means
+that it must know the types of all variables at compile time.
 
 - Types of a known size that can be allocated in the stack:
 
 A *scalar* type represents a single value.
 Rust has four primary scalar types:
-integers, floating-point numbers, Booleans, and characters.
+    - integers,
+    - floating-point numbers,
+    - Booleans, and
+    - characters.
 
 *Compound types* are represented by tuples and arrays.
 
-Use tuples when working with a small group of related values with different types.
-Use arrays when working with a collection of elements of the same type.
+Use tuples when working with a *small* group of related values with *different* types.
+Use arrays when working with a collection of elements of the *same* type.
 
 - Types of an unknown size to allocate in the heap:
 
@@ -23,6 +26,7 @@ $ cd 03*
 $ cd 03-2*
 $ cargo new project
 $ cd project
+$ cargo run
 ```
 */
 
@@ -82,8 +86,8 @@ fn main() {
     // characters //
     ////////////////
 
-    // Single quotes must be used for the `char` literals, while
-    // double quotes must be used for `String` literals.
+    // Single quotes must be used for the `char` literals,
+    // while double quotes must be used for `String` literals.
     let c = 'z';
     // compilation error: "mismatched types"
     // let c: char = "z";
@@ -97,12 +101,12 @@ fn main() {
     // tuples //
     ////////////
 
-    // The types of the different values in the tuple don't have to be the same
+    // The types of the values in the tuple don't have to be the same
     let tup = (500, 6.4, 1);
     let tup: (i32, f64, u8) = (500, 6.4, 1); // with optional type annotations
 
     // Get the individual values out of a tuple.
-    // This is called destructuring.
+    // This is called *destructuring*.
     let (x, y, z) = tup;
     println!("The value of x is: {x}");
     // The value of x is: 500
@@ -116,11 +120,16 @@ fn main() {
     let six_point_four = tup.1;
     let one = tup.2;
 
+    // This indexing requires a *compile-time constant index*
+    // because tuples can contain elements of different types,
+    // and the compiler needs to know the type of the element at compile time.
+
     ////////////
     // arrays //
     ////////////
 
-    // An array is a fixed-size collection of elements where all elements must have the same type
+    // An array is a fixed-size collection of elements
+    // where all elements must have the same type.
     let a = [1, 2, 3, 4, 5];
     let a: [i32; 5] = [1, 2, 3, 4, 5];
 

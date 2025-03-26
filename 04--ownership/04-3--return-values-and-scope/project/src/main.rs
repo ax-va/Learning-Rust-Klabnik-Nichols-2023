@@ -4,21 +4,20 @@ $ cd 04*
 $ cd 04-3*
 $ cargo new project
 $ cd project
+$ cargo run
 ```
  */
 
-// This function will move its return value into the function that calls it.
+// This function will move its return value into the function that calls it
 fn gives_ownership() -> String {
-    let some_string = String::from("yours"); // `some_string` comes into scope.
+    let some_string = String::from("yours"); // `some_string` comes into scope
     some_string
-    // `some_string` is returned and moves out to the calling function.
-}
+} // `some_string` is returned and moves out to the calling function
 
-// This function takes a `String` and returns a `String`.
-fn takes_and_gives_back(a_string: String) -> String { // `a_string` comes into scope.
+// This function takes a `String` and returns a `String`
+fn takes_and_gives_back(a_string: String) -> String { // `a_string` comes into scope
     a_string
-    // `a_string` is returned and moves out to the calling function.
-}
+} // `a_string` is returned and moves out to the calling function
 
 fn main() {
     let s1 = gives_ownership(); // `gives_ownership` moves its return value into `s1`.
