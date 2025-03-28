@@ -16,7 +16,7 @@ enum Option<T> {
 ```
 
 Because `Option<T>` and `T` are different types,
-the compiler won't let us use an `Option<T>` value as if it were definitely a valid value,
+the compiler won't let us use an `Option<T>` value as if it was definitely a valid value,
 while a value of `T` is *always valid* and no check for null is needed in this case.
 
 The `Option<T>` enum is so useful that it's even *included in the prelude*.
@@ -41,6 +41,7 @@ $ cd 06*
 $ cd 06-2*
 $ cargo new project
 $ cd project
+$ cargo run
 ```
  */
 

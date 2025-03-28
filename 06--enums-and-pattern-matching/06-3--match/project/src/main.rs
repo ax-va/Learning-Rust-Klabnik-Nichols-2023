@@ -4,6 +4,7 @@ $ cd 06*
 $ cd 06-3*
 $ cargo new project
 $ cd project
+$ cargo run
 ```
  */
 
@@ -18,12 +19,13 @@ enum Coin {
     Penny,
     Nickel,
     Dime,
-    Quarter(UsState),
+    Quarter(UsState), // associated enum
 }
 
 fn value_in_cents_v1(coin: Coin) -> u8 {
     match coin {
-        // match arms: <pattern> => <code>
+        // match arms:
+        // `<pattern> => <code>,`
         // If a pattern matches the value,
         // the code associated with that pattern is executed.
         // If that pattern doesn't match the value,

@@ -4,6 +4,7 @@ $ cd 05*
 $ cd 05-3*
 $ cargo new project
 $ cd project
+$ cargo run
 ```
  */
 

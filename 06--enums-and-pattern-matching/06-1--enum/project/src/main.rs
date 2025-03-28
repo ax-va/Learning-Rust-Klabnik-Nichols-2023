@@ -4,6 +4,7 @@ $ cd 06*
 $ cd 06-1*
 $ cargo new project
 $ cd project
+$ cargo run
 ```
  */
 
@@ -15,8 +16,7 @@ enum IpAddrKind {
 
 fn route(ip_kind: IpAddrKind) {}
 
-// Example:
-// enum in struct (with two fields) as data type.
+// Example: enum in struct (with two fields) as data type.
 // The example is less concise as below.
 struct IpAddr1 {
     kind: IpAddrKind,
@@ -24,8 +24,8 @@ struct IpAddr1 {
 }
 
 // Example:
-// The definition of the `IpAddr` enum says that both
-// `V4` and `V6` variants will have associated `String` values.
+// The definition of the `IpAddr` enum says
+// that both `V4` and `V6` variants will have associated `String` values.
 // The example is more concise as above.
 enum IpAddr2 {
     V4(String),
@@ -52,9 +52,9 @@ enum IpAddr5 {
 // Another example: different annotation
 enum Message {
     Quit, // no data associated
-    Move { x: i32, y: i32 }, // named fields like in `struct`
-    Write(String), // single `String`
-    ChangeColor(i32, i32, i32), // three `i32` values
+    Move { x: i32, y: i32 }, // associated named fields like in `struct`
+    Write(String), // associated single `String`
+    ChangeColor(i32, i32, i32), // associated three `i32` values
 }
 
 // methods by using `impl`

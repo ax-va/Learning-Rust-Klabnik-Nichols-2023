@@ -3,7 +3,8 @@ Notices:
 
 1.
 
-All functions defined within an `impl` block are called `associated functions`.
+All functions defined within an `impl` block are called `associated functions`
+that are associated with their types, for example, methods, constructors, and so on.
 
 2.
 
@@ -35,6 +36,7 @@ $ cd 05*
 $ cd 05-6*
 $ cargo new project
 $ cd project
+$ cargo run
 ```
  */
 
@@ -50,7 +52,7 @@ struct Rectangle {
 // will be associated with the `Rectangle` type.
 impl Rectangle {
     // associated functions that are methods
-    fn area(&self) -> u32 { // `&self` is actually short for `self: &Self`.
+    fn area(&self /* short for `self: &Self` */) -> u32 {
         // Within an `impl` block, the type `Self` is
         // an alias for the type that the `impl` block is for.
         // Methods can take ownership of `self`, borrow `self` immutably,
@@ -59,6 +61,7 @@ impl Rectangle {
         self.width * self.height
     }
 
+    // A field and an associated function can have the same name
     fn width(&self) -> bool {
         self.width > 0
     }

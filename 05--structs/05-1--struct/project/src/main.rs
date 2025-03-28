@@ -4,11 +4,13 @@ $ cd 05*
 $ cd 05-1*
 $ cargo new project
 $ cd project
+$ cargo run
 ```
  */
 
 struct User {
     // Define fields
+    // `<field_name>: <type>,`
     active: bool,
     username: String,
     email: String,
@@ -25,6 +27,7 @@ fn build_user(username: String, email: String) -> User {
 }
 
 fn main() {
+    // immutable struct
     let user1 = User {
         active: true,
         username: String::from("ax-va"),

@@ -4,10 +4,13 @@ $ cd 05*
 $ cd 05-1*
 $ cargo new project
 $ cd project
+$ cargo run
 ```
  */
 
 struct User {
+    // Define fields
+    // `<field_name>: <type>,`
     active: bool,
     username: String,
     email: String,
@@ -27,18 +30,19 @@ fn main() {
     println!("{0}", user1.email);
     // ax-va@example.com
 
-    // The syntax `..` specifies that the remaining fields not explicitly set
+    // The syntax `..` specifies that the remaining fields
+    // that are not explicitly set
     // should have the same value as the fields in the given instance.
     let user2 = User {
         username: String::from("alex-v"),
         ..user1  // Must come last
     };
-    // We can no longer use `user1` after creating `user2` because
-    // the `String` in the username field of `user1` was moved into `user2`.
+    // We can no longer use `user1` after creating `user2`
+    // because `String` in the `email` field of `user1` was moved into `user2`.
     // If we had given `user2` new `String` values for both `email` and `username`,
-    // and thus only used the `active` and `sign_in_count` values from `user1`,
+    // and thus only copied the `active` and `sign_in_count` fields from `user1`,
     // then `user1` would still be valid after creating `user2`.
-    // Both `active` and `sign_in_count` are types that implement the `Copy` trait.
+    // Both `active` and `sign_in_count` are of types that implement the `Copy` trait.
 
     println!("{0}", user2.username);
     // alex-v

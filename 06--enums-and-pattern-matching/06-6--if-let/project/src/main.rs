@@ -9,6 +9,7 @@ $ cd 06*
 $ cd 06-6*
 $ cargo new project
 $ cd project
+$ cargo run
 ```
  */
 
@@ -23,7 +24,7 @@ enum Coin {
     Penny,
     Nickel,
     Dime,
-    Quarter(UsState),
+    Quarter(UsState), // associated enum
 }
 
 fn main() {
@@ -48,6 +49,10 @@ fn main() {
         _ => count += 1,
     }
     // State quarter from Alaska!
+
+    // Notice:
+    // `state` is a value of enum that implements the `Debug` trait.
+    // `{:?}` tells `println!` to print `state` in a human-readable debug format.
 
     let coin = Coin::Quarter(UsState::Alaska);
     let mut count = 0;

@@ -1,7 +1,4 @@
 /*
-This example demonstrates calculating the area
-of a rectangle *without* the use of structs.
-
 ```
 $ cd 05*
 $ cd 05-5*
@@ -10,22 +7,24 @@ $ cd project
 ```
  */
 
-// Problem:
-// it's not clear anywhere in the program
-// that the parameters are related.
+// This example demonstrates calculating the area
+// of a rectangle *without* the use of structs.
 fn area_v1(width: u32, height: u32) -> u32 {
     width * height
 }
+// Problem:
+// it's not clear anywhere in the program
+// that the parameters are related.
 
+fn area_v2(dimensions: (u32, u32)) -> u32 {
+    dimensions.0 * dimensions.1
+}
 // Problem:
 // tuples don't name their elements,
 // so we have to index into the parts of the tuple,
 // making our calculation less obvious.
 // Moreover, if we want to draw the rectangle on the screen,
 // mixing up the width and height would matter.
-fn area_v2(dimensions: (u32, u32)) -> u32 {
-    dimensions.0 * dimensions.1
-}
 
 
 // Add the trait `Debug` to the struct
