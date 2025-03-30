@@ -17,6 +17,8 @@ $ ls project/src
 main.rs
 ```
 
+## Crates
+
 `src/main.rs` is the *crate root* of a *binary crate* with the same name as the package.
 Similarly, `src/lib.rs` is the *crate root* of the *library crate*.
 The contents of either of these two files form a module named *crate*.
@@ -27,10 +29,6 @@ by placing files in the `src/bin` directory: each file will be a separate binary
 Each binary crate is compiled into its own executable.
 
 Binary crates can share the library crate's code through public APIs.
-
-## Crates
-
-A *crate* can come in one of two forms: a *binary crate* or a *library crate*.
 
 ## Modules, submodules
 
