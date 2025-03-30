@@ -2,7 +2,7 @@
 ```
 $ cd 07*
 $ cd 07-02*
-$ cargo new restaraunt --lib
+$ cargo new restaurant --lib
 $ cargo build
 ```
  */
