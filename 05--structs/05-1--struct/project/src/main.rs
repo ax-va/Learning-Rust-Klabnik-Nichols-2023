@@ -35,6 +35,7 @@ fn main() {
         sign_in_count: 1,
     };
 
+    // We can only read the field of the immutable struct
     println!("{0}", user1.username);
     // ax-va
 
@@ -50,6 +51,7 @@ fn main() {
     // The entire instance must be mutable.
     // Marking only certain fields as mutable is not allowed.
 
+    // We can write to and read the field of the mutable struct
     user2.username = String::from("alex-v");
     println!("{0}", user2.username);
     // alex-v
