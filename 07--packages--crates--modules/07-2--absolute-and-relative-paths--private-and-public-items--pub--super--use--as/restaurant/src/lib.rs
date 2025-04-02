@@ -1,7 +1,7 @@
 /*
 Module tree:
 
-crate // root module
+crate // acts as the *root module*
 |-- deliver_order // function
 |-- eat_at_restaurant // public function
 |-- front_of_house // module
@@ -32,12 +32,12 @@ $ cargo build
 ```
  */
 
-// created automatically
+// created automatically for the library crate
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
 }
 
-// created automatically
+// created automatically for the library crate
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -51,13 +51,63 @@ mod tests {
 
 // Add contents to the `crate` module
 
+// Bring the `crate::front_of_house::hosting` module
+// into the scope ot the library crate.
+// This is *clear*.
+/*
+`use crate::front_of_house::hosting;
+ */
+// The name `hosting` available in the new scope is private.
+
+// *Re-export* the public module into the scope making it also public in this scope.
+pub use crate::front_of_house::hosting;
+
+// Bring the `crate::front_of_house::hosting::add_to_waitlist` function
+// into the scope ot the library crate.
+// This is *unclear*.
+use crate::front_of_house::hosting::add_to_waitlist;
+
+// But when bringing structs, enums, and other items into scope,
+// the convention is to use the full path for them, for example:
+/*
+use std::collections::HashMap;
+ */
+
+// The exception to this idiom is when two items have the same name.
+// 1. The one idiomatic way is to use parent modules:
+/*
+use std::fmt;
+use std::io;
+
+fn function1() -> fmt::Result {
+// ...
+}
+
+fn function2() -> io::Result<()> {
+// ...
+}
+ */
+
+// The other idiomatic way is to use the `as` keyword:
+/*
+use std::fmt::Result;
+use std::io::Result as IoResult;
+
+fn function1() -> Result {
+// ...
+}
+
+fn function2() -> IoResult<()> {
+// ...
+}
+ */
+// The both ways are conventional.
+
 fn deliver_order() {/* ... */}
 
 // public API
 pub fn eat_at_restaurant() {
-    // Prefer *absolute paths* in general because it is more likely
-    // code definitions and item calls will be moved independently of each other.
-    // *absolute path*
+    // 1. *absolute path*
     crate::front_of_house::hosting::add_to_waitlist();
     // While `front_of_house` is not public,
     // because the `eat_at_restaurant` function is defined
@@ -65,8 +115,18 @@ pub fn eat_at_restaurant() {
     // (that is, `eat_at_restaurant` and `front_of_house` are *siblings*),
     // we can refer to `front_of_house` from `eat_at_restaurant`.
 
-    // *relative path*
+    // 2. *relative path*
     front_of_house::hosting::add_to_waitlist();
+
+    // 3. by using the `use` keyword to bring the module into the scope
+    hosting::add_to_waitlist(); // clear
+    // The `eat_at_restaurant` function can see the `hosting` module
+    // because they are in the same scope of the current module.
+    // If we move `eat_at_restaurant` into a child module,
+    // we should add `super` the `super::hosting::add_to_waitlist();`.
+
+    // 4. by using the `use` keyword to bring the function into the scope
+    add_to_waitlist(); // unclear
 
     // Create mutable struct.
     // We can access the struct because it is public.

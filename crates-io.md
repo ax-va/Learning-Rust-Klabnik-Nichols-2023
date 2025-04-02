@@ -2,6 +2,6 @@
 
 https://crates.io
 
-**rand**
+## rand
 
 https://crates.io/crates/rand

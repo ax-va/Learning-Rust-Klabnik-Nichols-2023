@@ -2,9 +2,10 @@
 
 ## Packages
 
-A *package* *must* contain *at least* one crate, 
-whether that's a library or binary crate, and
-*can* contain *at most* one library crate.
+A package is a collection of one or more crates.
+A package can contain:
+- zero or one *library crate*,
+- any number of *binary crates*.
 
 Create a package and see what Cargo creates
 ```
@@ -16,13 +17,19 @@ Cargo.toml  src
 $ ls project/src
 main.rs
 ```
+Every package has a `Cargo.toml` file that describes how to build the crates it contains.
 
 ## Crates
 
+A crate is the top-level compilation unit. 
+When you compile a Rust program, you're compiling a crate.
+It contains modules and submodules.
+
 `src/main.rs` is the *crate root* of a *binary crate* with the same name as the package.
 Similarly, `src/lib.rs` is the *crate root* of the *library crate*.
-The contents of either of these two files form a module named *crate*.
-Cargo passes the crate root files to *rustc* to build the library or binary.
+The crate root file is the root module.
+Thus, the crate *starts at* the root module, and everything is built from there.
+Cargo passes the crate root files to *rustc* to build the library or binary (executable).
 
 A package can have multiple binary crates (with or without the main binary crate) 
 by placing files in the `src/bin` directory: each file will be a separate binary crate.
@@ -48,16 +55,16 @@ backyard
 |-- Cargo.toml
 ```
 
-- To make modules and items within the modules public, use the `pub` keyword.
+- To make modules and items within the modules *public*, use the `pub` keyword.
 
     - In Rust, all items (functions, methods, structs, enums, modules, and constants) 
-    are private to parent modules by default.
+    are *private* to parent modules by default.
     - Items in a parent module cannot use the private items inside child modules,
     but items in child modules can use the items in their ancestor modules.
 
-- To declare a module in a scope, use `pub mod <module_name>;`.
-- To use shortcut for a module's item in the scope of another module, use the `use` keyword, 
-e.g., `use crate::garden::vegetables::Asparagus;`.
+- To declare a module in a scope, use `mod <module_name>;` or `pub mod <module_name>;`.
+- To use shortcut for a module's item in the scope of another module, use the `use` or `pub use` keyword, 
+e.g., `use crate::garden::vegetables::Asparagus;` or `pub use crate::garden::vegetables::Asparagus;`.
 
 ## Paths
 
