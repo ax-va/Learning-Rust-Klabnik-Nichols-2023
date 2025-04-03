@@ -1,7 +1,7 @@
 /*
 Module tree:
 
-crate // acts as the *root module*
+crate root file // root module in the library crate
 |-- deliver_order // function
 |-- eat_at_restaurant // public function
 |-- front_of_house // module
@@ -52,10 +52,10 @@ mod tests {
 // Add contents to the `crate` module
 
 // Bring the `crate::front_of_house::hosting` module
-// into the scope ot the library crate.
+// into the scope of the library crate.
 // This is *clear*.
 /*
-`use crate::front_of_house::hosting;
+use crate::front_of_house::hosting;
  */
 // The name `hosting` available in the new scope is private.
 
@@ -63,7 +63,7 @@ mod tests {
 pub use crate::front_of_house::hosting;
 
 // Bring the `crate::front_of_house::hosting::add_to_waitlist` function
-// into the scope ot the library crate.
+// into the scope of the library crate.
 // This is *unclear*.
 use crate::front_of_house::hosting::add_to_waitlist;
 
