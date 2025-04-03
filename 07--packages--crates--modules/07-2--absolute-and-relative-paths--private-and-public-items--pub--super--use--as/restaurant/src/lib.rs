@@ -55,7 +55,7 @@ mod tests {
 // into the scope ot the library crate.
 // This is *clear*.
 /*
-`use crate::front_of_house::hosting;
+use crate::front_of_house::hosting;
  */
 // The name `hosting` available in the new scope is private.
 
