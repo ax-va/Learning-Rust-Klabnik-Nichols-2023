@@ -1,7 +1,7 @@
 /*
 Module tree:
 
-crate // acts as the *root module*
+crate root // root module
 |-- deliver_order // function
 |-- eat_at_restaurant // public function
 |-- front_of_house // module
