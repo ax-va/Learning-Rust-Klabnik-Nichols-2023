@@ -2,7 +2,7 @@
 
 ## Using Third-Party Packages
 
-Add
+Add the following
 ```toml
 # The specifier "0.8.5" is actually shorthand for "^0.8.5",
 # which means any version that is at least 0.8.5 but below 0.9.0.
