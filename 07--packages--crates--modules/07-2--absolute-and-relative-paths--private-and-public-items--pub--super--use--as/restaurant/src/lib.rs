@@ -52,7 +52,7 @@ mod tests {
 // Add contents to the `crate` module
 
 // Bring the `crate::front_of_house::hosting` module
-// into the scope ot the library crate.
+// into the scope of the library crate.
 // This is *clear*.
 /*
 use crate::front_of_house::hosting;
@@ -63,7 +63,7 @@ use crate::front_of_house::hosting;
 pub use crate::front_of_house::hosting;
 
 // Bring the `crate::front_of_house::hosting::add_to_waitlist` function
-// into the scope ot the library crate.
+// into the scope of the library crate.
 // This is *unclear*.
 use crate::front_of_house::hosting::add_to_waitlist;
 
