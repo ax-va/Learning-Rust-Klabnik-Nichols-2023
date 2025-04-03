@@ -2,14 +2,14 @@
 
 ## Using Third-Party Packages
 
-Add
+Add to the `Cargo.toml` file under `[dependencies]`
 ```toml
 # The specifier "0.8.5" is actually shorthand for "^0.8.5",
 # which means any version that is at least 0.8.5 but below 0.9.0.
 rand = "0.8.5"
 ```
-in the `Cargo.toml` file under `[dependencies]` to download the `rand` package 
-and its dependencies from https://crates.io, and make `rand` available to the project
+to download the `rand` package and its dependencies from https://crates.io, 
+and make `rand` available to the project
 
 When your Rust project depends on multiple versions of the same crate, 
 Cargo will download and store each specified version separately on your machine. 
