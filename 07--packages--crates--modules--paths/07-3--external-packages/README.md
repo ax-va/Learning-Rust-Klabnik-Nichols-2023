@@ -1,4 +1,4 @@
-# Packages, Crates, Modules
+# Packages, Crates, Modules, Paths
 
 ## Using Third-Party Packages
 
