@@ -12,12 +12,11 @@ fn main() {
     // Create a new empty vector
     let v: Vec<i32> = Vec::new();
 
-    // Create a new `Vec<i32>`
-    // (because we give initial `i32` values from `-2^31` to `2^31 - 1`)
-    // with macro
+    // Create a new `Vec<i32>` with macro
     let v = vec![0, 1, 2, 3];
+    // Rust inferred the type of `i32` from the given values that are in [`-2^31`,  `2^31 - 1`]
 
-    // Create a vector and then add elements to it
+    // Create a mutable vector and then add elements to it
     let mut v = Vec::new();
 
     v.push(0); // Rust has inferred the type of `i32`
