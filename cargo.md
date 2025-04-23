@@ -9,7 +9,7 @@ cargo 1.83.0 (5ffbef321 2024-10-29)
 
 ## Create a Cargo project
 
-`cargo new` creates a new directory and project.
+`cargo new <project>` creates a new directory and project.
 
 ```unix
 $ 01*/01-2*
