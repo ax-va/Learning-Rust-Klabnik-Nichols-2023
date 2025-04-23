@@ -75,7 +75,7 @@ fn main() {
 
     // How to fix it:
 
-    // solution 1: *immutable borrow* only within this block
+    // solution 1: *immutable borrow* only within a block
     let mut v = vec![1, 2, 3, 4];
     {
         let first = &v[0];
