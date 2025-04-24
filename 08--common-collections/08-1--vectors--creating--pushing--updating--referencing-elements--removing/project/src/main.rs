@@ -18,7 +18,7 @@ fn main() {
     // Create a mutable vector and then add elements to it
     let mut v = Vec::new();
 
-    // using `push`
+    // Use `push`
 
     v.push(0); // Rust has inferred the `i32` type
     v.push(1);
@@ -96,7 +96,7 @@ fn main() {
     println!("First: {}", first);
     // First: 0
 
-    // using `pop`
+    // Use `pop`
 
     let mut v = vec![1, 2];
 
