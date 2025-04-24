@@ -14,7 +14,8 @@ fn main() {
 
     // Create a new `Vec<i32>` with macro
     let v = vec![0, 1, 2, 3];
-    // Rust inferred the `i32` type from the given values ​​because they were in the range [-2^31, 2^31-1]
+    // Rust inferred the `i32` type from the given values ​​
+    // because they were in the range [-2^31, 2^31-1].
 
     // Create a mutable vector and then add elements to it
     let mut v = Vec::new();
