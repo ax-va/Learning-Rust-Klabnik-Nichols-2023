@@ -9,23 +9,23 @@ $ cargo run
  */
 
 fn main() {
-    // Create a new empty vector
+    // Create an immutable empty vector
     let v: Vec<i32> = Vec::new();
 
-    // Create a new `Vec<i32>` with macro
+    // Create an immutable `Vec<i32>` by using macro
     let v = vec![0, 1, 2, 3];
-    // Rust inferred the `i32` type from the given values ​​
-    // because they were in the range [-2^31, 2^31-1].
 
     // Create a mutable vector and then add elements to it
     let mut v = Vec::new();
+
+    // using `push`
 
     v.push(0); // Rust has inferred the `i32` type
     v.push(1);
     v.push(2);
     v.push(3);
     v.push(2_147_483_647);
-    
+
     // Try to push a value out the range of `i32`:
     // compilation error: "error: literal out of range for `i32`"
     // v.push(2_147_483_648);
@@ -95,4 +95,29 @@ fn main() {
     *first = 0;
     println!("First: {}", first);
     // First: 0
+
+    // using `pop`
+
+    let mut v = vec![1, 2];
+
+    let removed = v.pop(); // type: `Option<{integer}>`
+    match removed {
+        Some(removed) => println!("Removed: {removed}"),
+        None => println!("No elements in vector."),
+    }
+    // Removed: 2
+
+    let removed = v.pop(); // type: `Option<{integer}>`
+    match removed {
+        Some(removed) => println!("Removed: {removed}"),
+        None => println!("No elements in vector."),
+    }
+    // Removed: 1
+
+    let removed = v.pop(); // type: `Option<{integer}>`
+    match removed {
+        Some(removed) => println!("Removed: {removed}"),
+        None => println!("No elements in vector."),
+    }
+    // No elements in vector.
 }

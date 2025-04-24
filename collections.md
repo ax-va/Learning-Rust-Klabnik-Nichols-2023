@@ -10,10 +10,21 @@ https://doc.rust-lang.org/std/collections/index.html
 
 ### Vectors
 
-Vectors are implemented using generics and can only store values of the same type. 
+Vectors are implemented using generics and can only store values of the same type.
+However, when we need one type to represent elements of different types, we can define and use an enum.
+
 `Vec<T>` is a growable, heap-allocated vector that stores elements of type `T` in a contiguous block of memory.
 It provides dynamic resizing, allowing elements to be added or removed efficiently, 
-and supports indexing, iteration, and a variety of useful methods for manipulation. 
+and supports indexing, iteration, and a variety of useful methods for manipulation.
+
+Like any other `struct`, a vector is freed when it goes out of scope
+```rust
+{
+    let vector = vec![1, 2, 3, 4];
+    // do stuff with `vector`
+} // `vector` goes out of scope; the integers it holds will be cleaned up
+```
+
 Vectors are one of the most commonly used collection types in Rust due to their flexibility and performance.
 
 https://doc.rust-lang.org/nomicon/vec/vec.html
