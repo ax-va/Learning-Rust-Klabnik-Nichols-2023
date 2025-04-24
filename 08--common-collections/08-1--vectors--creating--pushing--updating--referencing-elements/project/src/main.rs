@@ -25,14 +25,14 @@ fn main() {
     v.push(2);
     v.push(3);
     v.push(2_147_483_647);
-
-    // Change the first element of the vector from 0 to -2_147_483_648
-    v[0] = -2_147_483_648;
-
+    
     // Try to push a value out the range of `i32`:
     // compilation error: "error: literal out of range for `i32`"
     // v.push(2_147_483_648);
     //        ^^^^^^^^^^^^^
+
+    // Change the first element of the vector from 0 to -2_147_483_648
+    v[0] = -2_147_483_648;
 
     // There are two ways to reference a value stored in a vector:
 
