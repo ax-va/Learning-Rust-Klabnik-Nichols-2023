@@ -9,18 +9,20 @@ $ cargo run
  */
 
 fn main() {
-    // Create an immutable empty vector
+    // Create an immutable, empty vector
     let v: Vec<i32> = Vec::new();
 
     // Create an immutable `Vec<i32>` by using macro
     let v = vec![0, 1, 2, 3];
+    // Rust inferred the `i32` type because the elements are in range [-2^31, 2^31 - 1]
 
-    // Create a mutable vector and then add elements to it
+    // Create a mutable vector
     let mut v = Vec::new();
 
-    // Use `push`
+    // pushing //
 
-    v.push(0); // Rust has inferred the `i32` type
+    // Append elements to the vector.
+    v.push(0); // Rust has inferred the `i32` type.
     v.push(1);
     v.push(2);
     v.push(3);
@@ -96,7 +98,7 @@ fn main() {
     println!("First: {}", first);
     // First: 0
 
-    // Use `pop`
+    // popping //
 
     let mut v = vec![1, 2];
 
