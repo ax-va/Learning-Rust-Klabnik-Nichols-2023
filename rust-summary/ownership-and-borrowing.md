@@ -1,15 +1,17 @@
-# Ownership 
+# Ownership and borrowing
+
+## Ownership 
 
 *Ownership* is a set of rules that govern how a Rust program manages memory in the *heap*.
 If any of the rules are violated, the program won't compile.
 
-## Ownership rules
+### Ownership rules
 
 - Each value in Rust has an *owner*.
 - There can only be one owner at a time.
 - When the owner goes out of scope, the value will be dropped.
 
-## Variable scope
+### Variable scope
 
 This is an example of variable scope:
 ```rust
@@ -28,11 +30,11 @@ This is an example of variable scope:
 - The allocated memory is automatically returned once the variable that owns it goes out of scope.
 - Rust calls the `drop` function automatically at the closing curly bracket `}` to return the memory to the allocator.
 
-## Ownership and Functions
+### Ownership and functions
 
 Passing a variable to a function will move or copy, just as assignment does.
 
-## Return Values and Scope
+### Return values and scope
 
 ```rust
 fn main() {
@@ -57,7 +59,9 @@ fn takes_and_gives_back(a_string: String) -> String { // `a_string` comes into s
 }
 ```
 
-# References and Borrowing
+## Borrowing
+
+### References
 
 Creating a reference is called *borrowing*.
 
@@ -113,7 +117,7 @@ fn change(some_string: &String) {
 | 3     | `l`   |
 | 4     | `o`   |
 
-## Mutable References
+### Mutable references
 
 If you have a mutable reference to a value,
 its use with other (mutable or immutable) references to that value is *restricted*.
@@ -126,24 +130,27 @@ happen when these three behaviors occur:
 - At least one of the pointers is being used to write to the data.
 - There is no mechanism being used to synchronize access to the data.
 
-## Dangling References Not Allowed
+### Dangling references not allowed
 
 A *dangling pointer* is a pointer that references a location in memory that may have been given to someone else.
 The memory can be freed up while preserving a pointer to that memory.
 In Rust, the compiler guarantees that references will never be dangling references.
 
-## The Rules of References
+### The rules of references
 
 - At any given time, you can have *either* one mutable reference or *any* number of immutable references.
 
 - References must always be valid.
 
-# Slices
+## Slices and string slices
 
-*Slices* reference data starting at an including index and ending at an excluding index, for example, 
+*Slices* reference data starting at an including index and ending at an excluding index, 
+for example, *string slices* 
 
 ```rust
+// The `String` instance owns the data
 let s = String::from("hello");
+// Slices borrow parts of that data without ownership 
 let slice = &s[0..2];
 let slice = &s[..2];
 let slice = &s[1..];
