@@ -1,8 +1,8 @@
-# Data types
+# Stack-allocated data types
 
 Rust is a *statically typed* language, which means that it must know the types of all variables at compile time.
 Next types are of a known size, i.e. they can be stored on the stack and popped off the stack 
-when their scope is over, and can be quickly and trivially copied tomake a new, independent instance 
+when their scope is over, and can be quickly and trivially copied to make a new, independent instance 
 if another part of code needs to use the same value in a different scope.
 
 ## Scalar types
@@ -42,25 +42,25 @@ Handle the possibility of overflow:
 - Return the value and a Boolean indicating whether there was overflow with the `overflowing_*` methods.
 - Saturate at the value's minimum or maximum values with the `saturating_*` methods.
 
-## Floating-point numbers
+### Floating-point numbers
 
 Rust has floating-point types `f32` and `f64`, which are represented according to the IEEE-754 standard and 
 are 32 bits and 64 bits in size, respectively.
 The default type is `f64`.
 
-## The Boolean type
+### The Boolean type
 
 The Boolean type in Rust is `bool` and has two possible values: `true` and `false`.
 
-## The character type
+### The character type
 
 This is Rust's `char` type.
 The `char` type is four bytes in size and represents a Unicode scalar value.
-*Single quotes* must be used for the `char` literals, while *double quotes* must be used for `String` literals.
+*Single quotes* must be used for the `char` literals, while *double quotes* must be used for string literals.
 
-## Compound types
+## Stack-allocated compound types
 
-Rust has two primitive compound types: tuples and arrays.
+Tuples and arrays are stack-allocated when their elements stored on the stack.
 
 ### The tuple type
 
@@ -78,7 +78,7 @@ Expressions implicitly return the unit value if they don't return any other valu
 - An array isn't as flexible as the *vector* type that is
 provided by the standard library that is allowed to grow or shrink in size.
 
-### Types implementing the `Copy` trait
+## Types implementing the `Copy` trait
 
 - Rust has a special annotation called the `Copy` trait for types 
 that are stored on the stack, as integers are.
@@ -95,21 +95,23 @@ Examples of the types that implement `Copy`:
 - tuples, if they only contain types that also implement `Copy`, for example,
 `(i32, i32)` implements `Copy`, but `(i32, String)` does not.
 
-# Complex data types
+# Data types managing data allocated on the heap 
 
-## The String type
+### The String type
 
-The String type manages data allocated on the heap and 
+The `String` type manages data allocated on the heap and 
 is able to store an amount of text that is not defined at compile time.
+But the `String` itself (the `String` struct: pointer + length + capacity) is stack-allocated.
 
 ```rust
 let s1 = String::from("hello");
 ```
 
-A `String` is made up of three parts: 
-    a pointer to the memory that holds the contents of the string, 
-    a length = the memory of the contents in bytes, and 
-    a capacity = the total amount of memory in bytes received from the allocator.
+- A `String` is made up of three parts: 
+    - a pointer to the memory that holds the contents of the string, 
+    - a length = the memory of the contents in bytes, and 
+    - a capacity = the total amount of memory in bytes received from the allocator.
+
 
 - part of data stored on the stack:
 
@@ -130,12 +132,32 @@ A `String` is made up of three parts:
 | 4     | `o`   |
 
 
+### *Moving* the variable
+
+*Move* the variable that means,
+copy the pointer, the length, and the capacity to the memory on the stack, 
+and don't copy the data on the heap that the pointer refers to.
+
 ```rust
-// *Move* the variable that means,
-// copy the pointer, the length, and the capacity to the memory on the stack, and
-// don't copy the data on the heap that the pointer refers to.
 let s2 = s1;
-// `s1` was invalidated that means, it is no longer valid.
-// We say: `s1` was *moved* into `s2`.
-// Rust will never automatically create "deep" copies.
+// `s1` is no longer valid
 ```
+
+`s1` was invalidated that means, it is no longer valid.
+We say: `s1` was *moved* into `s2`.
+Rust will never automatically create "deep" copies.
+
+# Other types
+
+### &'static str
+
+```rust
+let s = "hello";
+```
+The type of `s` is `&'static str`:
+- `&str` is a string slice type (borrowed reference to some UTF-8 text);
+- `'static` denotes the lifetime meaning *"this data lives for the entire duration of the program"* 
+(because string literals are baked into the program's binary at compile time);
+- `"hello"` is stored once in the binary at compile time (static memory / data section);
+- `s` is a reference (`&str`), which lives on the stack (small pointer + length);
+- But the actual string data `"hello"` is not copied to the stack or heap, it's pointing to that static memory.
