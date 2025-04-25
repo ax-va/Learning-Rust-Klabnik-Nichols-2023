@@ -18,7 +18,7 @@ fn main() {
     let hello = String::from("こんにちは!");
     let hello = String::from("안녕하세요!");
     let hello = String::from("你好!");
-    let hello = String::from("Здравствуйте!");
+    let hello = String::from("Привет!");
     let hello = String::from("Hola!");
 
     // Append a string literal
