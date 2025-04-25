@@ -38,7 +38,7 @@ It provides methods for appending, slicing, and modifying text,
 and can be easily converted from the string slice `&str` type (that is also UTF-8 encoded).
 
 - A `String` owns its heap-allocated data, 
-whereas a `&str` is a borrowed reference to some string data (without ownership).
+whereas a `&str` is a borrowed reference to some string data (without ownership);
 
 - `String` is actually implemented as a wrapper around a vector of bytes 
 with some extra guarantees, restrictions, and capabilities.
