@@ -40,7 +40,7 @@ and can be easily converted from the string slice `&str` type (that is also UTF-
 - `String` owns its heap-allocated data, 
 whereas `&str` is a borrowed reference to some string data (without ownership);
 
-- `String` is actually implemented as a wrapper around a vector of bytes 
+- `String` is actually implemented as a wrapper around a vector of bytes, namely a wrapper over `Vec<u8>`,
 with some extra guarantees, restrictions, and capabilities.
 
 `String` is ideal for situations where you need to own and mutate string data at runtime.

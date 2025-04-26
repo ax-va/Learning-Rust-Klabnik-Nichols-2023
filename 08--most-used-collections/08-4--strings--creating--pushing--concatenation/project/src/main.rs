@@ -1,3 +1,13 @@
+/*
+```
+$ cd 08*
+$ cd 08-4*
+$ cargo new project
+$ cd project
+$ cargo run
+```
+ */
+
 fn main() {
     // Create a mutable, empty string instance
     let mut s = String::new();
