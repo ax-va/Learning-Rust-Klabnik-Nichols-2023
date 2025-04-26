@@ -46,4 +46,33 @@ fn main() {
     println!("s is {s}");
     // s is lol
 
+    // concatenation with the `+` operator and the `format!` macro //
+
+    // Concatenate two strings
+    let s1 = String::from("Hello, ");
+    let s2 = String::from("world!");
+    let s3 = s1 + &s2;
+    // `s1` has been moved here into the add call and can no longer be used.
+    // This statement actually takes ownership of `s1`,
+    // appends a copy of the contents of `s2`,
+    // and then returns ownership of the result.
+    println!("s3 is {s3}");
+    // s3 is Hello, world!
+
+    // Concatenate multiple strings
+    let s1 = String::from("tic");
+    let s2 = String::from("tac");
+    let s3 = String::from("toe");
+    let s = s1 + "-" + &s2 + "-" + &s3;
+    println!("s is {s}");
+    // s is tic-tac-toe
+
+    // Use the `format!` macro
+    let s1 = String::from("tic");
+    let s2 = String::from("tac");
+    let s3 = String::from("toe");
+    let s = format!("{s1}-{s2}-{s3}");
+    // This call doesn’t take ownership of any of its parameters
+    println!("s is {s}");
+    // s is tic-tac-toe
 }
