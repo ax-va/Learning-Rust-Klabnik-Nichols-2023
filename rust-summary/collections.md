@@ -38,7 +38,7 @@ It provides methods for appending, slicing, and modifying text,
 and can be easily converted from the string slice `&str` type (that is also UTF-8 encoded).
 
 - `String` owns its heap-allocated data, 
-whereas `&str` is a borrowed reference to some string data (without ownership);
+whereas `&str` is a borrowed reference to some string data (without ownership).
 
 - `String` is actually implemented as a wrapper around a vector of bytes, namely a wrapper over `Vec<u8>`,
 with some extra guarantees, restrictions, and capabilities.
@@ -47,8 +47,11 @@ with some extra guarantees, restrictions, and capabilities.
 
 ### Hash maps
 
-`HashMap<K, V>` is a hash table-based collection that stores key-value pairs, 
-allowing for efficient data retrieval based on keys. 
-It provides fast insertion, lookup, and removal of elements, with keys being unique within the map. 
-`HashMap` is commonly used when you need to associate data with unique identifiers 
-and supports flexible hashing strategies through the Hash and Eq traits.
+`HashMap<K, V>` is a hash table-based collection 
+that stores a mapping of keys of type `K` to values of type `V`.
+It provides fast insertion, lookup, and removal of elements, with keys being unique within the map.
+
+- By default, `HashMap` uses a hashing function called `SipHash` 
+that can provide resistance to *denial-of-service* (DoS) attacks involving hash tables. 
+    - You can switch to different hash functions by specifying a *hasher*.
+    - A hasher is a type that implements the `BuildHasher` trait.
