@@ -46,3 +46,7 @@ enum Result<T, E> {
 that will be returned in a success case within the `Ok` variant, 
 and `E` represents the type of the error 
 that will be returned in a failure case within the `Err` variant.
+
+## Propagating Errors
+
+Propagating errors is returning the error to the calling code to handle it later.
