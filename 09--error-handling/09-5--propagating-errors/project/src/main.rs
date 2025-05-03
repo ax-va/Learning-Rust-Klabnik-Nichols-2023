@@ -24,7 +24,7 @@ fn read_username_from_file_v1() -> Result<String, io::Error> {
     // Handle `Result` by using `match`
     let mut file = match file_result {
         Ok(file) => file,
-        Err(e) => return Err(e), // Stop the execution by returning `Err(e)`
+        Err(e) => return Err(e), // early return of a value out of the function
     };
 
     let mut username = String::new();
