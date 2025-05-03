@@ -22,7 +22,7 @@ fn main() {
     note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
      */
 
-    // The `expect` method returns the file handle or calls the `panic!` macro
+    // The `expect` method returns the value inside the `Ok` or calls the `panic!` macro
     // but lets us also choose the `panic!` error message.
 
     let greeting_file = File::open("hello.txt")
