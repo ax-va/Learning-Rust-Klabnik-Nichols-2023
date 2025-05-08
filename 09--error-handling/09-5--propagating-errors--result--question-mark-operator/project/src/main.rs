@@ -23,7 +23,7 @@ fn read_username_from_file_v1() -> Result<String, io::Error> {
     let file_result = File::open("hello.txt"); // returns a `Result<File, io::Error>`
     // Handle `Result` by using `match`
     let mut file = match file_result {
-        Ok(file) => file,
+        Ok(file) => file, // Unwrap `Ok`
         Err(e) => return Err(e), // early return of a value out of the function
     };
 
