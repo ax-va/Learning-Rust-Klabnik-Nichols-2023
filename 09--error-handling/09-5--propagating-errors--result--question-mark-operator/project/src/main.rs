@@ -42,7 +42,7 @@ fn read_username_from_file_v1() -> Result<String, io::Error> {
         // We cannot access `_` later.
         // In Rust, the underscore `_` is a *wildcard pattern*.
         // It means: "I don't care about the value here — I just want to match the shape."
-        Ok(_) => Ok(username), // Unwrap `username`
+        Ok(_) => Ok(username), // Wrap `username`
         Err(e) => Err(e),
     }
     // Return either `Ok` or `Err`
