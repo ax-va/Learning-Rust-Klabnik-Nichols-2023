@@ -37,7 +37,7 @@ fn read_username_from_file_v1() -> Result<String, io::Error> {
          */
         // but
         /*
-        Ok(_) => Ok(username),  // byte count is matched but ignored
+        Ok(_) => Ok(username),  // Byte count is matched but ignored
          */
         // We cannot access `_` later.
         // In Rust, the underscore `_` is a *wildcard pattern*.
