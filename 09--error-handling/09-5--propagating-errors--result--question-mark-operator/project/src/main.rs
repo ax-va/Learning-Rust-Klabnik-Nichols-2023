@@ -20,7 +20,7 @@ use std::io::{self, Read};
 // the calling code will receive an `Err` value
 // that holds an instance of `io::Error`.
 fn read_username_from_file_v1() -> Result<String, io::Error> {
-    let file_result = File::open("hello.txt"); // Returns `Result<File, io::Error>`
+    let file_result = File::open("hello.txt"); // returns a `Result<File, io::Error>`
     // Handle `Result` by using `match`
     let mut file = match file_result {
         Ok(file) => file,
