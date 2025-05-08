@@ -105,4 +105,4 @@ Hello, world!
 *Cargo* is Rust's build system and package manager. 
 It comes installed with Rust if you used the official installers.
 
-See also `cargo.md` for more information.
+See also `rust-summary/cargo.md` for more information.
