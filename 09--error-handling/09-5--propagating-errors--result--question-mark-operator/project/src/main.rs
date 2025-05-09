@@ -20,10 +20,10 @@ use std::io::{self, Read};
 // the calling code will receive an `Err` value
 // that holds an instance of `io::Error`.
 fn read_username_from_file_v1() -> Result<String, io::Error> {
-    let file_result = File::open("hello.txt"); // Returns `Result<File, io::Error>`
+    let file_result = File::open("hello.txt"); // returns a `Result<File, io::Error>`
     // Handle `Result` by using `match`
     let mut file = match file_result {
-        Ok(file) => file,
+        Ok(file) => file, // Unwrap `file`
         Err(e) => return Err(e), // early return of a value out of the function
     };
 
@@ -37,12 +37,12 @@ fn read_username_from_file_v1() -> Result<String, io::Error> {
          */
         // but
         /*
-        Ok(_) => Ok(username),  // byte count is matched but ignored
+        Ok(_) => Ok(username),  // Byte count is matched but ignored
          */
         // We cannot access `_` later.
         // In Rust, the underscore `_` is a *wildcard pattern*.
         // It means: "I don't care about the value here — I just want to match the shape."
-        Ok(_) => Ok(username),
+        Ok(_) => Ok(username), // Wrap `username`
         Err(e) => Err(e),
     }
     // Return either `Ok` or `Err`
