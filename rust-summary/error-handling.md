@@ -1,14 +1,25 @@
 # Error handling
 
-## Recoverable and unrecoverable errors
+## Unrecoverable and recoverable errors
 
 Instead of exceptions, Rust has 
 
-- the type `Result<T, E>` for *recoverable errors* 
-such as a file not found error;
-
 - the `panic!` macro that stops execution for *unrecoverable errors* 
-such as accessing a location beyond the end of an array.
+such as accessing a location beyond the end of an array;
+
+- the type `Result<T, E>` for *recoverable errors* 
+such as a file not found error.
+
+When code panics, there is no way to recover.
+When you choose to return a `Result` value, you give the calling code options:
+either attempt to recover in a way that is appropriate for its situation
+or turn your recoverable error into an unrecoverable one.
+
+Functions often have *contracts*: their behavior is only guaranteed 
+if the inputs meet particular requirements. 
+Panicking when the contract is violated makes sense 
+because a contract violation always indicates a caller-side bug, 
+and it is not a kind of error you want the calling code to have to explicitly handle.
 
 ## Unwinding vs. aborting
 

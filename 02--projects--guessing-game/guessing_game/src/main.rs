@@ -79,19 +79,24 @@ fn main() {
             // Without using `expect`, the program would compile with a warning
             // indicating that the program hasn't handled a possible error.
 
-        // Convert the input of type `String` to `u32` (an unsigned 32-bit integer)
+        // Convert the input of type `String` to `i32` (a signed 32-bit integer)
         // *shadowing* the `guess` variable to reuse it.
-        let guess: u32 = match guess
+        let guess: i32 = match guess
             // Eliminate any whitespace at the beginning and end because
             // if the user types 5 and presses ENTER, `guess` is either "5\n" or "5\r\n" on Windows.
             .trim()
             // `parse` returns an instance of type `Result`
             .parse() {
                 // first arm with pattern to match
-                Ok(num) => num,
+                Ok(num) => num, // returns unwrapped value
                 // second arm with pattern to match: match all `Err` values
-                Err(_) => continue,
+                Err(_) => continue, // starts the next iteration
             };
+
+        if guess < 1 || guess > 100 {
+            println!("The secret number will be between 1 and 100.");
+            continue;
+        }
 
         // The `{}` is used in text as a placeholder.
         // Examples:

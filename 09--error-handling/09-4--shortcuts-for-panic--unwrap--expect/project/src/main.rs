@@ -8,6 +8,7 @@ $ cargo run
 ```
  */
 use std::fs::File;
+use std::net::IpAddr;
 
 fn main() {
     // If the `Result` value is the `Ok` variant,
@@ -25,8 +26,8 @@ fn main() {
     // The `expect` method returns the value inside the `Ok` or calls the `panic!` macro
     // but lets us also choose the `panic!` error message.
 
-    let greeting_file = File::open("hello.txt")
-        .expect("`hello.txt` should be included in this project.");
+    // let greeting_file = File::open("hello.txt")
+    //     .expect("`hello.txt` should be included in this project.");
     /*
     thread 'main' panicked at src/main.rs:29:10:
     `hello.txt` should be included in this project.: Os { code: 2, kind: NotFound, message: "No such file or directory" }
@@ -35,4 +36,11 @@ fn main() {
 
     // In production-quality code, most Rustaceans choose `expect` over `unwrap`
     // and give more context about why the operation is expected to always succeed.
+
+    // Having a hardcoded, *valid* value does not change the return `Result` type of methods.
+    // It means we should still handle `Ok` and `Err`.
+    // In these cases, we can use `unwrap` or even better.
+    let home: IpAddr = "127.0.0.1"
+        .parse() // returns `Result`
+        .expect("Hardcoded IP address should be valid");
 }

@@ -1,30 +1,39 @@
-**associated functions**
+# Terms
+
+### Associated Functions
 
 All functions defined within an `impl` block are called `associated functions`.
 
-**borrowing**
+### Borrowing
 
 Creating a reference is called *borrowing*.
 
-**dangling pointer = a pointer that references a location in memory that may have been given to someone else**
+### Contracts
+
+Functions often have *contracts*: their behavior is only guaranteed if the inputs meet particular requirements. 
+Panicking when the contract is violated makes sense because a contract violation always indicates a caller-side bug, 
+and it is not a kind of error you want the calling code to have to explicitly handle.
+
+### Dangling Pointer = a pointer that references a location in memory that may have been given to someone else
 
 The memory can be freed up while preserving a pointer to that memory.
 In Rust, the compiler guarantees that references will never be dangling references.
 
-**ownership**
+### Ownership
 
 *Ownership* is a set of rules that govern how a Rust program manages memory in the *heap*.
 If any of the rules are violated, the program won't compile.
 
-**prelude**
+### Prelude
 
 By default, Rust has a set of items defined in the standard library.
 This set, called the *prelude*, will be brought into the scope of every program.
 
 See also:
+
 https://doc.rust-lang.org/std/prelude/index.html
 
-**RAII = Resource Acquisition Is Initialization**
+### RAII = Resource Acquisition Is Initialization
 
 In C++, the pattern of deallocating resources at the end of an item's lifetime 
 is sometimes called *Resource Acquisition Is Initialization (RAII)*. 
