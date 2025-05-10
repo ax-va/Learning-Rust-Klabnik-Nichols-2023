@@ -8,7 +8,7 @@ $ cargo run
 ```
  */
 
-// generics in function definitions
+/* generics in function definitions */
 
 // Explanation for `get_max`:
 // - The function is generic over some type `T`;
