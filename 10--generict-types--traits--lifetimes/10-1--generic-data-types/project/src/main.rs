@@ -10,7 +10,7 @@ $ cargo run
 
 /* generics in function definitions */
 
-// Explanation for `max`:
+// Explanation for the `max` function:
 // - The function is generic over some type `T`;
 // - The function has one parameter, which is a slice of values of type `T`;
 // - The function will return a reference to a value of the same type `T`;
