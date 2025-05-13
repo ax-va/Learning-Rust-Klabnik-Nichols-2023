@@ -19,6 +19,12 @@ and it is not a kind of error you want the calling code to have to explicitly ha
 The memory can be freed up while preserving a pointer to that memory.
 In Rust, the compiler guarantees that references will never be dangling references.
 
+### Monomorphization
+
+The compiler looks at all the places where generic code is called 
+and generates code for the concrete types the generic code is called with.
+When the code runs, it performs just as it would if we had duplicated each definition by hand.
+
 ### Ownership
 
 *Ownership* is a set of rules that govern how a Rust program manages memory in the *heap*.
