@@ -29,6 +29,7 @@ crate root file // root module in the library crate
 $ cd 07*
 $ cd 07-02*
 $ cargo new restaurant --lib
+$ cd restaurant
 $ cargo build
 ```
  */

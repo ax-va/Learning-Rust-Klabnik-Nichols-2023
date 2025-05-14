@@ -45,3 +45,9 @@ In C++, the pattern of deallocating resources at the end of an item's lifetime
 is sometimes called *Resource Acquisition Is Initialization (RAII)*. 
 The `drop` function in Rust will be familiar to you if you've used RAII patterns.
 Rust calls the `drop` function automatically at the closing curly bracket `}` to return the memory to the allocator.
+
+### Traits
+
+*Traits* are similar to what many other languages call *interfaces*, 
+and they define shared functionality that types can implement.
+Each type implementing a trait must provide its own implementation of trait's method signatures.
