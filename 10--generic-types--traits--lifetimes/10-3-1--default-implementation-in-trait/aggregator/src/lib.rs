@@ -12,7 +12,7 @@ This rule ensures that other people's code cannot break your code and vice versa
 
 ```
 $ cd 10*
-$ cd 10-2*
+$ cd 10-3-1*
 $ cargo new aggregator --lib
 $ cargo build
 ```
@@ -20,7 +20,13 @@ $ cargo build
 
 // trait to summarize information
 pub trait Summary {
-    fn summarize(&self) -> String;
+    // either a method signature
+    // fn summarize(&self) -> String;
+
+    // or a default implementation
+    fn summarize(&self) -> String {
+        String::from("(Read more...)")
+    }
 }
 
 pub struct NewsArticle {
@@ -31,9 +37,7 @@ pub struct NewsArticle {
 }
 
 impl Summary for NewsArticle {
-    fn summarize(&self) -> String {
-        format!("{}, by {} ({})", self.headline, self.author, self.location)
-    }
+    // We use a default implementation for `summarize`
 }
 
 pub struct Tweet {
