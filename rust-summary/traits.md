@@ -7,7 +7,7 @@ Each type implementing a trait must provide its own implementation of trait's me
 
 ```rust
 pub trait MyTrait {
-    fn some_method(&self) -> SomeType;
+    fn some_trait_method(&self) -> SomeType;
 }
 
 pub struct MyType {
@@ -15,7 +15,7 @@ pub struct MyType {
 }
 
 impl MyTrait for MyType {
-    fn some_method(&self) -> SomeType {
+    fn some_trait_method(&self) -> SomeType {
         // Implement the method
         // ...
     }
@@ -40,7 +40,7 @@ We cannot call the default implementation from an overriding implementation of t
 ```rust
 pub trait MyTrait {    
     // default implementation
-    fn some_method(&self) -> SomeType {
+    fn some_trait_method(&self) -> SomeType {
         // Implement the method
         // ...
     }
@@ -52,5 +52,51 @@ pub struct MyType {
 
 impl MyTrait for MyType { 
     // Use the default implementation
+}
+```
+
+## Traits as parameters and trait bounds
+
+We can use traits as parameters.
+
+This `impl` is actually *syntax sugar*
+```rust
+pub fn some_function(item: &impl MyTrait) {
+    println!("Using a trait method! {}", item.some_trait_method());
+}
+```
+
+for a longer form known as a *trait bound*
+```rust
+pub fn some_function<T: MyTrait>(item: &T) {
+    println!("Using a trait method! {}", item.some_trait_method());
+}
+```
+
+Similarly, for two parameters
+```rust
+pub fn some_function(item1: &impl MyTrait, item2: &impl MyTrait) {
+    // ...
+}
+```
+
+or on generic types
+```rust
+pub fn some_function<T: MyTrait>(item1: &T, item2: &T) {
+    // ...
+}
+```
+
+Specify multiple trait bounds with the `+` syntax to use methods from multiple traits in the function
+```rust
+pub fn some_function(item: &(impl MyTrait + Display)) {
+    // ...
+}
+```
+
+or on generic types
+```rust
+pub fn some_function<T: Summary + Display>(item: &T) {
+    // ...
 }
 ```

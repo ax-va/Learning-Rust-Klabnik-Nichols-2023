@@ -1,8 +1,11 @@
 /*
+```
 $ cd 10*
 $ cd 10-3-2*
 $ cd aggregator
+$ touch scr/file.txt
 $ cargo run
+```
  */
 
 // The `Summary` trait must also be in scope
