@@ -8,7 +8,7 @@ $ cargo run
 ```
  */
 
-// The `Summary` trait must also be also in scope
+// The `Summary` trait must also be in scope
 use aggregator::{Summary, Tweet, NewsArticle, notify_v1, notify_v2};
 
 fn main() {

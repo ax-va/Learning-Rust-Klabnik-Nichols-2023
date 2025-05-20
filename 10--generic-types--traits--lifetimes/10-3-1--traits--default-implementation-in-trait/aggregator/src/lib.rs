@@ -14,6 +14,7 @@ This rule ensures that other people's code cannot break your code and vice versa
 $ cd 10*
 $ cd 10-3-1*
 $ cargo new aggregator --lib
+$ cd aggregator
 $ cargo build
 ```
  */

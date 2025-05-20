@@ -14,12 +14,14 @@ This rule ensures that other people's code cannot break your code and vice versa
 $ cd 10*
 $ cd 10-3-2*
 $ cargo new aggregator --lib
+$ cd aggregator
 $ cargo build
 ```
  */
 
 // trait to summarize information
 pub trait Summary {
+    // This method can be used in the default implementation
     fn summarize_author(&self) -> String;
 
     fn summarize(&self) -> String {

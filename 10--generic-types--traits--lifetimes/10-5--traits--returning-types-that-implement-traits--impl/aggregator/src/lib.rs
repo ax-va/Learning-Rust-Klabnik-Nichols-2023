@@ -3,8 +3,9 @@ How to use traits to define functions that accept many different types.
 
 ```
 $ cd 10*
-$ cd 10-4*
+$ cd 10-5*
 $ cargo new aggregator --lib
+$ cd aggregator
 $ cargo build
 ```
  */
@@ -41,11 +42,21 @@ impl Summary for Tweet {
 }
 
 // This is actually *syntax sugar*
-pub fn notify_v1(item: &impl Summary) {
+pub fn notify(item: &impl Summary) {
     println!("Breaking news! {}", item.summarize());
 }
 
-// for a longer form known as a *trait bound*
-pub fn notify_v2<T: Summary>(item: &T) {
-    println!("Breaking news! {}", item.summarize());
+// Return a type that implements a trait
+pub fn return_summarizable() -> impl Summary {
+    Tweet {
+        username: String::from("horse_ebooks"),
+        content: String::from(
+            "of course, as you probably already know, people",
+        ),
+        reply: false,
+        retweet: false,
+    }
 }
+
+// However, we can only use `impl Trait` if we are returning a single type.
+// We cannot return in that function optionally either `Tweet` or `NewsArticle`.
