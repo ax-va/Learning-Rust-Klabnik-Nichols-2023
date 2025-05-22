@@ -17,6 +17,7 @@ fn main() { // outer scope
         let x = 5;
         // We attempt to set the value of `r` as a reference to `x`.
         // So we attempt to use a reference whose value has gone out of scope.
+        
         // compilation error: "error[E0597]: `x` does not live long enough"
         r = &x;
         //  ^^ borrowed value does not live long enough
