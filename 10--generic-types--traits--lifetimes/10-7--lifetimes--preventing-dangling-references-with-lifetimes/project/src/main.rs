@@ -34,7 +34,7 @@ fn main() { // outer scope
 // has gone out of scope before we try to use it, i.e.,
 // `x` will be out of scope when the inner scope ends.
 // But `r` is still valid for the outer scope
-// because its scope is larger; in other worden, `r` "lives longer".
+// because its scope is larger; in other words, `r` "lives longer".
 // When the inner scope ends, the memory allocated for `x` is deallocated,
 // and `r` would become a *dangling reference*.
 // The Rust compiler has a *borrow checker*
