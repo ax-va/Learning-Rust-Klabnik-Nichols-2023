@@ -18,5 +18,5 @@ The signature expresses the following constraint:
 Here
 - `'a` is a lifetime parameter;
 - `x: &'a str` means `x` is a reference to a `str` that lives at least as long as `'a`;
-- `-> &'a str` means the returned reference is valid for at least `'a`;
+- `-> &'a str` means the returned reference is valid for at least `'a`.
 
