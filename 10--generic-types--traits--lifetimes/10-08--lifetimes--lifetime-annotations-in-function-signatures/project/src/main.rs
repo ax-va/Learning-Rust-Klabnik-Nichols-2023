@@ -45,9 +45,7 @@ For more information about this error, try `rustc --explain E0106`.
 error: could not compile `project` (bin "project") due to 1 previous error
  */
 
-// Declare the generic *lifetime* parameters just as we did with generic *type* parameters.
-// The signature expresses the following constraint:
-// the returned reference will be valid as long as both the parameters are valid.
+// Declare the generic *lifetime* parameters just as we did with generic *type* parameters
 fn longest_v2<'a>(s1: &'a str, s2: &'a str) -> &'a str {
     if s1.len() > s2.len() {
         s1
