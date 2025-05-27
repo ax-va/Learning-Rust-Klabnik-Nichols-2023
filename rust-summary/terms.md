@@ -6,7 +6,18 @@ All functions defined within an `impl` block are called `associated functions`.
 
 ### Borrowing
 
-Creating a reference is called *borrowing*.
+*Borrowing* in Rust allows one part of code to access data without taking ownership of it, using references. 
+There are two types of borrowing: *immutable (read-only)* and *mutable (read-write)*, 
+but you can’t have both at the same time for the same data. 
+This system ensures memory safety and prevents data races by enforcing these rules at compile time.
+
+### Borrow Checker
+
+The *borrow checker* is a component of the Rust compiler that enforces the rules of ownership, borrowing, 
+and lifetimes to ensure memory safety without needing a *garbage collector*. 
+It ensures that references do not outlive the data they point to 
+and that you can't have mutable and immutable references to the same data at the same time. 
+This prevents common bugs like *data races*, *dangling pointers*, and *null references* at compile time.
 
 ### Contracts
 
@@ -14,10 +25,35 @@ Functions often have *contracts*: their behavior is only guaranteed if the input
 Panicking when the contract is violated makes sense because a contract violation always indicates a caller-side bug, 
 and it is not a kind of error you want the calling code to have to explicitly handle.
 
-### Dangling Pointer = a pointer that references a location in memory that may have been given to someone else
+### Dangling References / Dangling Pointers
 
 The memory can be freed up while preserving a pointer to that memory.
-In Rust, the compiler guarantees that references will never be dangling references.
+In Rust, *dangling references* occur when a reference points to memory that has been freed or is no longer valid
+This can lead to undefined behavior in other languages. 
+Rust prevents this at compile time using its ownership and borrowing rules, 
+ensuring that references cannot outlive the data they point to.
+
+In particular, returning references to local function variables results in a compile-time error in Rust.
+This is because local variables are dropped when the function returns, 
+and Rust's *borrow checker* ensures you can't return references to that invalid memory.
+
+Examples:
+
+- not allowed in Rust
+  ```rust
+  fn some_function() -> String {
+      let some_string = String::from("some string");
+      some_string.as_str() // Tries to return a reference to `some_string`
+  }
+  ```
+
+- allowed in Rust
+  ```rust
+  fn some_function() -> String {
+      let some_string = String::from("some string");
+      some_string // Returns the owned `String` by value, transferring ownership of `some_string` to the caller.
+  } // `some_string` is moved out of the function (not referenced), there's no risk of a dangling reference.
+  ```
 
 ### Monomorphization
 
