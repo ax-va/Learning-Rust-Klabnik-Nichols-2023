@@ -1,7 +1,7 @@
 /*
 ```
 $ cd 10*
-$ cd 10-09*
+$ cd 10-10*
 $ cargo new project
 $ cd project
 $ cargo run
@@ -15,6 +15,24 @@ struct ImportantExcerpt<'a> {
 }
 // An instance of `ImportantExcerpt` cannot outlive the reference
 // it holds in its part field.
+
+// Lifetime names for struct fields always need to be
+// 1. declared after the `impl` keyword
+// 2. and then used after the struct's name.
+impl<'a> ImportantExcerpt<'a> {
+    // The first elision rule applies to each parameter that is a reference
+    fn level(&self) -> i32 {
+        3
+    }
+}
+
+impl<'a> ImportantExcerpt<'a> {
+    // The third lifetime elision rule applies to the output lifetime parameter
+    fn announce_and_return_part(&self, announcement: &str) -> &str {
+        println!("Attention please: {announcement}");
+        self.part
+    }
+}
 
 fn main() {
     // owner

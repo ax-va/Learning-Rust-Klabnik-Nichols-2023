@@ -57,7 +57,7 @@ impl MyTrait for MyType {
 }
 ```
 
-## Traits as parameters and trait bounds
+## Traits as Parameters and Trait Bounds
 
 We can use traits as parameters.
 
@@ -103,7 +103,11 @@ pub fn some_function<T: Summary + Display>(item: &T) {
 }
 ```
 
-### `where` clauses
+### See also
+
+- https://doc.rust-lang.org/reference/trait-bounds.html
+
+### The `where` Clause
 
 Instead of
 
@@ -125,7 +129,7 @@ where
 }
 ```
 
-## Return types that implement traits
+## Return Types that Implement Traits
 
 ```rust
 fn return_my_traitable() -> impl MyTrait {
@@ -137,7 +141,12 @@ However, we can *only* use `impl Trait` if we are returning a *single type*.
 For example, we *cannot* return in that function optionally either `MyType1` or `MyType2`, 
 even if the both types implement `MyTrait`.
 
-## Conditional implementations
+## Conditional Implementations and Blanket Implementations
+
+- A *conditional implementation* for traits means
+that a trait is implemented for a type *only if* certain conditions or constraints are met.
+
+- A *blanket implementation* is when a trait is implemented for all types that satisfy certain trait bounds.
 
 ```rust
 use std::fmt::Display;
@@ -147,12 +156,14 @@ struct Pair<T> {
     y: T,
 }
 
+// unconditional implementation
 impl<T> Pair<T> {
     fn new(x: T, y: T) -> Self {
         Self { x, y }
     }
 }
 
+// conditional implementation
 impl<T: Display + PartialOrd> Pair<T> {
     fn cmp_display(&self) {
         if self.x >= self.y {
@@ -164,16 +175,17 @@ impl<T: Display + PartialOrd> Pair<T> {
 }
 ```
 
-We can also conditionally implement a `trait for` any type that implements another trait.
-This is called *blanket implementations*.
-For example, the standard library implement the `ToString` trait on any `T` type that implements the `Display` trait.
+### Blanket Implementation
+
 ```rust
+// This says: "Implement the `ToString` trait for any type `T`, but only if `T` also implements `Display`".
+// This means every type that implements `Display` automatically gets a `ToString` implementation.
 impl<T: Display> ToString for T {
     // ...
 }
 ```
 
-Integers implement the `Display` trait
+Integers implement the `Display` trait,
 so we can the `to_string` method defined by the `ToString` trait.
 ```rust
 let s = 3.to_string();

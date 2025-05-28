@@ -50,3 +50,26 @@ pub fn notify_v1(item: &impl Summary) {
 pub fn notify_v2<T: Summary>(item: &T) {
     println!("Breaking news! {}", item.summarize());
 }
+
+/*`where` clauses for trait bounds */
+
+// Instead of
+/*
+```rust
+fn some_function<T: Display + Clone, U: Clone + Debug>(t: &T, u: &U) -> i32 {
+    // ...
+}
+```
+ */
+// use a `where` clause for clearer trait bounds
+/*
+```rust
+fn some_function<T, U>(t: &T, u: &U) -> i32
+where
+    T: Display + Clone,
+    U: Clone + Debug,
+{
+    // ...
+}
+```
+ */
