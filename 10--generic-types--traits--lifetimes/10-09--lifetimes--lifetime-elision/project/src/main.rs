@@ -12,7 +12,7 @@ Three *lifetime elision rules*:
 
 
 2. If there is exactly one input lifetime parameter,
-that lifetime is assigned to all output lifetime parameters:
+that lifetime is assigned to all output lifetime parameters, e.g.,
 
     | before                           | after                               |
     |----------------------------------|-------------------------------------|
