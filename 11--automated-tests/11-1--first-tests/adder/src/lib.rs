@@ -26,6 +26,8 @@ running 0 tests
 test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
 ```
 
+The second part of test results belongs to Doc-tests.
+
 ```
 $ cargo test
    Compiling adder v0.1.0 (.../Learning-Rust-Klabnik-Nichols-2023/11--automated-tests/11-1/adder)
@@ -64,6 +66,8 @@ pub fn add(left: u64, right: u64) -> u64 {
 #[cfg(test)]
 // test module
 mod tests {
+    // Because the tests module is an inner module,
+    // we need to bring the code under test into the scope of the inner module.
     use super::*;
 
     // Indicate a test function, so the test runner
