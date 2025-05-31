@@ -7,7 +7,6 @@ $ cd project
 ```
 
 Run all tests in the project
-
 ```
 $ cargo test
 ```
