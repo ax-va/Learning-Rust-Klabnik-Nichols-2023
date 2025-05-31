@@ -1,7 +1,7 @@
 /*
 ```
 $ cd 11*
-$ cd 11-2*
+$ cd 11-3*
 $ cargo new project --lib
 $ cd project
 ```
@@ -52,6 +52,7 @@ mod tests {
         let result = greeting_v2("Carol");
         assert!(
             result.contains("Carol"),
+            // custom failure message
             "Greeting did not contain name, the actual greeting is `{result}`."
         );
     }
