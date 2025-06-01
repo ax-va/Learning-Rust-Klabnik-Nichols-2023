@@ -6,10 +6,13 @@ It comes installed with Rust if you used the official installers.
 ```unix
 $ cargo --version
 cargo 1.83.0 (5ffbef321 2024-10-29)
+```
 
 ## Create a Cargo project
 
-`cargo new <project>` creates a new directory and project.
+- `$ cargo new <project>` creates a `<project>` directory with `main.rs`;
+
+- `$cargo new <project> --lib` creates a `<project>` directory with `lib.rs`.
 
 ```unix
 $ 01*/01-2*
@@ -19,7 +22,7 @@ note: see more `Cargo.toml` keys and their definitions at https://doc.rust-lang.
 $ cd hello_cargo
 ```
 The command creates `Cargo.toml`, `scr/main.rs` and a Git repo along with `.gitignore` 
-if you do not run `cargo new` within an existing Git repo. 
+if you don't run `cargo new` within an existing Git repo. 
 To create a git repo anyway, use the `--vcs=git` flag.
 
 Run `cargo new --help` to see the available options.
@@ -37,7 +40,9 @@ Build the project:
     Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.30s
 ```
 
-This creates an executable file `target/debug/hello_cargo`. Run it:
+This command created an executable file `target/debug/hello_cargo`. 
+
+Run it:
 ```unix
 .../hello_cargo$ ./target/debug/hello_cargo
 Hello, world!
@@ -91,3 +96,18 @@ $ cargo update
 This command will ignore the `Cargo.lock` file and figure out all the latest versions 
 that fit your specifications in `Cargo.toml`. 
 Cargo will then write those versions to the `Cargo.lock` file.
+
+## Cargo for tests
+
+Compile code in test mode and run the resultant test binary to execute 
+all the tests in parallel and capture output generated during test runs in the test results.
+
+```unix
+cargo test 
+```
+
+Some command line options go to `cargo test`, and some go to the resultant test binary:
+
+- `$ cargo test --help` displays the options to use with `cargo test`;
+
+- `$ cargo test -- --help` displays the options to use with the resultant test binary.
