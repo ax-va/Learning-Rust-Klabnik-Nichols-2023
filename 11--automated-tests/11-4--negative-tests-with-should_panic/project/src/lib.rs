@@ -41,6 +41,8 @@ impl Guess {
 
 #[cfg(test)]
 mod tests {
+    // Because the tests module is an inner module,
+    // we need to bring the code under test into the scope of the inner module.
     use super::*;
 
     #[test]
