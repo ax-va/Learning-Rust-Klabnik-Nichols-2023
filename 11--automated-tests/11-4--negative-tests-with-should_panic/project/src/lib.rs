@@ -47,7 +47,7 @@ mod tests {
     // The test passes
     // 1. if any part of the function panics
     // 2. and the panic message contains the `expected` string.
-    #[should_panic(expected = "less than or equal to 100")]
+    #[should_panic(expected="less than or equal to 100")]
     fn greater_than_100() {
         // Does panic.
         Guess::new(101); // Execution stops.
