@@ -10,9 +10,9 @@ cargo 1.83.0 (5ffbef321 2024-10-29)
 
 ## Create a Cargo project
 
-- `$ cargo new <project>` creates a `<project>` directory with `main.rs`;
+- `cargo new <project>` creates a `<project>` directory with `main.rs`;
 
-- `$cargo new <project> --lib` creates a `<project>` directory with `lib.rs`.
+- `cargo new <project> --lib` creates a `<project>` directory with `lib.rs`.
 
 ```unix
 $ 01*/01-2*
@@ -108,6 +108,6 @@ cargo test
 
 Some command line options go to `cargo test`, and some go to the resultant test binary:
 
-- `$ cargo test --help` displays the options to use with `cargo test`;
+- `cargo test --help` displays the options to use with `cargo test`;
 
-- `$ cargo test -- --help` displays the options to use with the resultant test binary.
+- `cargo test -- --help` displays the options to use with the resultant test binary.
