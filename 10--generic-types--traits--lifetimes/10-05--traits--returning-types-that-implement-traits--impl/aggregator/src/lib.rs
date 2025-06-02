@@ -1,6 +1,4 @@
 /*
-How to use traits to define functions that accept many different types.
-
 ```
 $ cd 10*
 $ cd 10-05*
@@ -8,6 +6,9 @@ $ cargo new aggregator --lib
 $ cd aggregator
 $ cargo build
 ```
+
+How to use traits to define functions that accept many different types.
+
  */
 
 // trait to summarize information

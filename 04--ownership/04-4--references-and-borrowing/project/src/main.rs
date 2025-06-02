@@ -1,7 +1,4 @@
 /*
-
-The action of creating a reference is called *borrowing*.
-
 ```
 $ cd 04*
 $ cd 04-4*
@@ -9,6 +6,9 @@ $ cargo new project
 $ cd project
 $ cargo run
 ```
+
+The action of creating a reference is called *borrowing*.
+
  */
 
 fn calculate_length(s: &String) -> usize { // The type of the parameter `s` is a reference.

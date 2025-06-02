@@ -6,7 +6,17 @@ $ cargo new adder --lib
 $ cd adder
 ```
 
-Run all tests in the project
+Run all the tests in the project in parallel
+```
+$ cargo test
+```
+
+Run all the tests in the project in one thread
+```
+$ cargo test -- --test-threads=1
+```
+
+After the first `--`, we set options for the test binary.
 
 ```
 $ cargo test

@@ -1,4 +1,11 @@
 /*
+```
+$ cd 06*
+$ cd 06-2*
+$ cargo new project
+$ cd project
+$ cargo run
+```
 
 In programming languages with null, variables can always be in one of two states: null or not-null.
 Rust doesn't have the null value.
@@ -36,13 +43,6 @@ But I couldn't resist the temptation to put in a null reference, simply because 
 This has led to innumerable errors, vulnerabilities, and system crashes,
 which have probably caused a billion dollars of pain and damage in the last forty years."
 
-```
-$ cd 06*
-$ cd 06-2*
-$ cargo new project
-$ cd project
-$ cargo run
-```
  */
 
 fn main() {

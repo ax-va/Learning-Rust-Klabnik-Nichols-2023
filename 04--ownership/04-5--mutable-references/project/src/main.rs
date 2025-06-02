@@ -1,4 +1,11 @@
 /*
+```
+$ cd 04*
+$ cd 04-5*
+$ cargo new project
+$ cd project
+$ cargo run
+```
 
 If you have a mutable reference to a value,
 its use with other (mutable or immutable) references to that value is *restricted*.
@@ -11,13 +18,6 @@ that happen when these three behaviors occur:
 - At least one of the pointers is being used to write to the data.
 - There is no mechanism being used to synchronize access to the data.
 
-```
-$ cd 04*
-$ cd 04-5*
-$ cargo new project
-$ cd project
-$ cargo run
-```
  */
 
 fn change(some_string: &mut String) {

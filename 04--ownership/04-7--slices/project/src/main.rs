@@ -1,4 +1,11 @@
 /*
+```
+$ cd 04*
+$ cd 04-7*
+$ cargo new project
+$ cd project
+$ cargo run
+```
 
 String slices:
 
@@ -18,13 +25,6 @@ Difference between string slices and strings:
 - The `&str` type is an immutable reference to a string slice that does not own the data.
 - The `String` type is an owned, heap-allocated string that is mutable and growable.
 
-```
-$ cd 04*
-$ cd 04-7*
-$ cargo new project
-$ cd project
-$ cargo run
-```
  */
 
 fn first_word(s: &str) -> &str { // The `&str` type is an immutable reference to a string slice

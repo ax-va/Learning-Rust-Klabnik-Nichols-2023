@@ -6,7 +6,7 @@ $ cargo new project --lib
 $ cd project
 ```
 
-Run all tests in the project
+Run all the tests in the project in parallel
 ```
 $ cargo test
 ...

@@ -1,9 +1,4 @@
 /*
-
-The `if let` syntax lets us handle values that match one pattern while ignoring the rest.
-The code in the `if let` block isn't run if the value doesn't match the pattern.
-There is also `if let ... else`.
-
 ```
 $ cd 06*
 $ cd 06-6*
@@ -11,6 +6,11 @@ $ cargo new project
 $ cd project
 $ cargo run
 ```
+
+The `if let` syntax lets us handle values that match one pattern while ignoring the rest.
+The code in the `if let` block isn't run if the value doesn't match the pattern.
+There is also `if let ... else`.
+
  */
 
  #[derive(Debug)] // to inspect the state

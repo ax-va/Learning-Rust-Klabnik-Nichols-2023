@@ -1,4 +1,12 @@
 /*
+```
+$ cd 10*
+$ cd 10-03-1*
+$ cargo new aggregator --lib
+$ cd aggregator
+$ cargo build
+```
+
 *Traits* are similar to what many other languages call *interfaces*,
 and they define shared functionality that types can implement.
 Each type implementing a trait must provide its own implementation of trait's method signatures.
@@ -10,13 +18,6 @@ But we cannot implement external traits on external types, for example, the `Dis
 This restriction is part of a property called *coherence*, and more specifically the *orphan rule*.
 This rule ensures that other people's code cannot break your code and vice versa.
 
-```
-$ cd 10*
-$ cd 10-03-1*
-$ cargo new aggregator --lib
-$ cd aggregator
-$ cargo build
-```
  */
 
 // trait to summarize information

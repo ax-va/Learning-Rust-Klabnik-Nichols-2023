@@ -1,6 +1,4 @@
 /*
-We consider variables, mutability, constants, ans shadowing.
-
 ```
 $ cd 03*
 $ cd 03-1*
@@ -8,7 +6,10 @@ $ cargo new project
 $ cd project
 $ cargo run
 ```
-*/
+
+We consider variables, mutability, constants, ans shadowing.
+
+ */
 
 fn main() {
 

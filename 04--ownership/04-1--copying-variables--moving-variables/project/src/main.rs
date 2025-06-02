@@ -1,7 +1,4 @@
 /*
-
-Variables of different types are copied in different ways in Rust.
-
 ```
 $ cd 04*
 $ cd 04-1*
@@ -9,6 +6,9 @@ $ cargo new project
 $ cd project
 $ cargo run
 ```
+
+Variables of different types are copied in different ways in Rust.
+
  */
 
 fn main() {

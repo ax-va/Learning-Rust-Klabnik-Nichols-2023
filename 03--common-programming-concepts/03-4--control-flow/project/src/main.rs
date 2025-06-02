@@ -1,4 +1,12 @@
 /*
+```
+$ cd 03*
+$ cd 03-4*
+$ cargo new project
+$ cd project
+$ cargo run
+```
+
 Notices:
 
 - Blocks of code associated with the conditions in the `if` expressions are sometimes called *arms*.
@@ -19,14 +27,7 @@ Rust has three kinds of loops: `loop`, `while`, and `for`.
 Optionally specify a *loop label* on a loop to specify
 that the `break` and `continue` keywords are applied to the labeled loop instead of the innermost loop.
 
-```
-$ cd 03*
-$ cd 03-4*
-$ cargo new project
-$ cd project
-$ cargo run
-```
-*/
+ */
 
 fn main() {
     //////////////////////

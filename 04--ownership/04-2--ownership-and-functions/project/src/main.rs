@@ -1,6 +1,4 @@
 /*
-Passing a variable to a function will move or copy, just as assignment does.
-
 ```
 $ cd 04*
 $ cd 04-2*
@@ -8,6 +6,9 @@ $ cargo new project
 $ cd project
 $ cargo run
 ```
+
+Passing a variable to a function will move or copy, just as assignment does.
+
  */
 
 fn takes_ownership(some_string: String) { // `some_string` comes into scope.

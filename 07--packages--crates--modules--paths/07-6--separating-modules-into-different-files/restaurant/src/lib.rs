@@ -1,4 +1,12 @@
 /*
+```
+$ cd 07*
+$ cd 07-02*
+$ cargo new restaurant --lib
+$ cd restaurant
+$ cargo build
+```
+
 Module tree:
 
 crate root file // root module in the library crate
@@ -25,13 +33,6 @@ crate root file // root module in the library crate
 |-- eat_at_restaurant // public function
 |-- ...
 
-```
-$ cd 07*
-$ cd 07-02*
-$ cargo new restaurant --lib
-$ cd restaurant
-$ cargo build
-```
  */
 
 // created automatically for the library crate

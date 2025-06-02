@@ -1,4 +1,12 @@
 /*
+```
+$ cd 03*
+$ cd 03-2*
+$ cargo new project
+$ cd project
+$ cargo run
+```
+
 Rust is a *statically typed* language, which means
 that it must know the types of all variables at compile time.
 
@@ -18,17 +26,10 @@ Use arrays when working with a collection of elements of the *same* type.
 
 - Types of an unknown size to allocate in the heap:
 
-The String type manages data allocated on the heap and
+The `String` type manages data allocated on the heap and
 is able to store an amount of text that is not defined at compile time.
 
-```
-$ cd 03*
-$ cd 03-2*
-$ cargo new project
-$ cd project
-$ cargo run
-```
-*/
+ */
 
 fn main() {
 

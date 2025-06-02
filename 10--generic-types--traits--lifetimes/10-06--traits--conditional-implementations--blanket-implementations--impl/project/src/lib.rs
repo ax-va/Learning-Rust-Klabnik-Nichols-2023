@@ -1,9 +1,4 @@
 /*
-- A *conditional implementation* for traits means
-that a trait is implemented for a type *only if* certain conditions or constraints are met.
-
-- A *blanket implementation* is when a trait is implemented for all types that satisfy certain trait bounds.
-
 ```
 $ cd 10*
 $ cd 10-06*
@@ -11,6 +6,14 @@ $ cargo new project --lib
 $ cd project
 $ cargo build
 ```
+
+Notices:
+
+- A *conditional implementation* for traits means
+that a trait is implemented for a type *only if* certain conditions or constraints are met.
+
+- A *blanket implementation* is when a trait is implemented for all types that satisfy certain trait bounds.
+
  */
 use std::fmt::Display;
 

@@ -1,4 +1,12 @@
 /*
+```
+$ cd 03*
+$ cd 03-3*
+$ cargo new project
+$ cd project
+$ cargo run
+```
+
 Notices:
 
 - Rust code uses *snake case* as the conventional style for function and
@@ -19,14 +27,7 @@ Expressions do not include ending semicolons.
 - You can return early from a function by using the `return` keyword and specifying a value,
 but most functions return the last expression *implicitly*.
 
-```
-$ cd 03*
-$ cd 03-3*
-$ cargo new project
-$ cd project
-$ cargo run
-```
-*/
+ */
 
 // In function signatures,
 // you *must* declare the type of each parameter

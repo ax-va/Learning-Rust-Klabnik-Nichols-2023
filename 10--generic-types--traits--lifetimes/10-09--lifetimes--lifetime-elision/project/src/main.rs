@@ -1,4 +1,12 @@
 /*
+```
+$ cd 10*
+$ cd 10-09*
+$ cargo new project
+$ cd project
+$ cargo run
+```
+
 Three *lifetime elision rules*:
 
 1. The compiler assigns an input lifetime parameter to each parameter that is a reference, e.g.,
@@ -23,13 +31,6 @@ that lifetime is assigned to all output lifetime parameters, e.g.,
 but one of them is `&self` or `&mut self` because this is a method,
 the lifetime of `self` is assigned to all output lifetime parameters.
 
-```
-$ cd 10*
-$ cd 10-09*
-$ cargo new project
-$ cd project
-$ cargo run
-```
  */
 
 // In earlier versions of Rust, before the compiler included *lifetime elision rules*,

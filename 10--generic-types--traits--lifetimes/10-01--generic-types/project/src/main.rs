@@ -1,11 +1,4 @@
 /*
-Consider generics in
-
-- function definitions
-- struct definitions
-- enum definitions
-- methods definitions
-
 ```
 $ cd 10*
 $ cd 10-01*
@@ -13,6 +6,14 @@ $ cargo new project
 $ cd project
 $ cargo run
 ```
+
+Consider generics in
+
+- function definitions
+- struct definitions
+- enum definitions
+- methods definitions
+
  */
 
 /* generics in function definitions */

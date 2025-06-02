@@ -1,7 +1,7 @@
 /*
 ```
 $ cd 05*
-$ cd 05-1*
+$ cd 05-2*
 $ cargo new project
 $ cd project
 $ cargo run

@@ -1,8 +1,4 @@
 /*
-Match patterns:
-- `other` = the catch-all pattern,
-- `_` = the catch-all pattern without using the value in the pattern
-
 ```
 $ cd 06*
 $ cd 06-5*
@@ -10,6 +6,11 @@ $ cargo new project
 $ cd project
 $ cargo run
 ```
+
+Match patterns:
+- `other` = the catch-all pattern,
+- `_` = the catch-all pattern without using the value in the pattern
+
  */
 
 fn add_fancy_hat() {}
