@@ -103,7 +103,7 @@ Compile code in test mode and run the resultant test binary to execute
 all the tests in parallel and capture output generated during test runs in the test results.
 
 ```unix
-cargo test 
+$ cargo test 
 ```
 
 Some command line options go to `cargo test`, and some go to the resultant test binary:
