@@ -6,9 +6,9 @@ $ cargo new project --lib
 $ cd project
 ```
 
-By default, the `println!` output will not be printed for passing tests.
+By default, the `println!` output will not be printed in passing tests.
 If a test fails, we will see whatever was printed to standard output
-for the failed test with the rest of the failure message.
+in the failed test with the rest of the failure message.
 
 Run all the tests in the project in parallel
 ```
@@ -37,7 +37,7 @@ test result: FAILED. 1 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; 
 error: test failed, to rerun pass `--lib`
 ```
 
-Set the option to see printed values for passing tests as well.
+Set the option to see printed values in passing tests as well.
 
 ```unix
 $ cargo test -- --show-output
