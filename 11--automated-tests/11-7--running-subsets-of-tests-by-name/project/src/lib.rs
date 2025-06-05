@@ -9,7 +9,7 @@ $ cd project
 We can choose which tests to run by passing `cargo test`
 the name or names of the test(s) we want to run as an argument.
 
-- Run a single test. The other test were filtered out.
+- Run a single test. The other tests were filtered out.
 ```
 $ cargo test one_hundred
 ...
@@ -19,7 +19,7 @@ test tests::one_hundred ... ok
 test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 2 filtered out; finished in 0.00s
 ```
 
-- Run multiple tests: run all tests with `add` in the name and filtered out the other tests.
+- Run multiple tests: run only the tests with `add` in the name and filtered out the other tests.
 ```
 $ cargo test add
 ...
