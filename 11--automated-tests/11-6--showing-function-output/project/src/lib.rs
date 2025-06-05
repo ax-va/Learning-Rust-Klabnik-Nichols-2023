@@ -6,7 +6,7 @@ $ cargo new project --lib
 $ cd project
 ```
 
-By default, the `println!` output will not be printed in passing tests.
+By default, the `println!` output will not be printed for passing tests.
 If a test fails, we will see whatever was printed to standard output
 in the failed test with the rest of the failure message.
 
