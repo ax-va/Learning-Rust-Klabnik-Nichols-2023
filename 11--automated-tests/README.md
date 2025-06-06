@@ -11,10 +11,9 @@ Unit tests should be fast and deterministic.
 In Rust: put unit tests in the `src` directory in each file with the code 
 that the unit tests are testing, and annotate the module with `#[cfg(test)]`.
 
-The `#[cfg(test)]` annotation on the tests module tells Rust 
-to compile and run the test code only when you run `cargo test`, 
-not when you run `cargo build`.
-This saves compile time and saves space in the resultant compiled artifact when you run `cargo build`.
+The `#[cfg(test)]` annotation on the tests module tells Rust to compile 
+and run the test code only when you run `cargo test`, not when you run `cargo build`.
+So using the `cargo build` command saves compile time and space in the resultant compiled artifact.
 
 The attribute `cfg` stands for configuration and tells Rust 
 that the following item should only be included given a certain configuration option.
