@@ -40,7 +40,8 @@ The `cfg` attribute stands for *configuration* and is used
 to conditionally include code based on the specified configuration options. 
 In this case, `#[cfg(test)]` ensures that the annotated items are included only when tests are being compiled.
 
-As a result, any code inside the `#[cfg(test)]` module (including helper functions and functions marked with `#[test]`) 
+As a result, any code inside the `#[cfg(test)]` module 
+(including helper functions and functions marked with `#[test]`) 
 is compiled only when running `cargo test`.
 
 When you run `cargo run`, 
