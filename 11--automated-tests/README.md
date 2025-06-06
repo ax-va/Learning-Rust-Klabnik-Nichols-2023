@@ -44,8 +44,8 @@ As a result, any code inside the `#[cfg(test)]` module
 (including helper functions and functions marked with `#[test]`) 
 is compiled only when running `cargo test`.
 
-When you run `cargo run`, 
-Rust does not compile or include any code inside modules or items annotated with `#[cfg(test)]`.
+When you run `cargo run`, Rust does not compile 
+or include any code inside modules or items annotated with `#[cfg(test)]`.
 
 #### Testing Private Functions
 
