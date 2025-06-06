@@ -8,18 +8,43 @@ The purpose of *unit tests* is to test individual components in isolation,
 using mocks or stubs to simulate external dependencies.
 Unit tests should be fast and deterministic.
 
-In Rust: put unit tests in the `src` directory in each file with the code 
+In Rust: 
+
+- Put unit tests in the `src` directory in each file with the code 
 that the unit tests are testing, and annotate the module with `#[cfg(test)]`.
 
-The `#[cfg(test)]` annotation on the tests module tells Rust to compile 
-and run the test code only when you run `cargo test`, not when you run `cargo build`.
-So using the `cargo build` command saves compile time and space in the resultant compiled artifact.
+```rust
+pub fn add_two(value: i32) -> i32 {
+    value + 2
+}
 
-The attribute `cfg` stands for configuration and tells Rust 
-that the following item should only be included given a certain configuration option.
-By using the `cfg` attribute, Cargo compiles our test code only if we actively run the tests with `cargo test`.
-This includes any helper functions that might be within this module, 
-in addition to the functions annotated with `#[test]`.
+#[cfg(test)]
+mod tests {
+    // Because the tests module is an inner module,
+    // we need to bring the code under test into the scope of the inner module.
+    use super::*;
+
+    #[test]
+    fn internal() {
+        assert_eq!(4, add_two(2, 2));
+    }
+}
+```
+
+The `#[cfg(test)]` attribute on the `tests` module tells Rust to compile 
+and include the test code **only** when you run `cargo test`, not when you run `cargo build`. 
+This means that using `cargo build` skips compiling test-related code, 
+saving both compile time and space in the resulting binary.
+
+The `cfg` attribute stands for *configuration* and is used 
+to conditionally include code based on the specified configuration options. 
+In this case, `#[cfg(test)]` ensures that the annotated items are included only when tests are being compiled.
+
+As a result, any code inside the `#[cfg(test)]` module - including helper functions and functions marked with `#[test]`
+- is compiled only when running `cargo test`.
+
+When you run `cargo run`, 
+Rust does not compile or include any code inside modules or items annotated with `#[cfg(test)]`.
 
 #### Testing Private Functions
 
@@ -27,13 +52,13 @@ Rust allows us to test private functions because `tests` is a child module
 and items in child modules can use the items in their ancestor modules by using `use super::*;`.
 
 ```rust
-pub fn add_two(a: i32) -> i32 {
-    internal_adder(a, 2)
+pub fn add_two(value: i32) -> i32 {
+    internal_adder(value, 2)
 }
 
 // private function
-fn internal_adder(a: i32, b: i32) -> i32 {
-    a + b
+fn internal_adder(value1: i32, value2: i32) -> i32 {
+    value1 + value2
 }
 
 #[cfg(test)]
