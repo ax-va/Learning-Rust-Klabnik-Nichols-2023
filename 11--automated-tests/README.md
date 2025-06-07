@@ -11,7 +11,7 @@ Unit tests should be fast and deterministic.
 In Rust: 
 
 - Put unit tests in the `src` directory in each file with the code 
-that the unit tests are testing, and annotate the module with `#[cfg(test)]`.
+that the unit tests are testing. Annotate the module with `#[cfg(test)]`.
 
 ```rust
 pub fn add_two(value: i32) -> i32 {
