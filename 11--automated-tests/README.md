@@ -131,6 +131,6 @@ project
 
 #### No Integration Tests for Binary Crates
 
-If our project is a binary crate that only contains a `src/main.rs` file and doesn't have a `src/lib.rs file`, 
+If our project is a binary crate that only contains a `src/main.rs` file and doesn't have a `src/lib.rs` file, 
 we cannot create integration tests in the `tests` directory 
 and bring functions defined in the `src/main.rs` file into scope with a `use` statement.
