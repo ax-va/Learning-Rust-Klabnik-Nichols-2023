@@ -11,7 +11,9 @@ Unit tests should be fast and deterministic.
 In Rust: 
 
 - Put unit tests in the `src` directory in each file with the code 
-that the unit tests are testing, and annotate the module with `#[cfg(test)]`.
+that the unit tests are testing.
+
+- Add a module to the file and annotate the module with `#[cfg(test)]`.
 
 ```rust
 pub fn add_two(value: i32) -> i32 {
@@ -129,6 +131,6 @@ project
 
 #### No Integration Tests for Binary Crates
 
-If our project is a binary crate that only contains a `src/main.rs` file and doesn't have a `src/lib.rs file`, 
+If our project is a binary crate that only contains a `src/main.rs` file and doesn't have a `src/lib.rs` file, 
 we cannot create integration tests in the `tests` directory 
 and bring functions defined in the `src/main.rs` file into scope with a `use` statement.
