@@ -5,7 +5,7 @@ $ cargo new minigrep
 $ cd minigrep
 ```
 
-Create a program like grep: (g)lobally search a (r)egular (e)xpression and (p)rint.
+Create a program like grep, (g)lobally search a (r)egular (e)xpression and (p)rint.
 
 Run the program with two arguments.
 Two hyphens (`--`) indicates that the arguments are for the program rather than for Cargo.
