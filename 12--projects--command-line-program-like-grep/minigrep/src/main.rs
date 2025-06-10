@@ -45,7 +45,7 @@ fn main() {
     // `fs::read_to_string(file_path)` opens the file,
     // and returns an `std::io::Result<String>` of the file's contents.
     let contents = fs::read_to_string(file_path)
-        // Set a messages if reading the file leads to panic
+        // Set a message if reading the file leads to panic
         .expect("Should have been able to read the file.");
     println!("Content:\n{contents}");
     /*
