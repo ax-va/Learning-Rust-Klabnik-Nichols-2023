@@ -55,6 +55,8 @@ Examples:
   } // `some_string` is moved out of the function (not referenced), there's no risk of a dangling reference.
   ```
 
+### grep = (g)lobally search a (r)egular (e)xpression and (p)rint
+
 ### Monomorphization
 
 The compiler looks at all the places where generic code is called 
