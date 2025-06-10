@@ -39,7 +39,7 @@ fn main() {
     let query = &args[1];
     // Put a reference to the second argument in the variable `file_path`
     let file_path = &args[2];
-    //println!("Searching for '{}' in '{}'...", query, file_path);
+    // println!("Searching for '{}' in '{}'...", query, file_path);
     // Searching for 'search_string' in 'poem.txt'...
 
     // `fs::read_to_string(file_path)` opens the file,
