@@ -10,7 +10,8 @@ Create a program like grep, (g)lobally search a (r)egular (e)xpression and (p)ri
 Run the program with two arguments.
 Two hyphens (`--`) indicates that the arguments are for the program rather than for Cargo.
 ```
-$ cargo run -- search_string poem.txt
+$ cargo run -- search_string file.txt
+$ cargo run -- the poem.txt
 ```
  */
 use std::env;
@@ -31,7 +32,7 @@ fn main() {
     args = [
         "target/debug/minigrep",
         "search_string",
-        "poem.txt",
+        "file.txt",
     ]
      */
 
@@ -40,9 +41,9 @@ fn main() {
     // Put a reference to the second argument in the variable `file_path`
     let file_path = &args[2];
     // println!("Searching for '{}' in '{}'...", query, file_path);
-    // Searching for 'search_string' in 'poem.txt'...
+    // Searching for 'search_string' in 'file.txt'...
 
-    // `fs::read_to_string(file_path)` opens the file,
+    // `fs::read_to_string(file_path)` opens the `poem.txt` file,
     // and returns an `std::io::Result<String>` of the file's contents.
     let contents = fs::read_to_string(file_path)
         // Set a message if reading the file leads to panic
