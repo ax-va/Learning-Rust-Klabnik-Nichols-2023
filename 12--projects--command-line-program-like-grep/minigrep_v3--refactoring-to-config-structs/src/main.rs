@@ -1,8 +1,8 @@
 /*
 ```
 $ cd 12*
-$ cargo new minigrep
-$ cd minigrep
+$ cargo new minigrep_v3--refactoring-helper-structs
+$ cd minigrep_v3*
 ```
 
 Create a program like grep, (g)lobally search a (r)egular (e)xpression and (p)rint.
@@ -21,31 +21,11 @@ fn main() {
     // Read any command line arguments passed to it,
     // and then collect the values into a vector.
     let args: Vec<String> = env::args().collect();
-    // Notices:
-    // 1. `std::env::args` will panic if any argument contains invalid Unicode.
-    // 2. We can use the collect function to create many kinds of collections,
-    // so we explicitly annotate the type of args to specify that we want a vector of strings.
-
-    // Print the vector using the debug macro
-    // dbg!(args);
-    /*
-    args = [
-        "target/debug/minigrep",
-        "search_string",
-        "file.txt",
-    ]
-     */
-
-    // Put a reference to the first argument in the variable `query`
-    let query = &args[1];
-    // Put a reference to the second argument in the variable `file_path`
-    let file_path = &args[2];
-    // println!("Searching for '{}' in '{}'...", query, file_path);
-    // Searching for 'search_string' in 'file.txt'...
+    let config = parse_config(&args);
 
     // `fs::read_to_string(file_path)` opens the `poem.txt` file,
     // and returns an `std::io::Result<String>` of the file's contents.
-    let contents = fs::read_to_string(file_path)
+    let contents = fs::read_to_string(config.file_path)
         // Set a message if reading the file leads to panic
         .expect("Should have been able to read the file.");
     println!("Content:\n{contents}");
@@ -60,5 +40,17 @@ fn main() {
     How public, like a frog
     To tell your name the livelong day
     To an admiring bog!
+
      */
+}
+
+struct Config {
+    query: String,
+    file_path: String,
+}
+
+fn parse_config(args: &[String]) -> Config {
+    let query = args[1].clone();
+    let file_path = args[2].clone();
+    Config { query, file_path }
 }
