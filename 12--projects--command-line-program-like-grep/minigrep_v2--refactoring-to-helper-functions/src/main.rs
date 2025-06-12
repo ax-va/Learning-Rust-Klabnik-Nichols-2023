@@ -1,7 +1,6 @@
 /*
 ```
 $ cd 12*
-$ cargo new minigrep_v2
 $ cd minigrep_v2*
 ```
 
