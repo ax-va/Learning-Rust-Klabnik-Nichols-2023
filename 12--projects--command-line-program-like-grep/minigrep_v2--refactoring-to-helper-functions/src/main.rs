@@ -1,7 +1,7 @@
 /*
 ```
 $ cd 12*
-$ cargo new minigrep_v2--refactoring-helper-functions
+$ cargo new minigrep_v2
 $ cd minigrep_v2*
 ```
 
