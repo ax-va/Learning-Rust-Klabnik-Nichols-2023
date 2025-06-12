@@ -3,5 +3,5 @@
 version = 4
 
 [[package]]
-name = "minigrep_v2"
+name = "minigrep_v3"
 version = "0.1.0"
