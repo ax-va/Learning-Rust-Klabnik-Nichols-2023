@@ -1,7 +1,7 @@
 /*
 ```
 $ cd 12*
-$ cd minigrep_v3*
+$ cd minigrep_v6*
 ```
 
 Create a program like grep, (g)lobally search a (r)egular (e)xpression and (p)rint.
@@ -15,12 +15,18 @@ $ cargo run -- the poem.txt
  */
 use std::env;
 use std::fs;
+use std::process;
 
 fn main() {
     // Read any command line arguments passed to it,
     // and then collect the values into a vector.
     let args: Vec<String> = env::args().collect();
-    let config = parse_config(&args);
+
+    let config = Config::build(&args).unwrap_or_else(|err| {
+        // This is a closure, i.e. an anonymous function
+        println!("Problem parsing arguments: {err}");
+        process::exit(1);
+    });
 
     // `fs::read_to_string(file_path)` opens the `poem.txt` file,
     // and returns an `std::io::Result<String>` of the file's contents.
@@ -48,11 +54,18 @@ struct Config {
     file_path: String,
 }
 
-// Prefer `&[String]` over `&Vec<String>`
-// because `&[String]` works with `&Vec<String>`, slices, arrays.
-fn parse_config(args: &[String]) -> Config {
-    let query = args[1].clone();
-    let file_path = args[2].clone();
+impl Config {
+    // Prefer `&[String]` over `&Vec<String>`
+    // because `&[String]` works with `&Vec<String>`, slices, arrays.
+    // Many programmers expect `new` functions to never fail, so we use `build`.
+    fn build(args: &[String]) -> Result<Config, &'static str> {
+        if args.len() < 3 {
+            return Err("not enough arguments");
+        }
 
-    Config { query, file_path }
+        let query = args[1].clone();
+        let file_path = args[2].clone();
+
+        Ok(Config { query, file_path })
+    }
 }

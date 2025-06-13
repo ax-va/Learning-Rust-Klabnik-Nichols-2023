@@ -1,7 +1,7 @@
 /*
 ```
 $ cd 12*
-$ cd minigrep_v3*
+$ cd minigrep_v8*
 ```
 
 Create a program like grep, (g)lobally search a (r)egular (e)xpression and (p)rint.
@@ -14,20 +14,26 @@ $ cargo run -- the poem.txt
 ```
  */
 use std::env;
-use std::fs;
+use std::process;
+
+use minigrep::Config;
 
 fn main() {
     // Read any command line arguments passed to it,
     // and then collect the values into a vector.
     let args: Vec<String> = env::args().collect();
-    let config = parse_config(&args);
 
-    // `fs::read_to_string(file_path)` opens the `poem.txt` file,
-    // and returns an `std::io::Result<String>` of the file's contents.
-    let contents = fs::read_to_string(config.file_path)
-        // Set a message if reading the file leads to panic
-        .expect("Should have been able to read the file.");
-    println!("Content:\n{contents}");
+    let config = Config::build(&args).unwrap_or_else(|e| {
+        // This is a body of closure, i.e. a body of an anonymous function
+        println!("Problem parsing arguments: {e}");
+        process::exit(1);
+    });
+
+    if let Err(e) = minigrep::run(config) {
+        // This is a body of closure, i.e. a body of an anonymous function
+        println!("Application error: {e}");
+        process::exit(1);
+    }
     /*
     Content:
     I'm nobody! Who are you?
@@ -41,18 +47,4 @@ fn main() {
     To an admiring bog!
 
      */
-}
-
-struct Config {
-    query: String,
-    file_path: String,
-}
-
-// Prefer `&[String]` over `&Vec<String>`
-// because `&[String]` works with `&Vec<String>`, slices, arrays.
-fn parse_config(args: &[String]) -> Config {
-    let query = args[1].clone();
-    let file_path = args[2].clone();
-
-    Config { query, file_path }
 }
