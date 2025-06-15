@@ -86,10 +86,22 @@ Rust calls the `drop` function automatically at the closing curly bracket `}` to
 
 ### Test-Driven Development (TDD)
 
-1. Write a test that fails and run it to make sure it fails for the reason you expect.
-2. Write or modify just enough code to make the new test pass.
-3. Refactor the code you just added or changed and make sure the tests continue to pass.
-4. Repeat from step 1.
+TDD Cycle (Red → Green → Refactor):
+
+1. **Write a Failing Test (Red)**
+   - Purpose: Define the expected behavior of a small piece of functionality.
+   - Why it should fail: To ensure the test is valid and that the feature doesn’t already exist.
+   - Mindset: You're designing the interface or behavior before implementation.
+ 
+
+2. **Make the Test Pass (Green)**
+   - Goal: Implement just enough code to make the test pass.
+   - Don't overengineer: Avoid adding anything more than what is required.
+ 
+ 
+3. **Refactor (Clean Up)**
+   - Purpose: Improve structure, readability, or performance without changing behavior.
+   - Key: All tests must still pass after refactoring.
 
 ### Traits
 
