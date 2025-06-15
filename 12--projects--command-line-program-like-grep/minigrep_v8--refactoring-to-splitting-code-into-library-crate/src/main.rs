@@ -25,7 +25,7 @@ fn main() {
 
     let config = Config::build(&args).unwrap_or_else(|e| {
         // This is a body of closure, i.e. a body of an anonymous function
-        println!("Problem parsing arguments: {e}");
+        println!("Problem with parsing arguments: {e}");
         process::exit(1);
     });
 

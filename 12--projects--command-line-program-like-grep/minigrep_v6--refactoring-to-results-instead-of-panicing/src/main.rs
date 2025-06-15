@@ -24,7 +24,7 @@ fn main() {
 
     let config = Config::build(&args).unwrap_or_else(|err| {
         // This is a closure, i.e. an anonymous function
-        println!("Problem parsing arguments: {err}");
+        println!("Problem with parsing arguments: {err}");
         process::exit(1);
     });
 
