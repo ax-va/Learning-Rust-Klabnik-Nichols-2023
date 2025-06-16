@@ -90,7 +90,7 @@ TDD Cycle (Red → Green → Refactor):
 
 1. **Write a Failing Test (Red)**
    - Purpose: Define the expected behavior of a small piece of functionality.
-   - Why it should fail: To ensure the test is valid and that the feature doesn’t already exist.
+   - Why it should fail: To ensure the test is valid and that the feature doesn't already exist.
    - Mindset: You're designing the interface or behavior before implementation.
  
 
