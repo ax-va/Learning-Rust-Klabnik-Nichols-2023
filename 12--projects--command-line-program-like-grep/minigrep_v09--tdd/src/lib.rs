@@ -31,6 +31,10 @@ pub fn run(config: Config) -> Result<(), Box<dyn Error>> {
     // from the current function for the caller to handle.
     let contents = fs::read_to_string(config.file_path)?;
 
+    for line in search(&config.query, &contents) {
+        println!("{line}");
+    }
+
     Ok(())
 }
 
@@ -40,7 +44,15 @@ pub fn search<'a>(
     query: &str,
     contents: &'a str,
 ) -> Vec<&'a str> {
-    vec![]
+    let mut results = Vec::new();
+    // The `lines` method returns an iterator
+    for line in contents.lines() {
+        if line.contains(query) {
+            results.push(line);
+        }
+    }
+
+    results
 }
 
 // test module

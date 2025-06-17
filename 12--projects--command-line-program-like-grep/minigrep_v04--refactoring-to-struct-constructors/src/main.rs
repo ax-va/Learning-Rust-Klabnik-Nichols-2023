@@ -1,15 +1,15 @@
 /*
 ```
 $ cd 12*
-$ cd minigrep_v5*
+$ cd minigrep_v04*
 ```
 
 Create a program like grep, (g)lobally search a (r)egular (e)xpression and (p)rint.
 
-Run the program with two arguments.
+Run the program with two arguments:
+the first one is a search word and the second one is a file.
 Two hyphens (`--`) indicates that the arguments are for the program rather than for Cargo.
 ```
-$ cargo run -- search_string file.txt
 $ cargo run -- the poem.txt
 ```
  */
@@ -52,10 +52,6 @@ impl Config {
     // Prefer `&[String]` over `&Vec<String>`
     // because `&[String]` works with `&Vec<String>`, slices, arrays.
     fn new(args: &[String]) -> Config {
-        if args.len() < 3 {
-            panic!("not enough arguments");
-        }
-
         let query = args[1].clone();
         let file_path = args[2].clone();
 

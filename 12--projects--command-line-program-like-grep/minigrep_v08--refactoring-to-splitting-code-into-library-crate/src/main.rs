@@ -1,15 +1,15 @@
 /*
 ```
 $ cd 12*
-$ cd minigrep_v8*
+$ cd minigrep_v08*
 ```
 
 Create a program like grep, (g)lobally search a (r)egular (e)xpression and (p)rint.
 
-Run the program with two arguments.
+Run the program with two arguments:
+the first one is a search word and the second one is a file.
 Two hyphens (`--`) indicates that the arguments are for the program rather than for Cargo.
 ```
-$ cargo run -- search_string file.txt
 $ cargo run -- the poem.txt
 ```
  */
