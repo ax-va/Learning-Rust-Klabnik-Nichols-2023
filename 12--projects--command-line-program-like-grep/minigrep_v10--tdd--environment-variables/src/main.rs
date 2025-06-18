@@ -1,7 +1,7 @@
 /*
 ```
 $ cd 12*
-$ cd minigrep_v09*
+$ cd minigrep_v10*
 ```
 
 Create a program like grep, (g)lobally search a (r)egular (e)xpression and (p)rint.
@@ -10,27 +10,33 @@ Run the program with two arguments:
 the first one is a search word and the second one is a file.
 Two hyphens (`--`) indicates that the arguments are for the program rather than for Cargo.
 ```
-$ cargo run -- frog poem.txt
+$ cargo run -- to poem.txt
 ...
-How public, like a frog
-$ cargo run -- body poem.txt
-...
-I'm nobody! Who are you?
 Are you nobody, too?
 How dreary to be somebody!
-$ cargo run -- body poem.txt
+$ IGNORE_CASE=1 cargo run -- to poem.txt
 ...
-I'm nobody! Who are you?
 Are you nobody, too?
 How dreary to be somebody!
+To tell your name the livelong day
+To an admiring bog!
 ```
+
+In PowerShell
 ```
-$ cargo run -- electrodynamics poem.txt
+PS> $Env:IGNORE_CASE=1; cargo run -- to poem.txt
+...
+PS> Remove-Item Env:IGNORE_CASE
 ```
 
 Test the library
 ```
 $ cargo test
+...
+running 2 tests
+test tests::case_sensitive ... ok
+test tests::case_insensitive ... ok
+...
 ```
  */
 use std::env;
