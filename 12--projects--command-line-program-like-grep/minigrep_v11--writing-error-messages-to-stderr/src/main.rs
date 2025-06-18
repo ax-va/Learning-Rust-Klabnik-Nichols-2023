@@ -24,7 +24,8 @@ Problem with parsing arguments: not enough arguments
 ```
 because our error messages are being printed to standard output in this case.
 
-- If we use `eprintln!`, the error messages will be printed to the standard error stream
+- If we use `eprintln!` to print the error messages,
+they will be printed to the standard error stream
 ```
 $ cargo run > output3.txt
 ...
