@@ -1,3 +1,13 @@
+/*
+```
+$ cd 13*
+$ cd 13-1*
+$ cargo new project
+$ cd project
+$ cargo run
+```
+ */
+
 #[derive(Debug, PartialEq, Copy, Clone)]
 enum ShirtColor {
     Red,
