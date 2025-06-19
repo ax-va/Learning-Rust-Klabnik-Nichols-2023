@@ -23,7 +23,7 @@ impl Inventory {
         &self,
         user_preference: Option<ShirtColor>, // The `Option` has two variants: `Some` or `None`
     ) -> ShirtColor {
-        // In the case of the`None` variant,
+        // In the case of the `None` variant,
         // `unwrap_or_else` calls the closure
         // that takes no parameters itself.
         // The closure calls `self.most_stocked()`.
