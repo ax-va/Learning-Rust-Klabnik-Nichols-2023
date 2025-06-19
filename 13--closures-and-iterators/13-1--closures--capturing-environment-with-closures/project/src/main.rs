@@ -21,7 +21,7 @@ struct Inventory {
 impl Inventory {
     fn giveaway(
         &self,
-        user_preference: Option<ShirtColor>, // The `Option` has two variants: `Some` or `None`
+        user_preference: Option<ShirtColor>, // The `Option` has two variants: `Some` and `None`
     ) -> ShirtColor {
         // In the case of the `None` variant,
         // `unwrap_or_else` calls the closure
