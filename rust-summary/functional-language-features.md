@@ -21,7 +21,8 @@ let add_one_v3 = |x| { x + 1 }; // without the type annotation
 let add_one_v4 = |x| x + 1 ; // The closure body has only one expression
 ```
 
-For closure definitions, the compiler infers a single concrete type for each of their parameters and their return value.
+For closure definitions, the compiler infers 
+a single concrete type for each of their parameters and their return value.
 ```rust
 let example_closure = |x| x;
 let s = example_closure(String::from("hello")); // `String` inferred for `x`
