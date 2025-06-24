@@ -26,6 +26,7 @@ a single concrete type for each of their parameters and their return value.
 ```rust
 let example_closure = |x| x;
 let s = example_closure(String::from("hello")); // `String` inferred for `x`
+
 // compilation error: "error[E0308]: mismatched types"
 // let n = example_closure(5);
 //         --------------- ^- help: try using a conversion method: `.to_string()`
