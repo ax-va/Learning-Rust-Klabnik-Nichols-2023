@@ -33,3 +33,10 @@ let s = example_closure(String::from("hello")); // `String` inferred for `x`
 //         |               expected `String`, found integer
 //         arguments to this function are incorrect
 ```
+
+Closures can capture values from their environment in three ways:
+- borrowing immutably
+- borrowing mutably
+- taking ownership
+
+Put the `move` keyword at the beginning of the closure definition to move ownership of value.
