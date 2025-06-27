@@ -6,6 +6,17 @@ $ cargo new project
 $ cd project
 $ cargo run
 ```
+
+Closures can capture values from their environment in three ways:
+- borrowing immutably,
+- borrowing mutably, and
+- taking ownership.
+
+Taking ownership:
+- Using `move ||` *forces* the closure to capture *all* used variables by value (move), regardless of how they're used;
+- Without `move`, Rust automatically infers how a closure needs to capture a variable based on
+how it's used inside the body.
+
  */
 use std::thread;
 
