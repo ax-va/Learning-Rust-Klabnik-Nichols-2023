@@ -15,11 +15,11 @@ Methods:
 returns an iterator that borrows each item immutably and
 does not take ownership of the collection;
 
-- `into_iter()`
+- `iter_mut()`
 returns an iterator that borrows each item mutably and
 does not take ownership, but needs a mutable reference to the collection;
 
-- `iter_mut()`
+- `into_iter()`
 returns an iterator that takes ownership of the items.
 The collection is moved and cannot be used after.
 
@@ -27,7 +27,9 @@ The collection is moved and cannot be used after.
 
 fn main() {
 
-    // `iter()` //
+    // ------ //
+    // `iter` //
+    // ------ //
 
     // In Rust, iterators are *lazy*.
     // This means they have no effect
@@ -54,7 +56,9 @@ fn main() {
     // Got: 2
     // Got: 3
 
-    // `iter_mut()` //
+    // ---------- //
+    // `iter_mut` //
+    // ---------- //
 
     let mut v2 = vec![1, 2, 3];
     for x in v2.iter_mut() {
@@ -63,7 +67,9 @@ fn main() {
     println!("v2: {v2:?}");
     // v2: [2, 3, 4]
 
-    // `iter_mut()` //
+    // ----------- //
+    // `into_iter` //
+    // ----------- //
 
     let v3 = vec![1, 2, 3];
     for x in v3.into_iter() {
