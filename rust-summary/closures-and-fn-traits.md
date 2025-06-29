@@ -87,7 +87,9 @@ fn main() {
     // - After that, the closure can no longer be called, because its internal state (the captured `s`) is gone.
     // - The `s` in `let s = consume();` is a new variable, shadowing the earlier one.
     
+    // compilation error: "error[E0382]: use of moved value: `consume`"
     // consume(); // Error: Compile-time error: closure was already used (moved)
+    // ^^^^^^^ value used here after move
 }
 ```
 
@@ -97,21 +99,23 @@ Closures that don't move captured values but may mutate them implement `FnMut` (
 These can be called multiple times but may change their internal state.
 
 ```rust
-let mut counter = 0;
-
-// Closure that mutates `counter` each time it's called
-let mut increment = || {
-    counter += 1;
-    println!("counter = {}", counter);
-};
-
-// Call the closure multiple times
-increment(); 
-// counter = 1
-increment(); 
-// counter = 2
-increment(); 
-// counter = 3
+fn main() {
+    let mut counter = 0;
+    
+    // Closure that mutates `counter` each time it's called
+    let mut increment = || {
+        counter += 1;
+        println!("counter = {}", counter);
+    };
+    
+    // Call the closure multiple times
+    increment(); 
+    // counter = 1
+    increment(); 
+    // counter = 2
+    increment(); 
+    // counter = 3
+}
 ```
 
 #### `Fn`
@@ -121,20 +125,22 @@ Closures that neither move nor mutate captured values - or capture nothing at al
 They can be safely called multiple times, even concurrently, since they don't alter their environment.
 
 ```rust
-let name = String::from("Sasha");
-
-// Closure that only *reads* the captured value
-let greet = || {
-    println!("Hello, {}!", name);
-};
-
-// Call it multiple times
-greet(); 
-// Hello, Sasha!
-greet(); 
-// Hello, Sasha!
-greet(); 
-// Hello, Sasha!
+fn main() {
+    let name = String::from("Sasha");
+    
+    // Closure that only *reads* the captured value
+    let greet = || {
+        println!("Hello, {}!", name);
+    };
+    
+    // Call it multiple times
+    greet(); 
+    // Hello, Sasha!
+    greet(); 
+    // Hello, Sasha!
+    greet(); 
+    // Hello, Sasha!
+}
 ```
 
 #### Example: Definition of `unwrap_or_else`
@@ -175,7 +181,7 @@ fn main() {
  }
 ```
 
-The code does not compile because the closure implements only the `FnOnce` trait, 
+The next code does not compile because the closure implements only the `FnOnce` trait, 
 whereas `sort_by_key` requires a closure that implements `FnMut`. 
 The closure captures `value` and then moves `value` out of the closure 
 by transferring ownership of `value` to the `sort_operations` vector. 
