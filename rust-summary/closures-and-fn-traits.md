@@ -158,7 +158,7 @@ impl<T> Option<T> {
     }
 }
 ```
-where `f` is a `FnOnce` closure.
+where `f` implements the `FnOnce` trait.
 
 #### Example: `sort_by_key` requires `FnMut`
 
