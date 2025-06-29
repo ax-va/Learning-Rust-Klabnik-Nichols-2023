@@ -62,7 +62,7 @@ fn main() {
 
     let mut v2 = vec![1, 2, 3];
     for x in v2.iter_mut() {
-        *x += 1; // x is `&mut i32`
+        *x += 1; // x is of type `&mut i32`
     }
     println!("v2: {v2:?}");
     // v2: [2, 3, 4]
