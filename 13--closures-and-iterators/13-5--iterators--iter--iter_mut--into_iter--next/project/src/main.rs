@@ -7,9 +7,17 @@ $ cd project
 $ cargo run
 ```
 
-All iterators implement the `Iterator` trait that is defined in the standard library.
+Collections are types that implement the `Iterator` trait.
+The `Iterator` trait defines methods like `next`, `map`, `filter`, etc.
+If we implement this trait, we must define `next`.
 
-Methods:
+See also:
+
+- https://doc.rust-lang.org/std/iter/trait.Iterator.html
+
+`iter`, `iter_mut`, and `into_iter` are methods provided by collections that return an iterator.
+`iter` and `iter_mut` are inherent methods on collections, while `into_iter` is a method from the `IntoIterator` trait.
+All three return an iterator, but they differ in ownership and mutability.
 
 - `iter()`
 returns an iterator that borrows each item immutably and
