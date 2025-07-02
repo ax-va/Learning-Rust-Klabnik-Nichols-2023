@@ -7,11 +7,15 @@ $ cd project
 $ cargo run
 ```
 
-Methods that call `next` are called *consuming adapters* because they use up the iterator.
-(`next` does not consume the iterator itself - it only mutably borrows it to advance its internal state.)
-One example is the `sum` method, which takes ownership of the iterator
-and consumes it by repeatedly calling next to process each item."
+*Consuming adapters*
+consume the entire iterator to produce a final result,
+such as a number, a collection, or a boolean.
 
+Consuming adapters:
+- Take ownership of the iterator;
+- Consume the iterator entirely by driving it to completion (usually by calling `next` repeatedly);
+- After they're called, we cannot use the iterator again;
+- Examples: `sum`, `collect`, `for` loops, `fold`, `find`.
  */
 
 fn main() {
