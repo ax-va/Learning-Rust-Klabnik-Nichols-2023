@@ -15,6 +15,7 @@ Iterator adaptors:
 - Take a reference (often `&mut self`) to the iterator;
 - Return a new iterator, usually lazy (it doesn't run `next` until we iterate it).
 - Can call `next` internally, but they don't consume the whole iterator themselves.
+- Can take closures as arguments that capture their environment.
 - Examples: `map`, `filter`, `peekable`, `enumerate`.
  */
 
