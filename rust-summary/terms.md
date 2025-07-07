@@ -108,3 +108,9 @@ TDD Cycle (Red → Green → Refactor):
 *Traits* are similar to what many other languages call *interfaces*, 
 and they define shared functionality that types can implement.
 Each type implementing a trait must provide its own implementation of trait's method signatures.
+
+### Zero-Cost Abstractions
+
+Example: 
+Iterators are one of Rust's *zero-cost abstractions*, 
+by which we mean that using the abstraction imposes no additional runtime overhead.
