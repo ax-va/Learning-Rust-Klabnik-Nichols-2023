@@ -3,6 +3,12 @@
 *Cargo* is Rust's build system and package manager. 
 It comes installed with Rust if you used the official installers.
 
+See also:
+
+- https://doc.rust-lang.org/cargo
+
+## Version
+
 ```unix
 $ cargo --version
 cargo 1.83.0 (5ffbef321 2024-10-29)
