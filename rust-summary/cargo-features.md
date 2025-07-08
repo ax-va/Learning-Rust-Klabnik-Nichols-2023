@@ -11,14 +11,15 @@ that give programmers greater control over compilation options.
 Each profile is configured independently of the others.
 Rust provides two main release profiles: 
 
-- `dev`, optimized for faster compilation during development
+- `dev`, optimized for faster compilation during development;
+- `release`, optimized for performance in production builds.
+
 ```unix
 $ cargo build
     Finished dev [unoptimized + debuginfo] target(s) in 0.0s
 ...
 ```
 
-- `release`, optimized for performance in production builds.
 ```unix
 $ cargo build --release
     Finished release [optimized] target(s) in 0.0s
