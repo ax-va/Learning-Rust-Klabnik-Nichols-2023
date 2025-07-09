@@ -43,3 +43,21 @@ making the binary faster at runtime but increasing compile time.
 See also:
 
 - https://doc.rust-lang.org/cargo/reference/profiles.html
+
+## HTML Documentation
+
+Line-level documentation comments that begin with `///` or
+block-style ones `/** */` before items like functions, structs, etc. 
+are used to generate HTML documentation.
+This command runs the `rustdoc` tool distributed with Rust and
+puts the generated HTML documentation in the `target/doc` directory
+```
+$ cargo doc
+```
+
+Build the HTML for your current crate's documentation
+(as well as the documentation for all of your crate's dependencies) and
+open the result in a web browser
+```
+$ cargo doc --open
+```
