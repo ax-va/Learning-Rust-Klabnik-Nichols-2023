@@ -16,7 +16,7 @@ pub fn add_one(x: i32) -> i32 {
 /*
 Line-level documentation comments that begin with `///` or
 block-style ones `/** */` before items like functions, structs, etc.
-are used to generate HTML documentation.
+are used to generate HTML documentation for them.
 This command runs the `rustdoc` tool distributed with Rust and
 puts the generated HTML documentation in the `target/doc` directory
 ```
