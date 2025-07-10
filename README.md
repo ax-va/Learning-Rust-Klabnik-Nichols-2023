@@ -2,9 +2,9 @@
 
 ## Why program in Rust
 
-- On the one hand, Rust doesn’t use manual memory management like C or C++. Instead, its ownership and borrowing system ensures memory safety, protecting against both security vulnerabilities and common memory errors.
+- On the one hand, Rust doesn't use manual memory management like C or C++. Instead, its ownership and borrowing system ensures memory safety, protecting against both security vulnerabilities and common memory errors.
 
-- On the other hand, Rust has no garbage collector — memory is freed deterministically, which makes the compiled code not only fast but also more predictable in terms of performance.
+- On the other hand, Rust has no garbage collector - memory is freed deterministically, which makes the compiled code not only fast but also more predictable in terms of performance.
 
 ## Original source code
 
