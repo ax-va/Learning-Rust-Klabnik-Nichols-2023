@@ -6,6 +6,6 @@ description = "A fun game where you guess what number the computer has chosen."
 license = "MIT OR Apache-2.0"
 
 [dependencies]
-# The specifier "0.8.5" is actually shorthand for "^0.8.5",
-# which means any version that is at least 0.8.5 but below 0.9.0.
+# Specifying a version like `"0.8.5"` is shorthand for `^0.8.5`.
+# `^0.8.5` means any compatible version, i.e., `>= 0.8.5` and `< 0.9.0`.
 rand = "0.8.5"

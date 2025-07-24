@@ -35,3 +35,13 @@ description = "<descriptio>"
 license = "MIT OR Apache-2.0"
 ...
 ```
+
+## Publishing to Crates.io
+
+Notice: publishing a package version is *permanent* that means
+*the version cannot be overwritten or be deleted*.
+
+Publish
+```unix
+$ cargo publish
+```
