@@ -103,6 +103,11 @@ TDD Cycle (Red → Green → Refactor):
    - Purpose: Improve structure, readability, or performance without changing behavior.
    - Key: All tests must still pass after refactoring.
 
+
+### Semantic Versioning
+
+Use the *Semantic Versioning* rules at https://semver.org for versioning.
+
 ### Traits
 
 *Traits* are similar to what many other languages call *interfaces*, 
