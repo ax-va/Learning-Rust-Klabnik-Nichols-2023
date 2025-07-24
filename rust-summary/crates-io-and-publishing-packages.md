@@ -45,8 +45,8 @@ Use the *Semantic Versioning* rules at https://semver.org for versioning.
 
 ### Publishing to Crates.io
 
-Notice: publishing a package version is *permanent* that means
-*the version cannot be overwritten or be deleted*.
+A published package version is *permanent*. This means 
+that *the version cannot be overwritten or be deleted*.
 
 The changes must be commited to publish
 ```unix
