@@ -1,4 +1,6 @@
-# More About Cargo
+# Cargo
+
+## More About Cargo
 
 See also:
 
