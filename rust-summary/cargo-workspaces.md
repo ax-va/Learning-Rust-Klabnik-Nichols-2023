@@ -61,7 +61,7 @@ to help manage multiple related packages developed in tandem.
     |-- Cargo.lock
     |-- Cargo.toml
     ```
-    The top-level `Cargo.toml` file will be updated to `add_one` and `add_two` automatically to
+    The top-level `Cargo.toml` file will be updated automatically to
     ```toml
     [workspace]
     members = ["add_one", "add_two",
