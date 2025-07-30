@@ -5,6 +5,12 @@
 A *workspace* is a set of packages that share a top-level `Cargo.lock` file and `target` directory
 to help manage multiple related packages developed in tandem.
 
+As your project grows, consider using a workspace. 
+It helps break your code into smaller, more understandable components, 
+rather than managing one large, monolithic codebase. 
+Additionally, grouping crates in a workspace simplifies coordination - 
+especially when multiple crates are frequently updated together.
+
 ### Example
 
 - Create the binary crate by running `cargo new add` and then the top-level workspace `Cargo.toml` 
@@ -108,3 +114,21 @@ to help manage multiple related packages developed in tandem.
     ```unix
     $ cargo build
     ```
+
+### Tests in Workspaces
+
+- Running `cargo test` in a top-level workspace directory
+run the tests for all the crates in the workspace
+    ```unix
+    $ cargo test
+    ```
+
+- Run tests for one particular crate in a workspace from the top-level directory by using the `-p` flag
+    ```unix
+    $ cargo test -p add_one
+    ```
+
+### Publishing crates
+
+If you publish the crates in the workspace to https://crates.io, 
+each crate in the workspace will need to be published separately.
