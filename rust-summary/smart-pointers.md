@@ -22,6 +22,14 @@ that runs when an instance of a smart pointer goes out of scope.
   - single ownership
   - useful for recursive types or large data that you don't want on the stack.
 
+    Use cases:
+    - You have a type whose size can't be known at compile time, 
+    and you want to use a value of that type in a context that requires an exact size.
+    - You want to transfer ownership of a large value efficiently, 
+    ensuring that only the pointer is moved and the data itself isn't duplicated.
+    - You want to own a value, and you care only that it's a type 
+    that implements a particular trait rather than being of a specific type.
+
 2. `Rc<T>` (*Reference Counted*)
   - enables multiple ownership of data via reference counting;
   - used in single-threaded scenarios.
