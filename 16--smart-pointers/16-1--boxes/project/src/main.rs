@@ -5,8 +5,5 @@ fn main() {
     let b = Box::new(5);
     println!("b = {b}");
     // b = 5
-
-    // Use case: recursive types.
-    // A value of a *recursive type* can have another value of the same type as part of itself.
-} // The deallocation happens both for the box (stored on the stack)
+} // The deallocation happens both for the box (stored on the stack)distraction.
 // and the data it points to (stored on the heap).
