@@ -75,5 +75,4 @@ fn main() {
     // Without deref coercion, an explicit equivalent would be
     hello(&(*m)[..]);
     // Hello, Rust!
-
 }
