@@ -72,7 +72,7 @@ fn main() {
     // 1. `&MyBox<String>` to `&String` because of `impl<T> Deref for MyBox<T>`.
     // 2. `&String` to `&str` because of `impl Deref for String`.
 
-    // Without deref coercion, an explicit equivalent would be
-    hello(&(*m)[..]);
+    // Without deref coercion, an explicit equivalent would be.
+    hello(&(*m)[..]); // s[..] is a `str`.
     // Hello, Rust!
 }
