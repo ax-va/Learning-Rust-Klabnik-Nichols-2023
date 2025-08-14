@@ -27,10 +27,14 @@ impl<T> MyBoxV2<T> {
 impl<T> Deref for MyBoxV2<T> {
     type Target = T; // associated type required by the `Deref` trait
 
-    fn deref(&self) -> &Self::Target {
-        // `.0` accesses the first value in a tuple struct
+    fn deref(&self) -> &Self::Target { // Returns `&T`, i.e. a reference to the wrapped `T`.
+        // `.0` accesses the first value in a tuple struct.
         &self.0
     }
+}
+
+fn hello(name: &str) {
+    println!("Hello, {name}!");
 }
 
 fn main() {
@@ -51,6 +55,25 @@ fn main() {
     let x = 5;
     let a = MyBoxV2::new(x);
     assert_eq!(5, x);
-    // Behind the scenes, Rust actually ran this code `*(a.deref())`
+    // Rust actually ran this code `*(a.deref())`.
+    // `*` is because `a.deref()` returns a reference to the wrapped `i32`.
     assert_eq!(5, *a);
+
+    // *Deref coercion* converts a reference to a type
+    // that implements the `Deref` trait into a reference to another type.
+    // It was added to Rust so that programmers writing function and method calls
+    // don't need to add as many explicit references and dereferences with `&` and `*`.
+    let m = MyBoxV2::new(String::from("Rust"));
+    // `hello` expects a `&str`, but `&m` is `&MyBox<String>`.
+    hello(&m);
+    // Hello, Rust!
+
+    // Rust applies deref coercion in steps
+    // 1. `&MyBox<String>` to `&String` because of `impl<T> Deref for MyBox<T>`.
+    // 2. `&String` to `&str` because of `impl Deref for String`.
+
+    // Without deref coercion, an explicit equivalent would be
+    hello(&(*m)[..]);
+    // Hello, Rust!
+
 }
