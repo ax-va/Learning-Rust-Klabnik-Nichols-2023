@@ -43,12 +43,14 @@ fn main() {
     let x = 5;
     let a = MyBoxV1(x);
     assert_eq!(5, x);
+
     // compilation error: "error[E0614]: type `MyBoxV1<{integer}>` cannot be dereferenced"
     // assert_eq!(5, *a);
 
     let x = 5;
     let a = MyBoxV1::new(x);
     assert_eq!(5, x);
+
     // compilation error: "error[E0614]: type `MyBoxV1<{integer}>` cannot be dereferenced"
     // assert_eq!(5, *a);
 
@@ -72,7 +74,16 @@ fn main() {
     // 1. `&MyBox<String>` to `&String` because of `impl<T> Deref for MyBox<T>`.
     // 2. `&String` to `&str` because of `impl Deref for String`.
 
-    // Without deref coercion, an explicit equivalent would be.
+    // Without deref coercion, an explicit equivalent would be
     hello(&(*m)[..]); // s[..] is a `str`.
     // Hello, Rust!
+
+    // The number of times that `Deref::deref` needs to be inserted is resolved at compile time,
+    // so there is no runtime penalty for taking advantage of deref coercion!
+
+    // Rust does deref coercion in these three cases:
+    // - from `&T` to `&U` when `T` implements `Deref` to some type `U`
+    // - from `&mut T` to `&mut U` when `T` implements `DerefMut` to some type `U`
+    // - from `&mut T` to `&U` when `T` implements `Deref` to some type `U`
+    // But immutable references will never coerce to mutable references.
 }
