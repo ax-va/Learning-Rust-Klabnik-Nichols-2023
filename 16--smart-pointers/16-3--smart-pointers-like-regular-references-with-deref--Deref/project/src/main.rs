@@ -85,5 +85,17 @@ fn main() {
     // - from `&T` to `&U` when `T` implements `Deref` to some type `U`
     // - from `&mut T` to `&mut U` when `T` implements `DerefMut` to some type `U`
     // - from `&mut T` to `&U` when `T` implements `Deref` to some type `U`
-    // But immutable references will never coerce to mutable references.
+    // But immutable references will never coerce to mutable references,
+    // because it violates one of the borrowing rules.
+
+    // Rust enforces at compile time that: we can have
+    //  1. *any number of immutable references* (&T),
+    // OR
+    // 2. *exactly one mutable reference* (&mut T),
+    // BUT
+    // 3. never both at the same time.
+
+    // This ensures:
+    // - no data races,
+    // - no undefined behavior from aliasing mutable and immutable pointers.
 }
