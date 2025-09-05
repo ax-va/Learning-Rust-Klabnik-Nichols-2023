@@ -31,8 +31,24 @@ fn main() {
     // we're not allowed to because `a` has been moved.
 
     let a = Rc::new(ConsV2(5, Rc::new(ConsV2(10, Rc::new(NilV2)))));
+    println!("Count after creating `a`: {}", Rc::strong_count(&a));
+    // Count after creating `a`: 1
+
+    // There is `Rc::weak_count` together with `Rc::strong_count`.
+
     let b = ConsV2(3, Rc::clone(&a));  // We're cloning the *reference*, not the underlying list.
-    let c = ConsV2(4, Rc::clone(&a));
+    println!("Count after creating `a`: {}", Rc::strong_count(&a));
+    // Count after creating `a`: 2
+
+    {
+        let c = ConsV2(4, Rc::clone(&a));
+        println!("Count after creating `a`: {}", Rc::strong_count(&a));
+        // Count after creating `a`: 3
+    }
+    // The implemented `Drop` trait decreases the reference count automatically
+    // when an `Rc<T>` value goes out of scope.
+    println!("Count after creating `a`: {}", Rc::strong_count(&a));
+    // Count after creating `a`: 2
 
     // When we call `Rc::clone(&a)`, it:
     // 1. Increments the reference count.
@@ -44,4 +60,5 @@ fn main() {
     // By using `Rc::clone` explicitly, we can idiomatically distinguish
     // between clones that perform a deep copy of the underlying data
     // and clones that simply increase the reference count and share ownership.
-}
+} // `b` and then `a` go out of scope at the end of main,
+// the count is then 0, and the `Rc<List>` is cleaned up completely.
