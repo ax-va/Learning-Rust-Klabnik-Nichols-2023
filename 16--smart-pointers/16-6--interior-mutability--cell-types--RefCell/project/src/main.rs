@@ -27,11 +27,14 @@ If you try to create an illegal combination of borrows, the code won't compile.
 The compiler can't enforce the rules at compile time, so `RefCell enforces them at runtime.
 If you violate the borrowing rules, the program will panic immediately and exit.
 
-## Enforcing at runtime
+## Enforcing borrowing rules at runtime
 The advantage of checking borrowing rules at runtime is that some memory-safe scenarios become possible
-that would otherwise be rejected by Rust’s conservative compile-time analysis.
+that would otherwise be rejected by Rust's conservative compile-time analysis.
 Static analysis, like the Rust compiler, must be conservative:
 some properties of code are impossible to prove purely at compile time.
+`RefCell<T>` is useful when we know your code will uphold Rust's borrowing rules,
+but the compiler cannot prove this at compile time.
+In those cases, `RefCell` shifts the enforcement of the rules to runtime.
 """
 
 fn main() {
