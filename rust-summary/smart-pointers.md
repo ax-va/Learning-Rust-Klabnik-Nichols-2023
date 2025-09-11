@@ -48,12 +48,12 @@ that runs when an instance of a smart pointer goes out of scope.
   - `Mutex<T>` allows one writer;
   - `RwLock<T>` allows multiple readers or one writer.
 
-| Smart Pointer | Ownership | Thread Safe | Mutability | Use Case                            |
-|---------------|-----------|-------------|------------|-------------------------------------|
-| `Box<T>`      | Single    | Yes         | Immutable  | Heap allocation                     |                     
-| `Rc<T>`       | Shared    | No          | Immutable  | Shared data in single thread        |        
-| `Arc<T>`      | Shared    | Yes         | Immutable  | Shared data in single thread        |      
-| `RefCell<T>`  | Single    | No          | Mutable    | Runtime-checked interior mutability | 
-| `Mutex<T>`    | Shared    | Yes         | Mutable    | Thread-safe mutable access          |  
+| Smart Pointer | Ownership | Thread Safe | Borrowing                              | Use Case                            |
+|---------------|-----------|-------------|----------------------------------------|-------------------------------------|
+| `Box<T>`      | Single    | Yes         | Immutable or mutable                   | Heap allocation                     |                     
+| `Rc<T>`       | Shared    | No          | Immutable (or mutable if unique owned) | Shared data in single thread        |        
+| `Arc<T>`      | Shared    | Yes         | Immutable (?)                          | Shared data in single thread        |      
+| `RefCell<T>`  | Single    | No          | Immutable or mutable                   | Runtime-checked interior mutability | 
+| `Mutex<T>`    | Shared    | Yes         | Mutable (?)                            | Thread-safe mutable access          |  
 
 
