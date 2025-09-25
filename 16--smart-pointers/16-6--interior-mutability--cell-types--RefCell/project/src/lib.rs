@@ -143,16 +143,15 @@ mod tests {
             // but instead panics at runtime.
             // `RefCell`'s API is designed to enforce safety this way.
 
-            // For example, this violates the borrowing rules and leads to panic at runtime
+            // For example, this violates the borrowing rules
+            // because this makes two mutable references in the same scope,
+            // which isn't allowed.
             /*
             let mut one_borrow = self.sent_messages.borrow_mut();
             let mut two_borrow = self.sent_messages.borrow_mut();
-
-            one_borrow.push(String::from(message));
-            two_borrow.push(String::from(message));
              */
 
-            //panic
+            // As a result, this leads to panic at runtime
             /*
             failures:
 
