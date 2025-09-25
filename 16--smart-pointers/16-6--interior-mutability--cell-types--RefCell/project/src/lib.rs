@@ -143,7 +143,7 @@ mod tests {
             // but instead panics at runtime.
             // `RefCell`'s API is designed to enforce safety this way.
 
-            // This violates the borrowing rules and leads to panic at runtime
+            // For example, this violates the borrowing rules and leads to panic at runtime
             /*
             let mut one_borrow = self.sent_messages.borrow_mut();
             let mut two_borrow = self.sent_messages.borrow_mut();
