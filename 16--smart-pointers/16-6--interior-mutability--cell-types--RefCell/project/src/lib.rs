@@ -142,6 +142,25 @@ mod tests {
             // (because the compiler doesn't see inside `RefCell`'s internal state),
             // but instead panics at runtime.
             // `RefCell`'s API is designed to enforce safety this way.
+
+            // This violates the borrowing rules and leads to panic at runtime
+            /*
+            let mut one_borrow = self.sent_messages.borrow_mut();
+            let mut two_borrow = self.sent_messages.borrow_mut();
+
+            one_borrow.push(String::from(message));
+            two_borrow.push(String::from(message));
+             */
+
+            //panic
+            /*
+            failures:
+
+            ---- tests::it_sends_an_over_75_percent_warning_message stdout ----
+            thread 'tests::it_sends_an_over_75_percent_warning_message' panicked at src/lib.rs:...:...:
+            already borrowed: BorrowMutError
+            note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+             */
         }
     }
 
