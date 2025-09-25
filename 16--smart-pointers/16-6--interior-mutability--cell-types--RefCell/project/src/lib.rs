@@ -114,8 +114,10 @@ mod tests {
             // Mutate through `RefCell` even though we only have `&self`
             self.sent_messages.borrow_mut().push(String::from(message));
             // `RefCell` tracks how many outstanding
-            // - immutable borrows (via `.borrow()` which yields `Ref<T>`)
-            // - and mutable borrows (via `.borrow_mut()` which yields `RefMut<T>`)
+            // - immutable borrows
+            // (via `.borrow()` which yields the smart pointer type `Ref<T>` implementing `Deref`)
+            // - and mutable borrows
+            // (via `.borrow_mut()` which yields the smart pointer type `RefMut<T>` implementing `Deref`)
             // are active at a given time.
             // It enforces the rule:
             // ---
