@@ -46,6 +46,10 @@ where
     }
 }
 
+// The `#[cfg(test)]` attribute on the `tests` module tells Rust to compile
+// and include the test code *only* when you run `cargo test`, not when you run `cargo build`.
+// This means that using `cargo build` skips compiling test-related code,
+// saving both compile time and space in the resulting binary.
 #[cfg(test)]
 mod tests {
     use super::*;
@@ -53,6 +57,7 @@ mod tests {
 
     // This version of the mock will not work.
     /*
+
     // Implement a mock
     struct MockMessengerV1 {
         // Keep track of the messages it's told to send
@@ -73,7 +78,8 @@ mod tests {
         fn send(&self, message: &str) {
             // Take the message passed in as a parameter and store it in the `MockMessengerV1` list of `sent_messages`
             self.sent_messages.push(String::from(message));
-            // `Messenger::send(&self, ...)` takes `&self`,
+            // `Messenger::send(&self, ...)` takes `&self`
+            // (that is a shorthand for `self: &Self`, which means the method takes an *immutable reference*),
             // but the mock tries to mutate internal state (`push` on a `Vec`).
             // As a result, `$ cargo test` which leads to
             // "error[E0596]: cannot borrow `self.sent_messages` as mutable, as it is behind a `&` reference"
@@ -87,9 +93,10 @@ mod tests {
             // because then the signature of `send` would not match the signature in the `Messenger` trait definition.
         }
     }
+
      */
 
-    // This version of mock uses `RefCell` and works
+    // This version of mock uses `RefCell`, which works
     struct MockMessengerV2 {
         sent_messages: RefCell<Vec<String>>, // interior mutability
     }
@@ -106,8 +113,10 @@ mod tests {
         fn send(&self, message: &str) {
             // Mutate through `RefCell` even though we only have `&self`
             self.sent_messages.borrow_mut().push(String::from(message));
-            // `RefCell` tracks how many outstanding immutable borrows (via `.borrow()` which yields `Ref<T>`)
-            // and mutable borrows (via `.borrow_mut()` which yields `RefMut<T>`) are active at a given time.
+            // `RefCell` tracks how many outstanding
+            // - immutable borrows (via `.borrow()` which yields `Ref<T>`)
+            // - and mutable borrows (via `.borrow_mut()` which yields `RefMut<T>`)
+            // are active at a given time.
             // It enforces the rule:
             // ---
             // You can have *any number* of immutable borrows
