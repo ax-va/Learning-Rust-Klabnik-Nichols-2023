@@ -36,7 +36,7 @@ fn main() {
 
     // There is `Rc::weak_count` together with `Rc::strong_count`.
 
-    let b = ConsV2(3, Rc::clone(&a));  // We're cloning the *reference*, not the underlying list.
+    let b = ConsV2(3, Rc::clone(&a));  // We're cloning the *reference*, not the underlying list
     println!("Count after creating `a`: {}", Rc::strong_count(&a));
     // Count after creating `a`: 2
 
