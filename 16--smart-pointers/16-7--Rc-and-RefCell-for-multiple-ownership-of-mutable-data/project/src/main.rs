@@ -25,7 +25,7 @@ fn main() {
 
     // `a` is an `Rc<List>` pointing to a single-node list
     let a = Rc::new(
-        Cons(Rc::clone(&value), // Clones the reference
+        Cons(Rc::clone(&value), // `clone` clones the reference
         Rc::new(Nil))
     );
     // `value` and `a` share ownership of the integer 5.
