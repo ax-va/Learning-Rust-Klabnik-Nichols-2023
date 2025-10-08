@@ -60,12 +60,15 @@ fn main() {
 
     // println!("a's next item = {:?}", a.tail());
 
-    // But this is not a memory leak yet.
+    // But this was not a memory leak yet, but just a stack-overflow.
 } // The memory leak happens here:
-// 1. Reference counts are 2 for `a` and 2 for `b`.
+// 1. Reference counts were 2 for both `a` and `b`.
 // 2. When `main` ends, the stack variables `a` and `b` are dropped, reducing each count by 1.
-// 3. Counts become 1 for `a` and 1 for `b`.
+// 3. Counts become 1 for both `a` and `b`.
 // 4. Because neither `Rc`'s strong count reaches 0, their destructors never run.
+
+// Thus, calling `Rc::clone` increases the `strong_count` of an `Rc<T>` instance,
+// and an `Rc<T>` instance is only cleaned up if its `strong_count` is 0.
 
 // When the program ends, the OS reclaims all of its memory, including any `Rc` cycles.
 // There's no "system-wide" memory leak that persists after exit.
