@@ -36,7 +36,6 @@ fn main() {
 
     let branch = Rc::new(Node {
         value: 5,
-        children: RefCell::new(vec![Rc::clone(&leaf)]), // Add the reference to its children
-    });
-    // The `Node` in `leaf` now has two owners: `leaf` and ``branch`.
+        children: RefCell::new(vec![Rc::clone(&leaf)]), // Add the reference to its children.
+    }); // The `Node` in `leaf` now has two owners: `leaf` and ``branch`.
 }
