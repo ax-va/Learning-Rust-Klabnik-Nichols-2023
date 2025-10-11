@@ -5,19 +5,26 @@ fn main() {
     thread::spawn(|| { // closure
         for i in 1..100 {
             println!("Spawned thread: i = {i}");
-            // Sleep the current thread for a short time; this gives other threads a chance to run
+            // Pause the current thread briefly,
+            // giving the scheduler a chance to run other threads
+            // (no guarantee of strict alternation).
             thread::sleep(Duration::from_millis(1));
         }
     });
 
     for i in 1..10 {
         println!("Main thread: i = {i}");
-        // Sleep the current thread for a short time; this gives other threads a chance to run
+        // Pause the current thread briefly,
+        // giving the scheduler a chance to run other threads
+        // (no guarantee of strict alternation).
         thread::sleep(Duration::from_millis(1));
     }
     // When the main thread of a Rust program completes,
     // all spawned threads are shut down,
     // whether or not they have finished running.
+
+    // We also cannot guarantee
+    // that the spawned thread will get to run at all.
 }
 // Main thread: i = 1
 // Spawned thread: i = 1
