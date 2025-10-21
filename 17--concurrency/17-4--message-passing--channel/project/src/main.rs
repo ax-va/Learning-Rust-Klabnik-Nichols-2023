@@ -20,10 +20,12 @@ fn main() {
     // The spawned thread needs to own the transmitter
     // to be able to send messages through the channel.
     thread::spawn(move || {
+        let v1 = String::from("hi");
+        let v2 = String::from("again");
         // The `send` method returns a `Result<T, E>` type.
         // Use `unwrap` to panic in case of an error.
-        tx.send(String::from("hi")).unwrap();
-        tx.send(String::from("again")).unwrap();
+        tx.send(v1).unwrap();
+        tx.send(v2).unwrap();
     });
 
     // Get the value from the receiver in the main thread:
