@@ -10,6 +10,7 @@ To enable message-passing concurrency, Rust's standard library provides *channel
 
 use std::sync::mpsc; // mpsc = *multiple producer, single consumer*
 use std::thread;
+use std::time::Duration;
 
 fn main() {
     let (tx, rx) = mpsc::channel(); // (tx, rx) = (transmitter, receiver)
@@ -26,6 +27,27 @@ fn main() {
         // Use `unwrap` to panic in case of an error.
         tx.send(v1).unwrap();
         tx.send(v2).unwrap();
+        // The `send` method takes ownership of its parameter,
+        // and when the value is moved the receiver takes ownership of it.
+
+        // Try to use a value in the spawned thread after we have sent it down the channel:
+
+        // compilation error: "error[E0382]: borrow of moved value: `v1`"
+        // println!("v1 is {v1}");
+        //                 ^^^^ value borrowed here after move
+
+        // Send multiple values
+        let vals = vec![
+            String::from("hi"),
+            String::from("from"),
+            String::from("the"),
+            String::from("thread"),
+        ];
+
+        for val in vals {
+            tx.send(val).unwrap();
+            thread::sleep(Duration::from_secs(1));
+        }
     });
 
     // Get the value from the receiver in the main thread:
@@ -40,4 +62,12 @@ fn main() {
     let received = rx.recv().unwrap();
     println!("Got: {received}");
     // Got: again
+
+    for received in rx {
+        println!("Got: {received}");
+    }
+    // Got: hi
+    // Got: from
+    // Got: the
+    // Got: thread
 }
