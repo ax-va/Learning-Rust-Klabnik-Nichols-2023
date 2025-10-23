@@ -63,6 +63,10 @@ The compiler looks at all the places where generic code is called
 and generates code for the concrete types the generic code is called with.
 When the code runs, it performs just as it would if we had duplicated each definition by hand.
 
+### Mutex = mutual exclusion
+
+Only one thread can access the data at a time
+
 ### Ownership
 
 *Ownership* is a set of rules that govern how a Rust program manages memory in the *heap*.
