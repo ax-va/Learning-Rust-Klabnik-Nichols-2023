@@ -17,6 +17,14 @@ but incorporate atomic operations and ordering semantics.
 They implement `Sync`, so they may be safely shared among threads (e.g., via `Arc<AtomicUsize>`).
 However, using them correctly still requires reasoning about memory ordering and concurrency;
 they do not automatically obviate all concurrency hazards beyond the atomicity guarantees.
+
+- A `Mutex<T>` allows safe mutation of data, and when combined with an `Arc<T>`,
+it lets multiple threads share and mutate the same value."
+
+- `Mutex<T>` comes with the risk of creating *deadlocks*.
+These occur when an operation needs to lock two resources
+and two threads have each acquired one of the locks,
+causing them to wait for each other forever.
  */
 
 use std::sync::{Arc, Mutex};
