@@ -8,6 +8,8 @@ Two mutex rules:
 2. When you're done with the data that the mutex guards,
 you must unlock the data so other threads can acquire the lock.
 
+`Mutex<T>` provides interior mutability like `RefCell<T>`.
+
 - `Arc<T>` type = *atomically reference-counted* type
 
 In Rust, atomic types in the `std::sync::atomic` module resemble primitive numeric types
