@@ -1,6 +1,6 @@
 pub struct AveragedCollection {
-    list: Vec<i32>,
-    average: f64,
+    list: Vec<i32>, // private field
+    average: f64, // private field
 }
 
 impl AveragedCollection {
@@ -19,6 +19,7 @@ impl AveragedCollection {
         result
     }
 
+    // public API only to read the average but not modify it
     pub fn average(&self) -> f64 {
         self.average
     }
@@ -38,6 +39,7 @@ impl AveragedCollection {
 }
 
 fn main() {
+    // `add` and `pop` uses `&mut self`
     let mut collection = AveragedCollection::new();
     collection.add(1);
     collection.add(2);
