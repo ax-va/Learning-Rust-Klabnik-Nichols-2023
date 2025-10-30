@@ -67,6 +67,16 @@ When the code runs, it performs just as it would if we had duplicated each defin
 
 Only one thread can access the data at a time
 
+### OOP
+
+*"Design Patterns: Elements of Reusable Object-Oriented Software"* 
+by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides 
+(Addison-Wesley, 1994), colloquially referred to as *The Gang of Four* book:
+
+Object-oriented programs are made up of *objects*. 
+An object packages both data and the procedures that operate on that data.
+The procedures are typically called *methods* or *operations*.
+
 ### Ownership
 
 *Ownership* is a set of rules that govern how a Rust program manages memory in the *heap*.
