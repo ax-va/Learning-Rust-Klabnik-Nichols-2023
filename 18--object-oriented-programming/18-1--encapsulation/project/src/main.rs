@@ -4,6 +4,9 @@ pub struct AveragedCollection {
 }
 
 impl AveragedCollection {
+
+    // public APIs
+
     pub fn new() -> Self {
         Self { list: Vec::new(), average: 0.0 }
     }
@@ -19,11 +22,12 @@ impl AveragedCollection {
         result
     }
 
-    // public API only to read the average but not modify it
+    // public read-only API for accessing the average
     pub fn average(&self) -> f64 {
         self.average
     }
 
+    // private associated function (method)
     fn update_average(&mut self) {
         let len = self.list.len();
         // We can modify the `average` field inside `update_average`
