@@ -21,7 +21,7 @@ pub trait Draw {
 // - `Box<dyn Draw>` has a known size (a pointer), so it works.
 
 // Trait bounds vs. trait objects:
-// - Trait bounds give us *compile-time polymorphism* with one concrete type at a time
+// - Trait bounds give us *compile-time polymorphism* with one concrete type at a time and concrete methods for it
 // -> *static dispatch*, which is when the compiler knows what method you are calling at compile time.
 // - Trait objects give us *runtime polymorphism* and let us mix different types behind a shared trait
 // -> *dynamic dispatch*, which is when the compiler cannot tell at compile time which method we are calling.
