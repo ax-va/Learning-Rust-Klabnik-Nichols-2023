@@ -20,7 +20,38 @@ pub trait Draw {
 // - Trait objects (`dyn Draw`) have no known size.
 // - `Box<dyn Draw>` has a known size (a pointer), so it works.
 
-// *Polymorphism* lets us treat different drawable components uniformly and call `draw` on all of them.
+// Trait bounds vs trait objects:
+// - Trait bounds give us *compile-time polymorphism* with one concrete type at a time
+// -> *static dispatch*, which is when the compiler knows what method you are calling at compile time.
+// - Trait objects give us *runtime polymorphism* and let us mix different types behind a shared trait
+// -> *dynamic dispatch*, which is when the compiler cannot tell at compile time which method we are calling.
+
+// *Polymorphism* lets us treat different drawable components uniformly and call `draw` on all of them
+
 pub struct Screen {
     pub components: Vec<Box<dyn Draw>>,
+}
+
+impl Screen {
+    pub fn run(&self) {
+        for component in self.components.iter() {
+            component.draw();
+        }
+    }
+}
+
+pub struct Button {
+    pub width: u32,
+    pub height: u32,
+    pub label: String,
+}
+
+impl Draw for Button {
+    fn draw(&self) {
+        // code to actually draw a button
+        println!(
+            "A button is drawn with width = {:?}, height = {:?}, label = {:?}",
+            self.width, self.height, self.label
+        )
+    }
 }
