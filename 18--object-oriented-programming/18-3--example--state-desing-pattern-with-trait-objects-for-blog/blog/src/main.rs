@@ -11,4 +11,7 @@ fn main() {
 
     post.approve(); // state "published"
     assert_eq!("I ate a salad for lunch today", post.content());
+
+    post.reject(); // state "in review"
+    assert_eq!("", post.content());
 }

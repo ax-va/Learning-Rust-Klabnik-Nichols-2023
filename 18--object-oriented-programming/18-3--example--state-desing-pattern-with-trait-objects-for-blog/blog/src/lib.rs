@@ -1,4 +1,9 @@
 pub struct Post {
+    // `Box<dyn State>`:
+    // - `dyn State` means a *trait object*:
+    // a value whose concrete type is unknown at compile time
+    // but which implements the `State` trait.
+    // - `Box<dyn State>` means allocating that trait object on the heap and storing a pointer to it.
     state: Option<Box<dyn State>>,
     content: String,
 }
@@ -16,7 +21,10 @@ impl Post {
     }
 
     pub fn content(&self) -> &str {
-        // deref coercion after calling `unwrap`
+        // 1. `self.state.as_ref()` gives `Option<&Box<dyn State>>`
+        // 2. `unwrap()` gives `&Box<dyn State>`.
+        // 3. Deref coercion turns `&Box<dyn State>` into `&dyn State`.
+        // 4. Then it calls the state-specific `content` method.
         self.state.as_ref().unwrap().content(self)
     }
 
@@ -34,6 +42,12 @@ impl Post {
             self.state = Some(s.approve())
         }
     }
+
+    pub fn reject(&mut self) {
+        if let Some(s) = self.state.take() {
+            self.state = Some(s.reject())
+        }
+    }
 }
 
 // This trait defines the behavior shared by different post states
@@ -41,6 +55,8 @@ trait State {
     fn request_review(self: Box<Self>) -> Box<dyn State>;
 
     fn approve(self: Box<Self>) -> Box<dyn State>;
+
+    fn reject(self: Box<Self>) -> Box<dyn State>;
 
     // default implementation
     fn content<'a>(&self, post: &'a Post) -> &'a str {
@@ -58,6 +74,10 @@ impl State for Draft {
     fn approve(self: Box<Self>) -> Box<dyn State> {
         self
     }
+
+    fn reject(self: Box<Self>) -> Box<dyn State> {
+        self
+    }
 }
 
 struct InReview {}
@@ -70,6 +90,10 @@ impl State for InReview {
     fn approve(self: Box<Self>) -> Box<dyn State> {
         Box::new(Published {})
     }
+
+    fn reject(self: Box<Self>) -> Box<dyn State> {
+        Box::new(Draft {})
+    }
 }
 
 struct Published {}
@@ -81,6 +105,10 @@ impl State for Published {
 
     fn approve(self: Box<Self>) -> Box<dyn State> {
         self
+    }
+
+    fn reject(self: Box<Self>) -> Box<dyn State> {
+        Box::new(InReview {})
     }
 
     // Override the default implementation.
