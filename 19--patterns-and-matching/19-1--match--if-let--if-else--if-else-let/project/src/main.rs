@@ -1,6 +1,8 @@
 fn main() {
 
+    /* ------- */
     /* `match` */
+    /* ------- */
 
     // let x: Option<i32> = Some(5);
     // The type `Option<i32>` can be inferred
@@ -20,7 +22,9 @@ fn main() {
     println!("y = {y:?}");
     // y = None
 
+    /* ---------------------------------- */
     /* `if let`, `if else`, `if else let` */
+    /* ---------------------------------- */
 
     let favorite_color: Option<&str> = None;
     let is_tuesday = false;
