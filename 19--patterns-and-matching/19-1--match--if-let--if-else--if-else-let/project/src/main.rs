@@ -26,6 +26,8 @@ fn main() {
     let is_tuesday = false;
     let age: Result<u8, _> = "34".parse();
 
+    // Rust doesn't require that the conditions in a series of
+    // `if let`, `else if`, and `else if let` arms relate to each other.
     if let Some(color) = favorite_color {
         println!("Using your favorite, {color}, as the background");
     } else if is_tuesday {
@@ -40,7 +42,6 @@ fn main() {
         println!("Using blue as the background color");
     }
     // Using purple as the background color
-
 
 
 }
