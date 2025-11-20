@@ -20,7 +20,7 @@ fn main() {
     let x: Option<i32> = None;
     let y = match x {
         Some(i) => Some(i + 1),
-        _ => None, // no pattern for other cases with no binding to a value with `_`
+        _ => None, // `_` means no pattern for other cases and no binding to a variable
     };
     println!("y = {y:?}");
     // y = None
