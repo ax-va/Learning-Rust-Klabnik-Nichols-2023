@@ -34,9 +34,9 @@ fn main() {
     println!("setting_value = {:?}", setting_value);
     // setting_value = Some(5)
 
-    // Unset the setting value to overwrite it in `match`
+    // Unset the setting value
     setting_value = None;
-    // Can overwrite the setting value
+    // Can overwrite the setting value now
     match (setting_value, new_setting_value) {
         (Some(_), Some(_)) => println!("Can't overwrite an existing customized value"),
         _ => setting_value = new_setting_value,
