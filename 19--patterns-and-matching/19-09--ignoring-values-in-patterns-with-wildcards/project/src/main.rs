@@ -44,4 +44,16 @@ fn main() {
     println!("setting_value = {:?}", setting_value);
     // setting_value = Some(10)
 
+    // -------------------------- //
+    // Ignoring particular values //
+    // -------------------------- //
+
+    let numbers = (2, 4, 8, 16, 32);
+
+    match numbers {
+        (first, _, third, _, fifth) => {
+            println!("Some numbers: {first}, {third}, {fifth}");
+        }
+    }
+    // Some numbers: 2, 8, 32
 }
