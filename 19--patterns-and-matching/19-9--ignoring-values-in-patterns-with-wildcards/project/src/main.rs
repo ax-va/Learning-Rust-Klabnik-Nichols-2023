@@ -6,9 +6,9 @@ There are a few ways to ignore entire values or parts of values in a pattern:
 - using `..` to ignore remaining parts of a value.
  */
 
-// --------------------------------- //
-// Ignoring an entire value with `_` //
-// --------------------------------- //
+// ---------------------------------------- //
+// Ignoring an entire value with a wildcard //
+// ---------------------------------------- //
 
 // Completely ignore a value passed as the first argument
 fn foo(_: i32, y: i32) {
@@ -19,9 +19,9 @@ fn main() {
     foo(3, 4);
     // This code only uses the y parameter: 4
 
-    // ------------------------------------------- //
-    // Ignoring parts of a value with a nested `_` //
-    // ------------------------------------------- //
+    // ------------------------------------------------ //
+    // Ignoring parts of a value with a nested wildcard //
+    // ------------------------------------------------ //
 
     let mut setting_value = Some(5);
     let new_setting_value = Some(10);
