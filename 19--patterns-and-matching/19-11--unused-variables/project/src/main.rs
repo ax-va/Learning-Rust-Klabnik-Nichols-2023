@@ -1,3 +1,14 @@
+/*
+There are a few ways to ignore entire values or parts of values in a pattern:
+- using the `_` pattern (the wildcard pattern),
+- using the `_` pattern within another pattern,
+- using the `..` pattern (the rest pattern) to ignore many values, or
+- using a name that starts with an underscore.
+
+Notice:
+The wildcard pattern `_` matches a value *but does not bind it*.
+ */
+
 fn main() {
     let _x = 5; // no warning about not using `_x`
     let y = 10; // "warning: unused variable: `y`"
