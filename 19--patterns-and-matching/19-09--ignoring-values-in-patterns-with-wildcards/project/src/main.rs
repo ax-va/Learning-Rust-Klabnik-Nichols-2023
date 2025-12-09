@@ -4,6 +4,9 @@ There are a few ways to ignore entire values or parts of values in a pattern:
 - using the `_` pattern within another pattern,
 - using a name that starts with an underscore, or
 - using `..` to ignore remaining parts of a value.
+
+Notice:
+The wildcard doesn't bind a value to `_` at all.
  */
 
 // ---------------------------------------- //
