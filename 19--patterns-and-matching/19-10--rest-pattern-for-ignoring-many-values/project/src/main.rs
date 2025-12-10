@@ -23,8 +23,22 @@ fn main() {
     let numbers = (2, 4, 8, 16, 32);
 
     match numbers {
+        // The rest pattern will match and ignore everything in the middle
         (first, .., last) => {
             println!("Some numbers: {first}, {last}");
         }
     }
+    // Some numbers: 2, 32
+
+    // Using `..` must be unambiguous
+
+    // compilation error: "error: `..` can only be used once per tuple pattern"
+    // match numbers {
+    //     (.., second, ..) => {
+    //      --          ^^ can only be used once per tuple pattern
+    //      |
+    //      previously used here
+    //         println!("Some numbers: {second}");
+    //     },
+    // }
 }
