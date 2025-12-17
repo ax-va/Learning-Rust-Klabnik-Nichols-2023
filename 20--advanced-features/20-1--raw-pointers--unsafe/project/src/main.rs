@@ -14,8 +14,10 @@ fn main() {
 
     // Dereferencing raw pointers requires `unsafe`
     unsafe {
-        println!("r1 is: {}", *r1); // `*r1` means "read the value at the address stored in `r1`".
-        println!("r2 is: {}", *r2); // same for `*r2`.
+        println!("r1 is: {}", *r1); // `*r1` means "read the value at the address stored in `r1`"
+        // r1 is: 5
+        println!("r2 is: {}", *r2); // same for `*r2`
+        // r2 is: 5
     }
     // Rust requires an `unsafe` block because dereferencing a raw pointer
     // can easily be undefined behavior if the pointer isn't valid.
