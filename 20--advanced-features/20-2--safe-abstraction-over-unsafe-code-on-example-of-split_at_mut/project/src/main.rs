@@ -12,7 +12,8 @@ fn main() {
     let mut v = vec![10, 20, 30, 40, 50, 60];
     // `v` is a growable vector on the heap
 
-    // We need a mutable slice because `split_at_mut` must take exclusive access to the data
+    // We need a mutable slice
+    // because `split_at_mut` must take exclusive access to the data
     // in order to safely produce two non-overlapping mutable slices.
 
     // Take a mutable slice of the whole vector
