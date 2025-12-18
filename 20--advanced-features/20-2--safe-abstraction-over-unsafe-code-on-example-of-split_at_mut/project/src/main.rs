@@ -12,6 +12,9 @@ fn main() {
     let mut v = vec![10, 20, 30, 40, 50, 60];
     // `v` is a growable vector on the heap
 
+    // We need a mutable slice because `split_at_mut` must take exclusive access to the data
+    // in order to safely produce two non-overlapping mutable slices.
+
     // Take a mutable slice of the whole vector
     let r = &mut v[..];
     // This borrows the *entire vector contents* mutably.
@@ -24,7 +27,12 @@ fn main() {
     let a = &mut v[0..3];
     let b = &mut v[3..6]; // <- borrow checker error
      */
+
     // Borrow checker rule (normally): **Only one `&mut` reference at a time.**
+    // Rust’s borrow checker can't understand
+    // that we're borrowing different parts of the slice;
+    // it only knows that we're borrowing from the same slice twice.
+
     // But `split_at_mut`:
     // - is implemented using unsafe internally;
     // - guarantees the two slices are non-overlapping;
