@@ -1,3 +1,6 @@
+// unsafe function
+unsafe fn dangerous() {}
+
 fn main() {
     let mut num = 5;
     // `num` is a mutable `i32` stored somewhere in memory
@@ -29,4 +32,14 @@ fn main() {
     // - This pointer is almost certainly invalid (not mapped memory, wrong alignment, not owned, etc.);
     // - Creating the pointer is allowed in safe Rust;
     // - But dereferencing it would require `unsafe` and would very likely crash or cause undefined behavior.
+
+    // We must call unsafe functions within `unsafe` blocks
+    unsafe {
+        dangerous();
+    }
+
+    // compilation error:
+    // "error[E0133]: call to unsafe function `dangerous` is unsafe and requires unsafe function or block"
+    // dangerous();
+    // ^^^^^^^^^^^ call to unsafe function
 }
