@@ -10,14 +10,15 @@ fn main() {
 
     // Create a vector
     let mut v = vec![10, 20, 30, 40, 50, 60];
-    // `v` is a growable vector on the heap
+    // `v` is a growable `Vec<i32>` allocated on the heap
 
-    // We need a mutable slice
-    // because `split_at_mut` must take exclusive access to the data
+    // We need a mutable slice.
+    // `split_at_mut` takes exclusive access to the data
     // in order to safely produce two non-overlapping mutable slices.
 
     // Take a mutable slice of the whole vector
     let r = &mut v[..];
+    // `&mut v[..]` converts the vector into a mutable slice: `&mut [i32]`.
     // This borrows the *entire vector contents* mutably.
     // While `r` exists, `v` itself cannot be accessed.
 
@@ -29,13 +30,15 @@ fn main() {
     let b = &mut v[3..6]; // <- borrow checker error
      */
 
-    // Borrow checker rule (normally): **Only one `&mut` reference at a time.**
-    // Rust’s borrow checker can't understand
+    // Borrow checker rule (normally):
+    // **Only one `&mut` reference at a time.**
+    // Rust's borrow checker can't understand
     // that we're borrowing different parts of the slice;
     // it only knows that we're borrowing from the same slice twice.
 
     // But `split_at_mut`:
-    // - is implemented using unsafe internally;
+    // - is is a *safe* function to call;
+    // - is implemented using *unsafe* internally;
     // - guarantees the two slices are non-overlapping;
     // - encodes that guarantee in its API.
     // So the borrow checker allows it.
@@ -47,6 +50,6 @@ fn main() {
     // - ensures the slices don't overlap.
     // All wrapped in a safe API so you don't need `unsafe`.
 
-    assert_eq!(a, &mut [1, 2, 3]);
-    assert_eq!(b, &mut [4, 5, 6]);
+    assert_eq!(a, &mut [10, 20, 30]);
+    assert_eq!(b, &mut [40, 50, 60]);
 }
