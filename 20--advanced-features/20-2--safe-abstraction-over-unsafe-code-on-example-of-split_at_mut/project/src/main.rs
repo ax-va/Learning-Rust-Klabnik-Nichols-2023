@@ -66,3 +66,29 @@ fn main() {
     // so Rust ends their mutable borrows early
     // (thanks to *Non-Lexical Lifetimes*).
 }
+
+// simplified implementation
+
+use std::slice;
+
+fn my_split_at_mut(
+    values: &mut [i32],
+    mid: usize,
+) -> (&mut [i32], &mut [i32]) {
+    let len = values.len();
+    assert!(mid <= len);
+
+    // raw pointer
+    let ptr = values.as_mut_ptr();
+
+    // unsafe code using unsafe functions
+    unsafe {
+        (
+            // `slice::from_raw_parts_mut` is unsafe
+            // because it takes a raw pointer
+            // and must trust that this pointer is valid.
+            slice::from_raw_parts_mut(ptr, mid),
+            slice::from_raw_parts_mut(ptr.add(mid), len - mid),
+        )
+    }
+}
