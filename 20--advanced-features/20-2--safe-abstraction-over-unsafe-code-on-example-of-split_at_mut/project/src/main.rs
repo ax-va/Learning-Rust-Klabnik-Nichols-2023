@@ -52,4 +52,17 @@ fn main() {
 
     assert_eq!(a, &mut [10, 20, 30]);
     assert_eq!(b, &mut [40, 50, 60]);
+
+    // We can mutate both parts independently:
+    a[0] += 1;
+    b[0] += 1;
+    println!("{}", a[0]);
+    // 11
+
+    assert_eq!(v, vec![11, 20, 30, 41, 50, 60]);
+    // We can use `v` there
+    // because `r`, `a`, and `b`
+    // are no longer used after that point,
+    // so Rust ends their mutable borrows early
+    // (thanks to *Non-Lexical Lifetimes*).
 }
