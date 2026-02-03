@@ -54,12 +54,19 @@ fn main() {
     assert_eq!(b, &mut [40, 50, 60]);
 
     // We can mutate both parts independently:
-    a[0] += 1;
-    b[0] += 1;
+    a[0] += 5;
+    b[0] += 5;
     println!("{}", a[0]);
-    // 11
+    // 15
+    println!("{}", b[0]);
+    // 45
 
-    assert_eq!(v, vec![11, 20, 30, 41, 50, 60]);
+    // Use the our implementation below
+    let (a, b) = our_split_at_mut(r, 3);
+    assert_eq!(a, &mut [15, 20, 30]);
+    assert_eq!(b, &mut [45, 50, 60]);
+
+    assert_eq!(v, vec![15, 20, 30, 45, 50, 60]);
     // We can use `v` there
     // because `r`, `a`, and `b`
     // are no longer used after that point,
@@ -67,11 +74,12 @@ fn main() {
     // (thanks to *Non-Lexical Lifetimes*).
 }
 
-// simplified implementation
+// our implementation
 
 use std::slice;
 
-fn my_split_at_mut(
+// safe abstraction that encapsulates unsafe code
+fn our_split_at_mut(
     values: &mut [i32],
     mid: usize,
 ) -> (&mut [i32], &mut [i32]) {
@@ -80,14 +88,17 @@ fn my_split_at_mut(
 
     // raw pointer
     let ptr = values.as_mut_ptr();
+    // - `ptr: *mut i32` points to the first element of the slice's backing memory;
+    // - Raw pointers don't carry borrowing rules by themselves - they're just addresses.
 
-    // unsafe code using unsafe functions
+    // unsafe block with unsafe functions and methods
     unsafe {
         (
             // `slice::from_raw_parts_mut` is unsafe
-            // because it takes a raw pointer
-            // and must trust that this pointer is valid.
+            // because it takes a raw pointer and must trust that this pointer is valid.
             slice::from_raw_parts_mut(ptr, mid),
+            // The `add` method on raw pointers is also unsafe
+            // because it must trust that the offset location is also a valid pointer.
             slice::from_raw_parts_mut(ptr.add(mid), len - mid),
         )
     }
