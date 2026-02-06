@@ -4,3 +4,12 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
+
+[lib]
+crate-type = ["cdylib"]
+# - "cdylib" means C-compatible dynamic library.
+# It's a Rust crate type that tells the compiler:
+# "Build this crate as a shared library meant to be used from non-Rust languages (like C)."
+# - Rust builds a shared library: .so for Linux, .dylib for macOS, .dll for Windows.
+# - A shared library is a compiled file containing reusable code
+# that multiple programs can load and use at runtime instead of embedding their own copy.
