@@ -8,8 +8,8 @@ static HELLO_WORLD: &str = "Hello, world!";
 // Accessing and modifying mutable static variables is *unsafe*.
 
 static mut COUNTER: u32 = 0;
-// Any code that reads or writes from `COUNTER` must be within an unsafe block.
 // Having multiple threads access `COUNTER` would likely result in data races.
+// Any code that reads or writes from `COUNTER` must be within an unsafe block.
 
 fn add_to_count(inc: u32) {
     unsafe {
