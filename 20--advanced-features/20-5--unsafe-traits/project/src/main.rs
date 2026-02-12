@@ -8,21 +8,21 @@ Mental model:
 `unsafe impl`   ->  you're promising invariants are true
  */
 
-// Unsafe trait: implementer must guarantee correctness
+// unsafe trait: implementer must guarantee correctness
 unsafe trait TrustedLength {
     // Must return the exact number of initialized elements
     fn len(&self) -> usize;
 
-    // Pointer to the first element
+    // pointer to the first element
     fn as_ptr(&self) -> *const i32;
 }
 
-// A simple container
+// simple container
 struct MyVec {
     data: Vec<i32>,
 }
 
-// Correct implementation
+// correct implementation
 unsafe impl TrustedLength for MyVec {
     fn len(&self) -> usize {
         self.data.len()
@@ -33,7 +33,7 @@ unsafe impl TrustedLength for MyVec {
     }
 }
 
-// Broken container
+// broken container
 struct BrokenVec {
     data: Vec<i32>,
 }
@@ -50,7 +50,7 @@ unsafe impl TrustedLength for BrokenVec {
     }
 }
 
-// Function relying on the trait's guarantee
+// function relying on the trait's guarantee
 fn sum_all<T: TrustedLength>(container: &T) -> i32 {
     let len = container.len();
     let ptr = container.as_ptr();
