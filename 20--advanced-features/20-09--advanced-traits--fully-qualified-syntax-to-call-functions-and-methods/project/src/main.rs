@@ -44,14 +44,15 @@ fn main() {
     // compilation error: "error[E0599]: no method named `total` found for struct `Upload` in the current scope"
     // upload.total();
 
+    // The both are equivalent
+    <Upload as Process>::start(&upload);
+    // Start from trait.
     Process::start(&upload);
     // Start from trait.
 
     // The both are equivalent
-
     Upload::start(&upload);
     // Start from struct.
-
     upload.start();
     // Start from struct.
 }
