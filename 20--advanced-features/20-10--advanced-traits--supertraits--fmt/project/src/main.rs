@@ -1,4 +1,4 @@
-use std::fmt; // format
+use std::fmt; // the `fmt` format module within the `std` crate
 
 // The `Display` trait is a *supertrait* for the `OutlinePrint` trait
 // because `OutlinePrint` uses a method from `Display`.
@@ -27,7 +27,7 @@ impl OutlinePrint for Point {}
 // The `Point` struct must also implement the `Display` trait
 // because `OutlinePrint` relies on `Display`.
 impl fmt::Display for Point {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "({}, {})", self.x, self.y)
     }
 }
