@@ -7,6 +7,11 @@ So we cannot implement a foreign trait for a foreign type.
 
 The workaround is using the *newtype pattern*,
 which involves creating a new type in a tuple struct.
+
+Implementing `Deref` (and `DerefMut` when needed) makes
+the wrapper transparently forward many method calls to the inner type.
+In order to restrict the wrapper's interface,
+avoid `Deref` and manually expose only the methods you choose.
  */
 
 use std::fmt; // the `fmt` format module within the `std` crate
@@ -19,6 +24,7 @@ struct Wrapper(Vec<String>);
 
 impl fmt::Display for Wrapper {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        // Use `self.0` to access the inner `Vec<T>`
         write!(f, "[{}]", self.0.join(", "))
     }
 }
