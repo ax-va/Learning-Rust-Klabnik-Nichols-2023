@@ -57,7 +57,7 @@ fn main() {
 
 // Example 2
 
-// Differentiate `u64` to `UserId` and `OrderId` instead of using
+// Differentiate `u64` to `UserId` and `OrderId` instead of just using
 // `fn load_user(user_id: u64) {}` and `fn load_order(order_id: u64) {}`.
 
 struct UserId(u64);
