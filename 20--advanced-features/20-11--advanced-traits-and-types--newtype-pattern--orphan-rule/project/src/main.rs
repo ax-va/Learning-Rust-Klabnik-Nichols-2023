@@ -15,7 +15,7 @@ the wrapper transparently forward many method calls to the inner type.
 In order to restrict the wrapper's interface,
 avoid `Deref` and manually expose only the methods you choose.
 
-2. The newtype pattern for type safety and abstraction
+2. The *newtype pattern* for type safety and abstraction
 
 The newtype pattern wraps an existing type in a new, distinct type
 to provide stronger type safety and prevent mixing values
