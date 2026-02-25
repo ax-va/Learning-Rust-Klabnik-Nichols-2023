@@ -31,7 +31,7 @@ enforce constraints without changing the original type.
 use std::fmt; // the `fmt` format module within the `std` crate
 
 // not allowed
-// impl Display for Vec<i32> {}
+// impl fmt::Display for Vec<i32> {}
 
 // new type as a thin wrapper
 struct Wrapper(Vec<String>);
