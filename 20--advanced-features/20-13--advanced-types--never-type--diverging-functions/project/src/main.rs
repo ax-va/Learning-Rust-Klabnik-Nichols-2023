@@ -8,6 +8,7 @@ is used as the return type of functions that do not complete normally.
 // Functions that return never are called *diverging functions*
 fn foo() -> ! {
     panic!("This never returns.");
+    // `panic!` has the type `!`
 }
 
 // compilation error: "error[E0308]: mismatched types"
