@@ -13,7 +13,7 @@ fn foo() -> ! {
 // compilation error: "error[E0308]: mismatched types"
 /*
 fn bar() -> ! {
-   // returns the empty tuple `()`
+   // returns the empty tuple type `()`
 }
 */
 
