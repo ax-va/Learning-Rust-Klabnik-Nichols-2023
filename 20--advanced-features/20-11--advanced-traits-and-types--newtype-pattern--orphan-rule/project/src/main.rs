@@ -37,7 +37,7 @@ use std::fmt; // the `fmt` format module within the `std` crate
 struct Wrapper(Vec<String>);
 
 impl fmt::Display for Wrapper {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         // Use `self.0` to access the inner `Vec<T>`
         write!(f, "[{}]", self.0.join(", "))
     }

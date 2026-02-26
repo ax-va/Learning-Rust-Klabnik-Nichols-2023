@@ -27,7 +27,7 @@ impl OutlinePrint for Point {}
 // The `Point` struct must also implement the `Display` trait
 // because `OutlinePrint` relies on `Display`.
 impl fmt::Display for Point {
-    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
         write!(f, "({}, {})", self.x, self.y)
     }
 }
