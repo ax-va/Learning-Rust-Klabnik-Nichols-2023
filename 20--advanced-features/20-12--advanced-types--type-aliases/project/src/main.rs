@@ -1,5 +1,5 @@
 /*
-The main use case for type aliases is to reduce repetition of lengthy types.
+The main use case for *type aliases* is to reduce repetition of lengthy types.
  */
 
 // Example 1
