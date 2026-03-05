@@ -44,9 +44,7 @@ fn main() {
     let s: Box<str>;
     let s: Rc<str>;
 
-    // 2. Traits are also dynamically sized types
-
-    // Every trait is a dynamically sized type we can refer to by using the name of the trait.
+    // 2. Trait objects are also dynamically sized types
 
     trait Draw {
         fn draw(&self);
@@ -55,7 +53,8 @@ fn main() {
     // compilation error: "error[E0782]: expected a type, found a trait"
     // let x: Draw;
 
-    // Traits must be behind a pointer
+    // `dyn Draw` is a trait object and a dynamically sized type.
+    // Trait objects must be behind a pointer.
     let x: &dyn Draw;
     let x: Box<dyn Draw>;
     let x: Rc<dyn Draw>;
