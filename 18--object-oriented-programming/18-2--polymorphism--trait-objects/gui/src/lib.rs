@@ -1,8 +1,15 @@
 // A *trait* in Rust is like an *interface* in other languages:
 // - It defines behavior that types can implement.
 // - Any type that wants to be "drawable" must implement `fn draw(&self)`.
+
 pub trait Draw {
     fn draw(&self);
+}
+
+// *Polymorphism* lets us treat different drawable components uniformly and call `draw` on all of them
+
+pub struct Screen {
+    pub components: Vec<Box<dyn Draw>>,
 }
 
 // `Box<dyn Draw>`:
@@ -25,12 +32,6 @@ pub trait Draw {
 // -> *static dispatch*, which is when the compiler knows what method you are calling at compile time.
 // - Trait objects give us *runtime polymorphism* and let us mix different types behind a shared trait
 // -> *dynamic dispatch*, which is when the compiler cannot tell at compile time which method we are calling.
-
-// *Polymorphism* lets us treat different drawable components uniformly and call `draw` on all of them
-
-pub struct Screen {
-    pub components: Vec<Box<dyn Draw>>,
-}
 
 impl Screen {
     pub fn run(&self) {
