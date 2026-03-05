@@ -58,4 +58,33 @@ fn main() {
     let x: &dyn Draw;
     let x: Box<dyn Draw>;
     let x: Rc<dyn Draw>;
+
+    // 3. The `Sized` trait and generics
+
+    /*
+    fn generic<T>(t: T) {}
+     */
+
+    // All generic type parameters have an implicit `Sized` bound.
+
+    /*
+    fn generic<T: Sized>(t: T) {}
+     */
+
+    // That means `T` must have a known size at compile time unless you opt out.
+
+    // If a trait may or may not be sized, we use
+    /*
+    fn generic<T: ?Sized>(t: &T) {}
+     */
+
+    // We cannot pass `T` by value anymore,
+    // because the compiler wouldn't know how much stack space to allocate.
+    // Therefore `T` must be behind a pointer type.
+
+    /*
+    fn generic<T: ?Sized>(t: &T) {}
+    fn generic<T: ?Sized>(t: Box<T>) {}
+    fn generic<T: ?Sized>(t: Rc<T>) {}
+     */
 }
